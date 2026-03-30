@@ -22,7 +22,7 @@ export interface LocationData {
 
 export const locations: LocationData[] = [
   {
-    slug: "pest-control-washington-dc",
+    slug: "washington-dc",
     city: "Washington DC",
     state: "DC",
     titleTag: "Pest Control in Washington DC | GreenShield — Eco-Friendly & Licensed",
@@ -61,7 +61,7 @@ export const locations: LocationData[] = [
     ctaText: "Ready to protect your DC home? Choose a plan and get started with Washington DC's most trusted pest control service. Your first treatment is free."
   },
   {
-    slug: "pest-control-arlington-va",
+    slug: "arlington-va",
     city: "Arlington",
     state: "VA",
     titleTag: "Pest Control Arlington VA | GreenShield — Licensed & Eco-Friendly",
@@ -100,7 +100,7 @@ export const locations: LocationData[] = [
     ctaText: "Protect your Arlington home today. See our plans and start with a free first treatment. GreenShield is Arlington's trusted home pest protection partner."
   },
   {
-    slug: "pest-control-alexandria-va",
+    slug: "alexandria-va",
     city: "Alexandria",
     state: "VA",
     titleTag: "Pest Control Alexandria VA | GreenShield — Trusted & Eco-Friendly",
@@ -139,7 +139,7 @@ export const locations: LocationData[] = [
     ctaText: "Keep your Alexandria home pest-free. Explore our plans and start with a free first treatment today."
   },
   {
-    slug: "pest-control-bethesda-md",
+    slug: "bethesda-md",
     city: "Bethesda",
     state: "MD",
     titleTag: "Pest Control Bethesda MD | GreenShield — Safe & Eco-Friendly",
@@ -178,7 +178,7 @@ export const locations: LocationData[] = [
     ctaText: "Give your Bethesda home the protection it deserves. View plans and schedule your free first treatment."
   },
   {
-    slug: "pest-control-rockville-md",
+    slug: "rockville-md",
     city: "Rockville",
     state: "MD",
     titleTag: "Pest Control Rockville MD | GreenShield — Licensed & Guaranteed",
@@ -217,7 +217,7 @@ export const locations: LocationData[] = [
     ctaText: "Protect your Rockville home. Explore plans and start with a free first treatment."
   },
   {
-    slug: "pest-control-silver-spring-md",
+    slug: "silver-spring-md",
     city: "Silver Spring",
     state: "MD",
     titleTag: "Pest Control Silver Spring MD | GreenShield — Trusted & Eco-Friendly",
@@ -256,7 +256,7 @@ export const locations: LocationData[] = [
     ctaText: "Start protecting your Silver Spring home today. See our plans and schedule a free first treatment."
   },
   {
-    slug: "pest-control-mclean-va",
+    slug: "mclean-va",
     city: "McLean",
     state: "VA",
     titleTag: "Pest Control McLean VA | GreenShield — Premium & Eco-Friendly",
@@ -295,7 +295,7 @@ export const locations: LocationData[] = [
     ctaText: "Protect your McLean estate. View our plans and experience premium pest control with GreenShield."
   },
   {
-    slug: "pest-control-fairfax-va",
+    slug: "fairfax-va",
     city: "Fairfax",
     state: "VA",
     titleTag: "Pest Control Fairfax VA | GreenShield — Reliable & Eco-Friendly",
@@ -334,7 +334,7 @@ export const locations: LocationData[] = [
     ctaText: "Secure your Fairfax home. Choose a plan and get your first treatment free."
   },
   {
-    slug: "pest-control-reston-va",
+    slug: "reston-va",
     city: "Reston",
     state: "VA",
     titleTag: "Pest Control Reston VA | GreenShield — Eco-Friendly & Guaranteed",
@@ -373,7 +373,7 @@ export const locations: LocationData[] = [
     ctaText: "Join hundreds of Reston homeowners who trust GreenShield. See plans and get started today."
   },
   {
-    slug: "pest-control-tysons-va",
+    slug: "tysons-va",
     city: "Tysons",
     state: "VA",
     titleTag: "Pest Control Tysons VA | GreenShield — Modern Homes, Expert Care",
@@ -412,7 +412,7 @@ export const locations: LocationData[] = [
     ctaText: "Keep your Tysons home pest-free. Explore our plans and start with your first treatment free."
   },
   {
-    slug: "pest-control-college-park-md",
+    slug: "college-park-md",
     city: "College Park",
     state: "MD",
     titleTag: "Pest Control College Park MD | GreenShield — Homes & Rentals Protected",
@@ -451,7 +451,7 @@ export const locations: LocationData[] = [
     ctaText: "Protect your College Park home or rental. View plans and start with a free first treatment."
   },
   {
-    slug: "pest-control-annapolis-md",
+    slug: "annapolis-md",
     city: "Annapolis",
     state: "MD",
     titleTag: "Pest Control Annapolis MD | GreenShield — Waterfront & Historic Home Experts",

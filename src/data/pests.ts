@@ -21,7 +21,7 @@ export interface PestData {
 
 export const pests: PestData[] = [
   {
-    slug: "ant-control-dc",
+    slug: "ants",
     name: "Ants",
     titleTag: "Ant Control Washington DC & MD/VA | GreenShield — Eco-Friendly Treatment",
     metaDescription: "Get rid of ants in your DC metro home. Eco-friendly ant control for carpenter ants, odorous ants & more. Safe for kids & pets. No contracts.",
@@ -63,7 +63,7 @@ export const pests: PestData[] = [
     ctaText: "Ready to get rid of ants for good?"
   },
   {
-    slug: "cockroach-control-dc",
+    slug: "cockroaches",
     name: "Cockroaches",
     titleTag: "Cockroach Control DC Metro | GreenShield — Safe, Effective Treatment",
     metaDescription: "Eliminate cockroaches in your DC metro home. German & American roach treatment. Eco-friendly, safe for families. No contracts. Get started today.",
@@ -105,7 +105,7 @@ export const pests: PestData[] = [
     ctaText: "Ready to get rid of cockroaches for good?"
   },
   {
-    slug: "rodent-control-dc",
+    slug: "mice-rats",
     name: "Mice & Rats",
     titleTag: "Rodent Control DC Metro | GreenShield — Mice & Rat Removal",
     metaDescription: "Mice and rat control in Washington DC, MD & VA. Humane, eco-friendly rodent removal. Seal entry points, eliminate infestations. No contracts.",
@@ -147,7 +147,7 @@ export const pests: PestData[] = [
     ctaText: "Ready to get rid of mice and rats for good?"
   },
   {
-    slug: "mosquito-control-dc",
+    slug: "mosquitoes",
     name: "Mosquitoes",
     titleTag: "Mosquito Control DC Metro | GreenShield — Yard Treatment That Works",
     metaDescription: "Effective mosquito control in Washington DC, MD & VA. Monthly yard treatments reduce mosquitoes up to 90%. Eco-friendly. No contracts.",
@@ -189,7 +189,7 @@ export const pests: PestData[] = [
     ctaText: "Ready to enjoy your yard again?"
   },
   {
-    slug: "termite-control-dc",
+    slug: "termites",
     name: "Termites",
     titleTag: "Termite Control DC Metro | GreenShield — Inspection & Treatment",
     metaDescription: "Termite treatment in Washington DC, MD & VA. Annual inspections, eco-friendly treatment, prevention. Protect your home's structure. No contracts.",
@@ -231,7 +231,7 @@ export const pests: PestData[] = [
     ctaText: "Ready to protect your home from termites?"
   },
   {
-    slug: "bed-bug-treatment-dc",
+    slug: "bed-bugs",
     name: "Bed Bugs",
     titleTag: "Bed Bug Treatment DC Metro | GreenShield — Fast, Effective Removal",
     metaDescription: "Bed bug treatment in Washington DC, MD & VA. Professional heat and chemical treatment. Discreet, effective, guaranteed results. Contact us today.",
@@ -273,7 +273,7 @@ export const pests: PestData[] = [
     ctaText: "Ready to eliminate bed bugs?"
   },
   {
-    slug: "wasp-hornet-control-dc",
+    slug: "wasps-hornets",
     name: "Wasps & Hornets",
     titleTag: "Wasp & Hornet Control DC Metro | GreenShield — Safe Nest Removal",
     metaDescription: "Wasp and hornet nest removal in Washington DC, MD & VA. Safe, eco-friendly. Paper wasps, yellow jackets, hornets. Don't risk DIY. Call today.",
@@ -315,7 +315,7 @@ export const pests: PestData[] = [
     ctaText: "Ready to remove wasps and hornets safely?"
   },
   {
-    slug: "spider-control-dc",
+    slug: "spiders",
     name: "Spiders",
     titleTag: "Spider Control DC Metro | GreenShield — Safe Removal & Prevention",
     metaDescription: "Spider control in Washington DC, MD & VA. Remove spiders and prevent infestations. Eco-friendly, safe for families. No contracts. Get protected.",
@@ -357,7 +357,7 @@ export const pests: PestData[] = [
     ctaText: "Want fewer spiders in your home?"
   },
   {
-    slug: "stink-bug-control-dc",
+    slug: "stink-bugs",
     name: "Stink Bugs",
     titleTag: "Stink Bug Control DC Metro | GreenShield — Prevention & Treatment",
     metaDescription: "Stink bug control in Washington DC, MD & VA. Prevent fall invasions. Eco-friendly treatment, seal entry points. No contracts. Start today.",
@@ -399,7 +399,7 @@ export const pests: PestData[] = [
     ctaText: "Stop stink bugs before they get in."
   },
   {
-    slug: "silverfish-control-dc",
+    slug: "silverfish",
     name: "Silverfish",
     titleTag: "Silverfish Control DC Metro | GreenShield — Removal & Prevention",
     metaDescription: "Silverfish control in Washington DC, MD & VA. Protect books, clothes & paper. Eco-friendly treatment, moisture solutions. No contracts.",

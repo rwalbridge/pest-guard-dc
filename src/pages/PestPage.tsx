@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { pests } from "@/data/pests";
+import { locations } from "@/data/locations";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Shield, AlertTriangle, ArrowLeft } from "lucide-react";
+import { Shield, AlertTriangle, ArrowLeft, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 import {
   Accordion,
@@ -12,6 +13,20 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+
+/* Related pest suggestions */
+const relatedPestMap: Record<string, string[]> = {
+  ants: ["termites", "cockroaches", "spiders"],
+  cockroaches: ["ants", "mice-rats", "silverfish"],
+  "mice-rats": ["cockroaches", "spiders", "silverfish"],
+  mosquitoes: ["wasps-hornets", "stink-bugs", "ants"],
+  termites: ["ants", "silverfish", "cockroaches"],
+  "bed-bugs": ["cockroaches", "spiders", "silverfish"],
+  "wasps-hornets": ["mosquitoes", "spiders", "ants"],
+  spiders: ["ants", "silverfish", "stink-bugs"],
+  "stink-bugs": ["spiders", "ants", "silverfish"],
+  silverfish: ["cockroaches", "spiders", "stink-bugs"],
+};
 
 const PestPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -36,6 +51,9 @@ const PestPage = () => {
       </div>
     );
   }
+
+  const relatedSlugs = relatedPestMap[slug || ""] || [];
+  const relatedPests = pests.filter((p) => relatedSlugs.includes(p.slug));
 
   return (
     <div className="min-h-screen">
@@ -151,6 +169,51 @@ const PestPage = () => {
                 </AccordionItem>
               ))}
             </Accordion>
+          </div>
+        </section>
+
+        {/* Related Pests */}
+        {relatedPests.length > 0 && (
+          <section className="section-padding">
+            <div className="container-max max-w-3xl">
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground">Related Pest Guides</h2>
+              <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {relatedPests.map((rp) => (
+                  <Link
+                    key={rp.slug}
+                    to={`/pests/${rp.slug}`}
+                    className="p-4 rounded-xl bg-muted border border-border hover:border-primary/30 hover:shadow-md transition-all text-center"
+                  >
+                    <span className="font-semibold text-foreground">{rp.name}</span>
+                    <p className="text-xs text-muted-foreground mt-1">Learn more →</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Serving DC, MD & VA — all location links */}
+        <section className="section-padding bg-accent">
+          <div className="container-max">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground text-center">
+              {pest.name} Control — Serving DC, MD & VA
+            </h2>
+            <p className="mt-3 text-muted-foreground text-center max-w-lg mx-auto">
+              We provide professional {pest.name.toLowerCase()} control across the entire DC metro area.
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+              {locations.map((loc) => (
+                <Link
+                  key={loc.slug}
+                  to={`/locations/${loc.slug}`}
+                  className="flex items-center gap-2 bg-card border border-border rounded-full px-4 py-2 hover:border-primary/40 hover:bg-primary/5 transition-all"
+                >
+                  <MapPin className="h-3.5 w-3.5 text-primary" />
+                  <span className="text-sm font-medium text-foreground">{loc.city}, {loc.state}</span>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 
