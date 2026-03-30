@@ -302,11 +302,26 @@ const BlogArticle = () => {
     publisher: { "@type": "Organization", name: "GreenShield Pest Control" },
   };
 
+  const DOMAIN = "https://pest-guard-dc.lovable.app";
+  const ogDesc = article.quickAnswer.length > 155 ? article.quickAnswer.slice(0, 152) + '...' : article.quickAnswer;
+
   return (
     <>
       <Helmet>
         <title>{article.titleTag}</title>
         <meta name="description" content={article.metaDescription} />
+        <meta property="og:site_name" content="GreenShield" />
+        <meta property="og:type" content="article" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:title" content={article.title} />
+        <meta property="og:description" content={ogDesc} />
+        <meta property="og:url" content={`${DOMAIN}/blog/${article.slug}`} />
+        <meta property="og:image" content={article.heroImage} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@GreenShieldDC" />
+        <meta name="twitter:title" content={article.title} />
+        <meta name="twitter:description" content={ogDesc} />
+        <meta name="twitter:image" content={article.heroImage} />
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
