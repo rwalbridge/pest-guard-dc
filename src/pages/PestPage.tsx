@@ -8,7 +8,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import {
-  Shield, AlertTriangle, ArrowLeft, MapPin, Bug, Rat, Zap, Leaf,
+  Shield, AlertTriangle, ArrowLeft, ArrowRight, MapPin, Bug, Rat, Zap, Leaf,
   Bird, Snail, Search, SprayCan, ShieldCheck, MessageCircle,
   CheckCircle, X as XIcon, Lightbulb,
 } from "lucide-react";
