@@ -1,5 +1,5 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, ReactNode } from "react";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import {
@@ -12,6 +12,101 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getArticleBySlug, getRelatedArticles, blogArticles } from "@/data/blog";
 import type { ContentSection, BlogArticle as BlogArticleType } from "@/data/blog";
+
+// Pest linking rules — order matters (longer matches first)
+const pestLinkRules: { patterns: RegExp; url: string; label: string }[] = [
+  { patterns: /\b(bed\s*bugs?)\b/i, url: '/pests/bed-bugs', label: 'Bed Bugs' },
+  { patterns: /\b(stink\s*bugs?)\b/i, url: '/pests/stink-bugs', label: 'Stink Bugs' },
+  { patterns: /\b(cockroach(?:es)?|roach(?:es)?)\b/i, url: '/pests/cockroaches', label: 'Cockroaches' },
+  { patterns: /\b(wasps?|hornets?)\b/i, url: '/pests/wasps-hornets', label: 'Wasps & Hornets' },
+  { patterns: /\b(termites?)\b/i, url: '/pests/termites', label: 'Termites' },
+  { patterns: /\b(mosquito(?:es)?)\b/i, url: '/pests/mosquitoes', label: 'Mosquitoes' },
+  { patterns: /\b(mice|mouse|rodents?)\b/i, url: '/pests/mice-rats', label: 'Mice & Rats' },
+  { patterns: /\b(ants?)\b/i, url: '/pests/ants', label: 'Ants' },
+  { patterns: /\b(spiders?)\b/i, url: '/pests/spiders', label: 'Spiders' },
+  { patterns: /\b(silverfish)\b/i, url: '/pests/silverfish', label: 'Silverfish' },
+];
+
+// Track which pest URLs have been linked in current article render
+let linkedPestUrls: Set<string> = new Set();
+
+const linkifyText = (text: string): ReactNode[] => {
+  // Find the first unlinked pest match
+  for (const rule of pestLinkRules) {
+    if (linkedPestUrls.has(rule.url)) continue;
+    const match = rule.patterns.exec(text);
+    if (match) {
+      linkedPestUrls.add(rule.url);
+      const before = text.slice(0, match.index);
+      const matched = match[0];
+      const after = text.slice(match.index + matched.length);
+      const result: ReactNode[] = [];
+      if (before) result.push(...linkifyText(before));
+      result.push(
+        <Link key={`link-${rule.url}`} to={rule.url} className="text-primary underline hover:text-primary/80 transition-colors">
+          {matched}
+        </Link>
+      );
+      if (after) result.push(...linkifyText(after));
+      return result;
+    }
+  }
+  return [text];
+};
+
+// Related pest guides mapping per article slug
+const articlePestGuides: Record<string, { name: string; url: string }[]> = {
+  'pest-season-washington-dc': [
+    { name: 'Termites', url: '/pests/termites' },
+    { name: 'Ants', url: '/pests/ants' },
+    { name: 'Mosquitoes', url: '/pests/mosquitoes' },
+  ],
+  'do-i-have-termites-dc': [
+    { name: 'Termites', url: '/pests/termites' },
+    { name: 'Ants', url: '/pests/ants' },
+    { name: 'Cockroaches', url: '/pests/cockroaches' },
+  ],
+  'mice-control-washington-dc': [
+    { name: 'Mice & Rats', url: '/pests/mice-rats' },
+    { name: 'Cockroaches', url: '/pests/cockroaches' },
+    { name: 'Spiders', url: '/pests/spiders' },
+  ],
+  'mosquito-control-washington-dc': [
+    { name: 'Mosquitoes', url: '/pests/mosquitoes' },
+    { name: 'Wasps & Hornets', url: '/pests/wasps-hornets' },
+    { name: 'Ants', url: '/pests/ants' },
+  ],
+  'cockroach-control-washington-dc': [
+    { name: 'Cockroaches', url: '/pests/cockroaches' },
+    { name: 'Ants', url: '/pests/ants' },
+    { name: 'Mice & Rats', url: '/pests/mice-rats' },
+  ],
+  'stink-bug-control-washington-dc': [
+    { name: 'Stink Bugs', url: '/pests/stink-bugs' },
+    { name: 'Spiders', url: '/pests/spiders' },
+    { name: 'Silverfish', url: '/pests/silverfish' },
+  ],
+  'bed-bug-treatment-washington-dc': [
+    { name: 'Bed Bugs', url: '/pests/bed-bugs' },
+    { name: 'Cockroaches', url: '/pests/cockroaches' },
+    { name: 'Spiders', url: '/pests/spiders' },
+  ],
+  'winterize-home-pest-control-dc': [
+    { name: 'Mice & Rats', url: '/pests/mice-rats' },
+    { name: 'Stink Bugs', url: '/pests/stink-bugs' },
+    { name: 'Cockroaches', url: '/pests/cockroaches' },
+  ],
+  'pest-control-subscription-vs-one-time-dc': [
+    { name: 'Termites', url: '/pests/termites' },
+    { name: 'Ants', url: '/pests/ants' },
+    { name: 'Mosquitoes', url: '/pests/mosquitoes' },
+  ],
+  'pest-control-cost-dc-md-va': [
+    { name: 'Termites', url: '/pests/termites' },
+    { name: 'Bed Bugs', url: '/pests/bed-bugs' },
+    { name: 'Mosquitoes', url: '/pests/mosquitoes' },
+  ],
+};
 
 const BlogArticle = () => {
   const { slug } = useParams<{ slug: string }>();
