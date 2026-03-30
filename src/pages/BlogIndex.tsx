@@ -32,11 +32,25 @@ const BlogIndex = () => {
     setCurrentPage(1);
   };
 
+  const DOMAIN = "https://pest-guard-dc.lovable.app";
+
   return (
     <>
       <Helmet>
-        <title>The Nest — Pest Control Advice for DC Metro Homeowners | GreenShield</title>
-        <meta name="description" content="Real pest control advice for DC metro homeowners — straight from the field. Seasonal guides, DIY tips, and expert insights from GreenShield." />
+        <title>The Nest — Home Protection Insights by GreenShield</title>
+        <meta name="description" content="Real pest control advice for DC metro homeowners. Seasonal guides, DIY tips, pest identification, and honest pricing info." />
+        <meta property="og:site_name" content="GreenShield" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:title" content="The Nest — Home Protection Insights by GreenShield" />
+        <meta property="og:description" content="Real pest control advice for DC metro homeowners. Seasonal guides, DIY tips, pest identification, and honest pricing info." />
+        <meta property="og:url" content={`${DOMAIN}/blog`} />
+        <meta property="og:image" content={`${DOMAIN}/og-images/blog-index.jpg`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@GreenShieldDC" />
+        <meta name="twitter:title" content="The Nest — Home Protection Insights by GreenShield" />
+        <meta name="twitter:description" content="Real pest control advice for DC metro homeowners. Seasonal guides, DIY tips, pest identification, and honest pricing info." />
+        <meta name="twitter:image" content={`${DOMAIN}/og-images/blog-index.jpg`} />
       </Helmet>
       <Header />
       <main className="pt-20">
