@@ -187,7 +187,7 @@ const BlogArticle = () => {
             {section.items?.map((item, i) => (
               <li key={i} className="flex gap-3 text-lg leading-[1.7] text-[#1A1A2E]">
                 <span className="text-primary mt-1.5 flex-shrink-0">•</span>
-                <span>{item}</span>
+                <span>{linkifyText(item)}</span>
               </li>
             ))}
           </ul>
