@@ -58,17 +58,16 @@ const Hero = () => {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-foreground leading-[1.1] text-balance"
             >
-              Trusted Pest Control in Washington DC{" "}
+              Your Home Should Feel Like{" "}
               <span className="text-primary relative">
-                — Year-Round
+                a Sanctuary.
                 <svg className="absolute -bottom-1 left-0 w-full" height="8" viewBox="0 0 200 8" preserveAspectRatio="none">
                   <path d="M0 6 Q50 0 100 4 Q150 8 200 2" className="stroke-primary" strokeWidth="3" fill="none" strokeLinecap="round" />
                 </svg>
               </span>{" "}
-              Protection
               <br />
               <span className="text-muted-foreground font-medium text-3xl sm:text-4xl lg:text-[2.5rem]">
-                We handle it so you don't have to.
+                We make sure it does.
               </span>
             </motion.h1>
 
