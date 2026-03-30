@@ -3,11 +3,12 @@ import { Helmet } from "react-helmet-async";
 import { useParams, Link } from "react-router-dom";
 import { pests } from "@/data/pests";
 import { locations } from "@/data/locations";
+import { getArticleBySlug } from "@/data/blog";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import {
-  Shield, AlertTriangle, ArrowLeft, MapPin, Bug, Rat, Zap, Leaf,
+  Shield, AlertTriangle, ArrowLeft, ArrowRight, MapPin, Bug, Rat, Zap, Leaf,
   Bird, Snail, Search, SprayCan, ShieldCheck, MessageCircle,
   CheckCircle, X as XIcon, Lightbulb,
 } from "lucide-react";
@@ -414,6 +415,83 @@ const PestPage = () => {
             </div>
           </div>
         </section>
+
+        {/* ─── RELATED BLOG ARTICLES ─── */}
+        {(() => {
+          const pestBlogMap: Record<string, string[]> = {
+            'termites': ['do-i-have-termites-dc', 'pest-season-washington-dc', 'pest-control-cost-dc-md-va'],
+            'mice-rats': ['mice-control-washington-dc', 'winterize-home-pest-control-dc', 'pest-season-washington-dc'],
+            'mosquitoes': ['mosquito-control-washington-dc', 'pest-season-washington-dc', 'pest-control-subscription-vs-one-time-dc'],
+            'cockroaches': ['cockroach-control-washington-dc', 'pest-control-cost-dc-md-va', 'pest-control-subscription-vs-one-time-dc'],
+            'bed-bugs': ['bed-bug-treatment-washington-dc', 'pest-control-cost-dc-md-va', 'pest-season-washington-dc'],
+            'stink-bugs': ['stink-bug-control-washington-dc', 'winterize-home-pest-control-dc', 'pest-season-washington-dc'],
+            'ants': ['pest-season-washington-dc', 'pest-control-subscription-vs-one-time-dc', 'winterize-home-pest-control-dc'],
+            'wasps-hornets': ['pest-season-washington-dc', 'pest-control-cost-dc-md-va', 'pest-control-subscription-vs-one-time-dc'],
+            'spiders': ['winterize-home-pest-control-dc', 'pest-season-washington-dc', 'pest-control-subscription-vs-one-time-dc'],
+            'silverfish': ['winterize-home-pest-control-dc', 'pest-control-cost-dc-md-va', 'pest-control-subscription-vs-one-time-dc'],
+          };
+          const slugs = pestBlogMap[slug || ''] || [];
+          const articles = slugs.map(s => getArticleBySlug(s)).filter(Boolean);
+          if (articles.length === 0) return null;
+          return (
+            <section className="bg-[hsl(210,20%,98%)] px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+              <div className="container-max">
+                <motion.div {...fadeIn()} className="text-center mb-12">
+                  <h2 className="text-[26px] font-bold text-secondary mb-2">
+                    From The Nest — Our Home Protection Blog
+                  </h2>
+                  <p className="text-base text-muted-foreground">
+                    Practical advice from the GreenShield field team
+                  </p>
+                </motion.div>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {articles.map((a, i) => (
+                    <motion.div key={a!.slug} {...fadeIn(i * 0.1)}>
+                      <Link
+                        to={`/blog/${a!.slug}`}
+                        className="flex flex-col bg-white rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.08)] overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-200 h-full group"
+                      >
+                        <div className="aspect-video overflow-hidden">
+                          <img
+                            src={a!.heroImage}
+                            alt={a!.heroAlt}
+                            loading="lazy"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                        </div>
+                        <div className="p-5 flex flex-col flex-1">
+                          <div className="flex items-center gap-3 mb-3">
+                            <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${a!.categoryColor}`}>
+                              {a!.category}
+                            </span>
+                            <span className="text-xs text-muted-foreground">{a!.readTime} min read</span>
+                          </div>
+                          <h3 className="text-lg font-bold text-secondary leading-tight mb-2 line-clamp-2 group-hover:text-primary transition-colors">
+                            {a!.title}
+                          </h3>
+                          <p className="text-sm text-muted-foreground line-clamp-2 mb-4">
+                            {a!.excerpt}
+                          </p>
+                          <span className="mt-auto text-sm font-medium text-primary flex items-center gap-1">
+                            Read Article <ArrowRight className="h-3.5 w-3.5" />
+                          </span>
+                        </div>
+                      </Link>
+                    </motion.div>
+                  ))}
+                </div>
+                <div className="text-center mt-10">
+                  <Link
+                    to="/blog"
+                    className="text-primary font-medium hover:underline inline-flex items-center gap-1"
+                  >
+                    View all articles in The Nest <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+            </section>
+          );
+        })()}
       </main>
       <Footer />
     </div>
