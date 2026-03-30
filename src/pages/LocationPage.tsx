@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { useParams, Link } from "react-router-dom";
 import { locations } from "@/data/locations";
 import { pests as allPests } from "@/data/pests";
