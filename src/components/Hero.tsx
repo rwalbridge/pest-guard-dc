@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import heroImg from "@/assets/hero-technician.jpg";
 
 const badges = [
-  { icon: Shield, label: "Licensed & Insured" },
-  { icon: Star, label: "5-Star Rated" },
-  { icon: Clock, label: "Same-Week Service" },
-  { icon: CheckCircle, label: "Satisfaction Guaranteed" },
+  { icon: Shield, label: "Licensed in DC, MD & VA" },
+  { icon: Star, label: "4.9 Stars · 800+ DC Families" },
+  { icon: Clock, label: "Same-Week Service Available" },
+  { icon: CheckCircle, label: "If They're Back, So Are We — Free" },
 ];
 
 const Hero = () => {
