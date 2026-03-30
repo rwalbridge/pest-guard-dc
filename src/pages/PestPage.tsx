@@ -92,8 +92,28 @@ const PestPage = () => {
   const relatedSlugs = relatedPestMap[slug || ""] || [];
   const relatedPests = pests.filter((p) => relatedSlugs.includes(p.slug));
 
+  const DOMAIN = "https://pest-guard-dc.lovable.app";
+  const ogTitle = `${pest.name} Control in Washington DC | GreenShield`;
+  const ogDesc = pest.quickAnswer.length > 155 ? pest.quickAnswer.slice(0, 152) + '...' : pest.quickAnswer;
+
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>{pest.titleTag}</title>
+        <meta name="description" content={pest.metaDescription} />
+        <meta property="og:site_name" content="GreenShield" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:title" content={ogTitle} />
+        <meta property="og:description" content={ogDesc} />
+        <meta property="og:url" content={`${DOMAIN}/pests/${pest.slug}`} />
+        <meta property="og:image" content={`${DOMAIN}/og-images/homepage.jpg`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@GreenShieldDC" />
+        <meta name="twitter:title" content={ogTitle} />
+        <meta name="twitter:description" content={ogDesc} />
+        <meta name="twitter:image" content={`${DOMAIN}/og-images/homepage.jpg`} />
+      </Helmet>
       <Header />
       <main>
         {/* ─── 1. HERO — Navy ─── */}

@@ -102,8 +102,28 @@ const LocationPage = () => {
     })
     .slice(0, 4);
 
+  const DOMAIN = "https://pest-guard-dc.lovable.app";
+  const ogTitle = `Pest Control in ${location.city}, ${location.state} | GreenShield`;
+  const ogDesc = `GreenShield provides eco-friendly pest control in ${location.city}. Licensed in DC, MD & VA. No contracts. Same-week service.`;
+
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>{location.titleTag}</title>
+        <meta name="description" content={location.metaDescription} />
+        <meta property="og:site_name" content="GreenShield" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:title" content={ogTitle} />
+        <meta property="og:description" content={ogDesc} />
+        <meta property="og:url" content={`${DOMAIN}/locations/${location.slug}`} />
+        <meta property="og:image" content={`${DOMAIN}/og-images/homepage.jpg`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@GreenShieldDC" />
+        <meta name="twitter:title" content={ogTitle} />
+        <meta name="twitter:description" content={ogDesc} />
+        <meta name="twitter:image" content={`${DOMAIN}/og-images/homepage.jpg`} />
+      </Helmet>
       <Header />
       <main>
         {/* ─── 1. HERO — Navy ─── */}
