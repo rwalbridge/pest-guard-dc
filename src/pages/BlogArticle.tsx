@@ -143,8 +143,12 @@ const BlogArticle = () => {
     );
   }
 
+  // Reset linked pest tracker on each render
+  linkedPestUrls = new Set();
+
   const related = getRelatedArticles(article.relatedArticles);
   const headings = article.content.filter(s => s.type === 'heading' && s.level === 2);
+  const pestGuides = articlePestGuides[article.slug] || [];
 
   const copyLink = () => {
     navigator.clipboard.writeText(window.location.href);
