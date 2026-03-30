@@ -177,7 +177,7 @@ const BlogArticle = () => {
       case 'text':
         return (
           <p key={idx} className="text-lg leading-[1.7] text-[#1A1A2E] mb-4">
-            {section.text}
+            {linkifyText(section.text || '')}
           </p>
         );
 
