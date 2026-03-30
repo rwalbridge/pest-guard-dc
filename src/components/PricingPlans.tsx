@@ -56,8 +56,8 @@ const PricingPlans = ({ onSelectPlan }: PricingPlansProps) => {
         <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
           Simple, Transparent Pricing
         </h2>
-        <p className="mt-3 text-muted-foreground max-w-lg mx-auto">
-          Choose the plan that fits your home. No contracts, cancel anytime.
+        <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
+          One straightforward plan. No hidden fees. No pest-control degree required to understand what you're getting.
         </p>
 
         {/* Toggle */}
