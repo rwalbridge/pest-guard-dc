@@ -26,7 +26,7 @@ const HowItWorks = () => (
         How It Works
       </h2>
       <p className="mt-3 text-muted-foreground max-w-lg mx-auto">
-        Three simple steps to a pest-free home.
+        Three steps. Zero hassle. Here's how GreenShield keeps your home pest-free.
       </p>
 
       <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-10">

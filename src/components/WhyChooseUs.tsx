@@ -28,10 +28,10 @@ const WhyChooseUs = () => (
   <section id="why-us" className="section-padding">
     <div className="container-max text-center">
       <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-        Why Choose GreenShield
+        Why DC Homeowners Choose GreenShield
       </h2>
       <p className="mt-3 text-muted-foreground max-w-lg mx-auto">
-        We handle it so you don't have to.
+        It's not just pest control. It's peace of mind that actually shows up.
       </p>
 
       <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
