@@ -77,7 +77,7 @@ const Hero = () => {
               transition={{ duration: 0.7, delay: 0.25 }}
               className="mt-6 text-lg text-muted-foreground max-w-md leading-relaxed"
             >
-              GreenShield is the DC metro area's top-rated home pest protection service. One simple plan keeps ants, roaches, termites, mosquitoes, and rodents out of your home — all year long. Eco-friendly products safe for your kids and pets. No contracts, no surprises.
+              Most DC homeowners don't think about pest control until something shows up uninvited. GreenShield runs quietly in the background — eco-friendly, kid-safe treatments on a schedule that keeps your home protected before problems start. No contracts, no surprises, just peace of mind.
             </motion.p>
 
             <motion.div
