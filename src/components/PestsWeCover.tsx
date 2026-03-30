@@ -1,17 +1,18 @@
 import { Bug, Rat, Zap, Leaf, Bird, Snail } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const pests = [
-  { name: "Ants", icon: Bug },
-  { name: "Cockroaches", icon: Bug },
-  { name: "Mice & Rats", icon: Rat },
-  { name: "Mosquitoes", icon: Zap },
-  { name: "Termites", icon: Bug },
-  { name: "Bed Bugs", icon: Bug },
-  { name: "Wasps & Hornets", icon: Bird },
-  { name: "Spiders", icon: Bug },
-  { name: "Stink Bugs", icon: Leaf },
-  { name: "Silverfish", icon: Snail },
+  { name: "Ants", icon: Bug, slug: "ant-control-dc" },
+  { name: "Cockroaches", icon: Bug, slug: "cockroach-control-dc" },
+  { name: "Mice & Rats", icon: Rat, slug: "rodent-control-dc" },
+  { name: "Mosquitoes", icon: Zap, slug: "mosquito-control-dc" },
+  { name: "Termites", icon: Bug, slug: "termite-control-dc" },
+  { name: "Bed Bugs", icon: Bug, slug: "bed-bug-treatment-dc" },
+  { name: "Wasps & Hornets", icon: Bird, slug: "wasp-hornet-control-dc" },
+  { name: "Spiders", icon: Bug, slug: "spider-control-dc" },
+  { name: "Stink Bugs", icon: Leaf, slug: "stink-bug-control-dc" },
+  { name: "Silverfish", icon: Snail, slug: "silverfish-control-dc" },
 ];
 
 const PestsWeCover = () => (
@@ -32,10 +33,14 @@ const PestsWeCover = () => (
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.3, delay: i * 0.05 }}
-            className="flex flex-col items-center gap-3 p-4 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all"
           >
-            <p.icon className="h-8 w-8 text-primary" />
-            <span className="text-sm font-medium text-foreground">{p.name}</span>
+            <Link
+              to={`/${p.slug}`}
+              className="flex flex-col items-center gap-3 p-4 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all"
+            >
+              <p.icon className="h-8 w-8 text-primary" />
+              <span className="text-sm font-medium text-foreground">{p.name}</span>
+            </Link>
           </motion.div>
         ))}
       </div>
