@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
@@ -10,6 +11,8 @@ import ServiceArea from "@/components/ServiceArea";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import SignupModal from "@/components/SignupModal";
+
+const DOMAIN = "https://pest-guard-dc.lovable.app";
 
 const Index = () => {
   const [modalOpen, setModalOpen] = useState(false);
