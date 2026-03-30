@@ -58,17 +58,17 @@ const Hero = () => {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-foreground leading-[1.1] text-balance"
             >
-              Your home deserves to be{" "}
+              Trusted Pest Control in Washington DC{" "}
               <span className="text-primary relative">
-                pest-free
+                — Year-Round
                 <svg className="absolute -bottom-1 left-0 w-full" height="8" viewBox="0 0 200 8" preserveAspectRatio="none">
                   <path d="M0 6 Q50 0 100 4 Q150 8 200 2" className="stroke-primary" strokeWidth="3" fill="none" strokeLinecap="round" />
                 </svg>
-              </span>
-              .
+              </span>{" "}
+              Protection
               <br />
               <span className="text-muted-foreground font-medium text-3xl sm:text-4xl lg:text-[2.5rem]">
-                We make it effortless.
+                We handle it so you don't have to.
               </span>
             </motion.h1>
 
@@ -78,7 +78,7 @@ const Hero = () => {
               transition={{ duration: 0.7, delay: 0.25 }}
               className="mt-6 text-lg text-muted-foreground max-w-md leading-relaxed"
             >
-              One simple plan keeps your family protected year-round. No contracts, no surprises — just a home you can relax in.
+              GreenShield is the DC metro area's top-rated home pest protection service. One simple plan keeps ants, roaches, termites, mosquitoes, and rodents out of your home — all year long. Eco-friendly products safe for your kids and pets. No contracts, no surprises.
             </motion.p>
 
             <motion.div
