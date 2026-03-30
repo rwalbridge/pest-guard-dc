@@ -453,6 +453,24 @@ const BlogArticle = () => {
                     </p>
                   </div>
                 </div>
+
+                {/* Related Pest Guides */}
+                {pestGuides.length > 0 && (
+                  <div className="mt-10 pt-8 border-t border-border">
+                    <p className="text-sm font-semibold text-muted-foreground mb-4">Learn More About Specific Pests:</p>
+                    <div className="flex flex-wrap gap-3">
+                      {pestGuides.map(pg => (
+                        <Link
+                          key={pg.url}
+                          to={pg.url}
+                          className="px-5 py-2.5 rounded-full border border-primary bg-background text-secondary font-medium text-sm hover:bg-accent transition-colors"
+                        >
+                          {pg.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </article>
 
               {/* Sticky Sidebar */}
