@@ -34,8 +34,11 @@ const Testimonials = () => (
         ))}
       </div>
       <h2 className="text-3xl sm:text-4xl font-bold">
-        4.9 Stars from 800+ DC Homeowners
+        4.9 Stars from 800+ DC Families
       </h2>
+      <p className="mt-4 text-secondary-foreground/70 max-w-lg mx-auto">
+        Don't take our word for it — here's what DC metro homeowners are saying:
+      </p>
 
       <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
         {reviews.map((r, i) => (

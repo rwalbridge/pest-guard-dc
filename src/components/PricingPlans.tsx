@@ -134,9 +134,13 @@ const PricingPlans = ({ onSelectPlan }: PricingPlansProps) => {
           ))}
         </div>
 
-        <p className="mt-10 text-sm text-muted-foreground">
-          No contracts. Cancel anytime. Free first treatment.
-        </p>
+        <div className="mt-10 text-sm text-muted-foreground max-w-lg mx-auto space-y-2">
+          <p>No contracts. Cancel anytime. Your first treatment is free.</p>
+          <p>
+            Not sure which plan is right? Most DC homeowners with a single-family home start with Plus.{" "}
+            <a href="/#plans" className="text-primary font-medium hover:underline">Talk to us</a> and we'll figure it out together.
+          </p>
+        </div>
       </div>
     </section>
   );

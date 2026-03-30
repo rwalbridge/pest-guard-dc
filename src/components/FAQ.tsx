@@ -39,7 +39,7 @@ const FAQ = () => (
         Frequently Asked Questions
       </h2>
       <p className="mt-3 text-muted-foreground text-center">
-        Everything you need to know about GreenShield.
+        Real questions from real DC homeowners — answered straight.
       </p>
 
       <Accordion type="single" collapsible className="mt-10">
