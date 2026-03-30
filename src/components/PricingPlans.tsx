@@ -56,8 +56,8 @@ const PricingPlans = ({ onSelectPlan }: PricingPlansProps) => {
         <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
           Simple, Transparent Pricing
         </h2>
-        <p className="mt-3 text-muted-foreground max-w-lg mx-auto">
-          Choose the plan that fits your home. No contracts, cancel anytime.
+        <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
+          One straightforward plan. No hidden fees. No pest-control degree required to understand what you're getting.
         </p>
 
         {/* Toggle */}
@@ -134,9 +134,13 @@ const PricingPlans = ({ onSelectPlan }: PricingPlansProps) => {
           ))}
         </div>
 
-        <p className="mt-10 text-sm text-muted-foreground">
-          No contracts. Cancel anytime. Free first treatment.
-        </p>
+        <div className="mt-10 text-sm text-muted-foreground max-w-lg mx-auto space-y-2">
+          <p>No contracts. Cancel anytime. Your first treatment is free.</p>
+          <p>
+            Not sure which plan is right? Most DC homeowners with a single-family home start with Plus.{" "}
+            <a href="/#plans" className="text-primary font-medium hover:underline">Talk to us</a> and we'll figure it out together.
+          </p>
+        </div>
       </div>
     </section>
   );

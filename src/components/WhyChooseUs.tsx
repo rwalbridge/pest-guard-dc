@@ -4,23 +4,23 @@ import { motion } from "framer-motion";
 const values = [
   {
     icon: MapPin,
-    title: "Local DC Experts",
-    desc: "Serving Northern Virginia, Maryland & DC since 2018.",
+    title: "We live here too.",
+    desc: "GreenShield is a local DC metro company. We know the row houses in Capitol Hill, the wooded lots in McLean, and exactly which pests show up when in this region.",
   },
   {
     icon: RefreshCw,
-    title: "Guaranteed Results",
-    desc: "If pests return between visits, so do we. Free.",
+    title: "Our guarantee isn't fine print.",
+    desc: "If pests return between your scheduled visits, we come back within 48 hours. No questions, no charges, no runaround.",
   },
   {
     icon: Leaf,
-    title: "Eco-Friendly Products",
-    desc: "Safe for kids, pets, and the environment.",
+    title: "Safe enough for your most important critics.",
+    desc: "Every product we use is chosen with kids and pets in mind first. Effective on pests. Gentle on everything else.",
   },
   {
     icon: CalendarCheck,
-    title: "Flexible Scheduling",
-    desc: "Book online in under 2 minutes.",
+    title: "No contracts. No gotchas.",
+    desc: "Start, pause, or cancel your plan anytime. We keep customers because of our service — not because we trapped them.",
   },
 ];
 
@@ -28,10 +28,10 @@ const WhyChooseUs = () => (
   <section id="why-us" className="section-padding">
     <div className="container-max text-center">
       <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-        Why Choose GreenShield
+        Why DC Homeowners Choose GreenShield
       </h2>
       <p className="mt-3 text-muted-foreground max-w-lg mx-auto">
-        We handle it so you don't have to.
+        It's not just pest control. It's peace of mind that actually shows up.
       </p>
 
       <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto">

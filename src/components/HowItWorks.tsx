@@ -4,18 +4,18 @@ import { motion } from "framer-motion";
 const steps = [
   {
     icon: ClipboardList,
-    title: "Choose Your Plan",
-    desc: "Pick the coverage that fits your home and budget.",
+    title: "Pick the plan that fits your home",
+    desc: "Answer a few quick questions. We'll match you with the right level of protection — no upselling, no confusion.",
   },
   {
     icon: Home,
-    title: "We Treat Your Home",
-    desc: "Our certified technicians handle everything — inside and out.",
+    title: "We come to you. You do nothing.",
+    desc: "A licensed GreenShield technician treats your home inside and out. Kid-safe, pet-safe products. You don't even need to be there.",
   },
   {
     icon: ShieldCheck,
-    title: "Stay Covered Year-Round",
-    desc: "Ongoing protection with scheduled visits. Pests come back? So do we.",
+    title: "Stay protected, season after season.",
+    desc: "We return on schedule before pests have a chance to come back. And if they do? We're back within 48 hours, at no charge.",
   },
 ];
 
@@ -26,7 +26,7 @@ const HowItWorks = () => (
         How It Works
       </h2>
       <p className="mt-3 text-muted-foreground max-w-lg mx-auto">
-        Three simple steps to a pest-free home.
+        Three steps. Zero hassle. Here's how GreenShield keeps your home pest-free.
       </p>
 
       <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-10">

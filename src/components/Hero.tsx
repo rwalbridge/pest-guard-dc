@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import heroImg from "@/assets/hero-technician.jpg";
 
 const badges = [
-  { icon: Shield, label: "Licensed & Insured" },
-  { icon: Star, label: "5-Star Rated" },
-  { icon: Clock, label: "Same-Week Service" },
-  { icon: CheckCircle, label: "Satisfaction Guaranteed" },
+  { icon: Shield, label: "Licensed in DC, MD & VA" },
+  { icon: Star, label: "4.9 Stars · 800+ DC Families" },
+  { icon: Clock, label: "Same-Week Service Available" },
+  { icon: CheckCircle, label: "If They're Back, So Are We — Free" },
 ];
 
 const Hero = () => {
@@ -49,7 +49,7 @@ const Hero = () => {
               className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-accent px-4 py-1.5 mb-6"
             >
               <Leaf className="h-4 w-4 text-primary" />
-              <span className="text-sm font-medium text-foreground">Eco-friendly & family safe</span>
+              <span className="text-sm font-medium text-foreground">Year-round pest protection for DC metro homes</span>
             </motion.div>
 
             <motion.h1
@@ -58,17 +58,16 @@ const Hero = () => {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-foreground leading-[1.1] text-balance"
             >
-              Trusted Pest Control in Washington DC{" "}
+              Your Home Should Feel Like{" "}
               <span className="text-primary relative">
-                — Year-Round
+                a Sanctuary.
                 <svg className="absolute -bottom-1 left-0 w-full" height="8" viewBox="0 0 200 8" preserveAspectRatio="none">
                   <path d="M0 6 Q50 0 100 4 Q150 8 200 2" className="stroke-primary" strokeWidth="3" fill="none" strokeLinecap="round" />
                 </svg>
               </span>{" "}
-              Protection
               <br />
               <span className="text-muted-foreground font-medium text-3xl sm:text-4xl lg:text-[2.5rem]">
-                We handle it so you don't have to.
+                We make sure it does.
               </span>
             </motion.h1>
 
@@ -78,7 +77,7 @@ const Hero = () => {
               transition={{ duration: 0.7, delay: 0.25 }}
               className="mt-6 text-lg text-muted-foreground max-w-md leading-relaxed"
             >
-              GreenShield is the DC metro area's top-rated home pest protection service. One simple plan keeps ants, roaches, termites, mosquitoes, and rodents out of your home — all year long. Eco-friendly products safe for your kids and pets. No contracts, no surprises.
+              Most DC homeowners don't think about pest control until something shows up uninvited. GreenShield runs quietly in the background — eco-friendly, kid-safe treatments on a schedule that keeps your home protected before problems start. No contracts, no surprises, just peace of mind.
             </motion.p>
 
             <motion.div
