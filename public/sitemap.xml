@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
+  <url>
+    <loc>https://pest-guard-dc.lovable.app/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <lastmod>2026-03-30</lastmod>
+  </url>
+
+  <!-- Location Pages -->
+  <url><loc>https://pest-guard-dc.lovable.app/locations/washington-dc</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/locations/arlington-va</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/locations/alexandria-va</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/locations/bethesda-md</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/locations/rockville-md</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/locations/silver-spring-md</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/locations/mclean-va</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/locations/fairfax-va</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/locations/reston-va</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/locations/tysons-va</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/locations/college-park-md</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/locations/annapolis-md</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2026-03-30</lastmod></url>
+
+  <!-- Pest Pages -->
+  <url><loc>https://pest-guard-dc.lovable.app/pests/ants</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/pests/cockroaches</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/pests/mice-rats</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/pests/mosquitoes</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/pests/termites</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/pests/bed-bugs</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/pests/wasps-hornets</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/pests/spiders</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/pests/stink-bugs</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/pests/silverfish</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2026-03-30</lastmod></url>
+
+  <!-- Blog Index -->
+  <url>
+    <loc>https://pest-guard-dc.lovable.app/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-03-30</lastmod>
+  </url>
+
+  <!-- Blog Articles -->
+  <url><loc>https://pest-guard-dc.lovable.app/blog/pest-season-washington-dc</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/blog/do-i-have-termites-dc</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/blog/mice-control-washington-dc</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/blog/mosquito-control-washington-dc</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/blog/cockroach-control-washington-dc</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/blog/stink-bug-control-washington-dc</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/blog/bed-bug-treatment-washington-dc</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/blog/winterize-home-pest-control-dc</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/blog/pest-control-subscription-vs-one-time-dc</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-03-30</lastmod></url>
+  <url><loc>https://pest-guard-dc.lovable.app/blog/pest-control-cost-dc-md-va</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-03-30</lastmod></url>
+</urlset>
