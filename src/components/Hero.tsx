@@ -49,7 +49,7 @@ const Hero = () => {
               className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-accent px-4 py-1.5 mb-6"
             >
               <Leaf className="h-4 w-4 text-primary" />
-              <span className="text-sm font-medium text-foreground">Eco-friendly & family safe</span>
+              <span className="text-sm font-medium text-foreground">Year-round pest protection for DC metro homes</span>
             </motion.div>
 
             <motion.h1
