@@ -3,18 +3,18 @@ import { MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const areas = [
-  { name: "Washington DC", slug: "pest-control-washington-dc" },
-  { name: "Arlington", slug: "pest-control-arlington-va" },
-  { name: "Alexandria", slug: "pest-control-alexandria-va" },
-  { name: "Bethesda", slug: "pest-control-bethesda-md" },
-  { name: "Rockville", slug: "pest-control-rockville-md" },
-  { name: "Silver Spring", slug: "pest-control-silver-spring-md" },
-  { name: "McLean", slug: "pest-control-mclean-va" },
-  { name: "Fairfax", slug: "pest-control-fairfax-va" },
-  { name: "Reston", slug: "pest-control-reston-va" },
-  { name: "Tysons", slug: "pest-control-tysons-va" },
-  { name: "College Park", slug: "pest-control-college-park-md" },
-  { name: "Annapolis", slug: "pest-control-annapolis-md" },
+  { name: "Washington DC", slug: "washington-dc" },
+  { name: "Arlington", slug: "arlington-va" },
+  { name: "Alexandria", slug: "alexandria-va" },
+  { name: "Bethesda", slug: "bethesda-md" },
+  { name: "Rockville", slug: "rockville-md" },
+  { name: "Silver Spring", slug: "silver-spring-md" },
+  { name: "McLean", slug: "mclean-va" },
+  { name: "Fairfax", slug: "fairfax-va" },
+  { name: "Reston", slug: "reston-va" },
+  { name: "Tysons", slug: "tysons-va" },
+  { name: "College Park", slug: "college-park-md" },
+  { name: "Annapolis", slug: "annapolis-md" },
 ];
 
 const ServiceArea = () => (
@@ -37,7 +37,7 @@ const ServiceArea = () => (
             transition={{ duration: 0.3, delay: i * 0.04 }}
           >
             <Link
-              to={`/${area.slug}`}
+              to={`/locations/${area.slug}`}
               className="flex items-center gap-2 bg-muted border border-border rounded-full px-5 py-2.5 hover:border-primary/40 hover:bg-primary/5 transition-all"
             >
               <MapPin className="h-4 w-4 text-primary" />

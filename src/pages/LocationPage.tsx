@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { locations } from "@/data/locations";
+import { pests as allPests } from "@/data/pests";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -12,6 +13,23 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+
+/* Map pest display names to pest page slugs */
+const pestNameToSlug: Record<string, string> = {
+  "Ants": "ants",
+  "Cockroaches": "cockroaches",
+  "Mice & Rats": "mice-rats",
+  "Mice": "mice-rats",
+  "Rodents": "mice-rats",
+  "Mosquitoes": "mosquitoes",
+  "Termites": "termites",
+  "Bed Bugs": "bed-bugs",
+  "Wasps & Hornets": "wasps-hornets",
+  "Spiders": "spiders",
+  "Stink Bugs": "stink-bugs",
+  "Silverfish": "silverfish",
+  "Carpenter Ants": "ants",
+};
 
 const LocationPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -37,6 +55,16 @@ const LocationPage = () => {
     );
   }
 
+  /* Related locations: same state first, then others, exclude current */
+  const relatedLocations = locations
+    .filter((l) => l.slug !== slug)
+    .sort((a, b) => {
+      if (a.state === location.state && b.state !== location.state) return -1;
+      if (a.state !== location.state && b.state === location.state) return 1;
+      return 0;
+    })
+    .slice(0, 4);
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -55,23 +83,34 @@ const LocationPage = () => {
                 <p key={i} className="text-muted-foreground leading-relaxed text-lg">{p}</p>
               ))}
             </div>
-            <Button className="mt-8" size="lg" onClick={() => document.getElementById("location-cta")?.scrollIntoView({ behavior: "smooth" })}>
-              Get Protected in {location.city}
-            </Button>
+            <Link to="/#plans">
+              <Button className="mt-8" size="lg">
+                Get Protected in {location.city}
+              </Button>
+            </Link>
           </div>
         </section>
 
-        {/* Common Pests */}
+        {/* Common Pests — each pest name links to its page */}
         <section className="section-padding">
           <div className="container-max">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground">Common Pests in {location.city}</h2>
             <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-              {location.pests.map((pest) => (
-                <div key={pest.name} className="p-5 rounded-xl bg-muted border border-border">
-                  <h3 className="font-bold text-foreground text-lg">{pest.name}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{pest.description}</p>
-                </div>
-              ))}
+              {location.pests.map((pest) => {
+                const pestSlug = pestNameToSlug[pest.name];
+                return (
+                  <div key={pest.name} className="p-5 rounded-xl bg-muted border border-border">
+                    <h3 className="font-bold text-foreground text-lg">
+                      {pestSlug ? (
+                        <Link to={`/pests/${pestSlug}`} className="hover:text-primary transition-colors underline decoration-primary/30">
+                          {pest.name}
+                        </Link>
+                      ) : pest.name}
+                    </h3>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{pest.description}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -145,6 +184,25 @@ const LocationPage = () => {
                 </AccordionItem>
               ))}
             </Accordion>
+          </div>
+        </section>
+
+        {/* Related Locations */}
+        <section className="section-padding bg-muted">
+          <div className="container-max">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground">We Also Serve Nearby Areas</h2>
+            <div className="mt-6 flex flex-wrap gap-3">
+              {relatedLocations.map((loc) => (
+                <Link
+                  key={loc.slug}
+                  to={`/locations/${loc.slug}`}
+                  className="flex items-center gap-2 bg-card border border-border rounded-full px-5 py-2.5 hover:border-primary/40 hover:bg-primary/5 transition-all"
+                >
+                  <MapPin className="h-4 w-4 text-primary" />
+                  <span className="text-sm font-medium text-foreground">{loc.city}, {loc.state}</span>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 

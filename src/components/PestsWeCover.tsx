@@ -3,16 +3,16 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const pests = [
-  { name: "Ants", icon: Bug, slug: "ant-control-dc" },
-  { name: "Cockroaches", icon: Bug, slug: "cockroach-control-dc" },
-  { name: "Mice & Rats", icon: Rat, slug: "rodent-control-dc" },
-  { name: "Mosquitoes", icon: Zap, slug: "mosquito-control-dc" },
-  { name: "Termites", icon: Bug, slug: "termite-control-dc" },
-  { name: "Bed Bugs", icon: Bug, slug: "bed-bug-treatment-dc" },
-  { name: "Wasps & Hornets", icon: Bird, slug: "wasp-hornet-control-dc" },
-  { name: "Spiders", icon: Bug, slug: "spider-control-dc" },
-  { name: "Stink Bugs", icon: Leaf, slug: "stink-bug-control-dc" },
-  { name: "Silverfish", icon: Snail, slug: "silverfish-control-dc" },
+  { name: "Ants", icon: Bug, slug: "ants" },
+  { name: "Cockroaches", icon: Bug, slug: "cockroaches" },
+  { name: "Mice & Rats", icon: Rat, slug: "mice-rats" },
+  { name: "Mosquitoes", icon: Zap, slug: "mosquitoes" },
+  { name: "Termites", icon: Bug, slug: "termites" },
+  { name: "Bed Bugs", icon: Bug, slug: "bed-bugs" },
+  { name: "Wasps & Hornets", icon: Bird, slug: "wasps-hornets" },
+  { name: "Spiders", icon: Bug, slug: "spiders" },
+  { name: "Stink Bugs", icon: Leaf, slug: "stink-bugs" },
+  { name: "Silverfish", icon: Snail, slug: "silverfish" },
 ];
 
 const PestsWeCover = () => (
@@ -35,7 +35,7 @@ const PestsWeCover = () => (
             transition={{ duration: 0.3, delay: i * 0.05 }}
           >
             <Link
-              to={`/${p.slug}`}
+              to={`/pests/${p.slug}`}
               className="flex flex-col items-center gap-3 p-4 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all"
             >
               <p.icon className="h-8 w-8 text-primary" />

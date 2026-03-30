@@ -18,7 +18,8 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/:slug" element={<LocationPageOrPest />} />
+          <Route path="/locations/:slug" element={<LocationPage />} />
+          <Route path="/pests/:slug" element={<PestPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -26,20 +27,5 @@ const App = () => (
     </TooltipProvider>
   </QueryClientProvider>
 );
-
-/* Single dynamic route that checks both location and pest data */
-import { locations } from "./data/locations";
-import { pests } from "./data/pests";
-import { useParams } from "react-router-dom";
-
-const LocationPageOrPest = () => {
-  const { slug } = useParams<{ slug: string }>();
-  const isLocation = locations.some((l) => l.slug === slug);
-  const isPest = pests.some((p) => p.slug === slug);
-
-  if (isLocation) return <LocationPage />;
-  if (isPest) return <PestPage />;
-  return <NotFound />;
-};
 
 export default App;
