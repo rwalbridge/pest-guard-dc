@@ -31,7 +31,11 @@ const locationLinks = [
   { label: "Annapolis, MD", slug: "annapolis-md" },
 ];
 
-const Header = () => {
+interface HeaderProps {
+  onGetQuote?: () => void;
+}
+
+const Header = ({ onGetQuote }: HeaderProps) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [pestDropdown, setPestDropdown] = useState(false);
