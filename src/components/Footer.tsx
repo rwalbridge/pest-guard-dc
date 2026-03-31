@@ -87,10 +87,10 @@ const Footer = () => (
           </ul>
         </div>
 
-        {/* Pest Library */}
+        {/* Pest Types */}
         <div>
           <h4 className="font-bold text-sm uppercase tracking-wider mb-4 text-secondary-foreground/50">
-            Pest Library
+            Pest Types
           </h4>
           <ul className="space-y-2 text-sm">
             {pestLinks.map((p) => (
