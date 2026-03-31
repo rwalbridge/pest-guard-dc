@@ -78,7 +78,10 @@ const Step1Address = () => {
   // Load Google Places script dynamically
   useEffect(() => {
     const g = (window as any).google;
-    if (g?.maps?.places) return; // already loaded
+    if (g?.maps?.places) {
+      initAutocomplete();
+      return;
+    }
     if (document.getElementById("google-places-script")) return;
     const key = import.meta.env.VITE_GOOGLE_PLACES_API_KEY;
     if (!key) return;
