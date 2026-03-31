@@ -109,100 +109,102 @@ const Header = () => {
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled || mobileOpen ? "bg-background/95 backdrop-blur-md shadow-sm" : "bg-transparent"
-      }`}
-    >
-      <div className="container-max flex items-center justify-between h-16 sm:h-20 px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-2">
-          <Shield className="h-7 w-7 text-primary" />
-          <span className="text-xl font-bold text-secondary">
-            Green<span className="text-primary">Shield</span>
-          </span>
-        </Link>
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled || mobileOpen ? "bg-background/95 backdrop-blur-md shadow-sm" : "bg-transparent"
+        }`}
+      >
+        <div className="container-max flex items-center justify-between h-16 sm:h-20 px-4 sm:px-6 lg:px-8">
+          <Link to="/" className="flex items-center gap-2">
+            <Shield className="h-7 w-7 text-primary" />
+            <span className="text-xl font-bold text-secondary">
+              Green<span className="text-primary">Shield</span>
+            </span>
+          </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-6">
-          {anchorLink("#how-it-works", "How It Works")}
-          {anchorLink("#plans", "Plans")}
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex items-center gap-6">
+            {anchorLink("#how-it-works", "How It Works")}
+            {anchorLink("#plans", "Plans")}
 
-          {/* Pest Library Dropdown */}
-          <div ref={pestRef} className="relative">
-            <button
-              onClick={() => { setPestDropdown(!pestDropdown); setLocationDropdown(false); }}
-              className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            {/* Pest Library Dropdown */}
+            <div ref={pestRef} className="relative">
+              <button
+                onClick={() => { setPestDropdown(!pestDropdown); setLocationDropdown(false); }}
+                className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Pest Library <ChevronDown className={`h-3.5 w-3.5 transition-transform ${pestDropdown ? "rotate-180" : ""}`} />
+              </button>
+              {pestDropdown && (
+                <div className="absolute top-full left-0 mt-2 w-52 bg-background border border-border rounded-xl shadow-lg py-2 z-50">
+                  {pestLinks.map((p) => (
+                    <Link
+                      key={p.slug}
+                      to={`/pests/${p.slug}`}
+                      className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                    >
+                      {p.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Service Areas Dropdown */}
+            <div ref={locationRef} className="relative">
+              <button
+                onClick={() => { setLocationDropdown(!locationDropdown); setPestDropdown(false); }}
+                className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Service Areas <ChevronDown className={`h-3.5 w-3.5 transition-transform ${locationDropdown ? "rotate-180" : ""}`} />
+              </button>
+              {locationDropdown && (
+                <div className="absolute top-full left-0 mt-2 w-56 bg-background border border-border rounded-xl shadow-lg py-2 z-50">
+                  {locationLinks.map((l) => (
+                    <Link
+                      key={l.slug}
+                      to={`/locations/${l.slug}`}
+                      className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                    >
+                      {l.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {anchorLink("#why-us", "Why Us")}
+            {anchorLink("#reviews", "Reviews")}
+            {anchorLink("#faq", "FAQ")}
+            <Link to="/blog" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">The Nest</Link>
+          </nav>
+
+          <div className="hidden lg:block">
+            <Button
+              onClick={() => {
+                if (isHome) {
+                  document.getElementById("plans")?.scrollIntoView({ behavior: "smooth" });
+                } else {
+                  window.location.href = "/#plans";
+                }
+              }}
             >
-              Pest Library <ChevronDown className={`h-3.5 w-3.5 transition-transform ${pestDropdown ? "rotate-180" : ""}`} />
-            </button>
-            {pestDropdown && (
-              <div className="absolute top-full left-0 mt-2 w-52 bg-background border border-border rounded-xl shadow-lg py-2 z-50">
-                {pestLinks.map((p) => (
-                  <Link
-                    key={p.slug}
-                    to={`/pests/${p.slug}`}
-                    className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-                  >
-                    {p.label}
-                  </Link>
-                ))}
-              </div>
-            )}
+              Get Protected
+            </Button>
           </div>
 
-          {/* Service Areas Dropdown */}
-          <div ref={locationRef} className="relative">
-            <button
-              onClick={() => { setLocationDropdown(!locationDropdown); setPestDropdown(false); }}
-              className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Service Areas <ChevronDown className={`h-3.5 w-3.5 transition-transform ${locationDropdown ? "rotate-180" : ""}`} />
-            </button>
-            {locationDropdown && (
-              <div className="absolute top-full left-0 mt-2 w-56 bg-background border border-border rounded-xl shadow-lg py-2 z-50">
-                {locationLinks.map((l) => (
-                  <Link
-                    key={l.slug}
-                    to={`/locations/${l.slug}`}
-                    className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-                  >
-                    {l.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {anchorLink("#why-us", "Why Us")}
-          {anchorLink("#reviews", "Reviews")}
-          {anchorLink("#faq", "FAQ")}
-          <Link to="/blog" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">The Nest</Link>
-        </nav>
-
-        <div className="hidden lg:block">
-          <Button
-            onClick={() => {
-              if (isHome) {
-                document.getElementById("plans")?.scrollIntoView({ behavior: "smooth" });
-              } else {
-                window.location.href = "/#plans";
-              }
-            }}
+          <button
+            className="lg:hidden p-2 text-foreground"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
           >
-            Get Protected
-          </Button>
+            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
         </div>
+      </header>
 
-        <button
-          className="lg:hidden p-2 text-foreground"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
-      </div>
-
-      {/* Mobile Nav */}
+      {/* Mobile Nav — rendered outside header to avoid stacking context issues */}
       {mobileOpen && (
         <div className="lg:hidden fixed inset-0 top-16 sm:top-20 bg-background z-[60] overflow-y-auto">
           <div className="px-4 pb-24 pt-2">
@@ -278,7 +280,7 @@ const Header = () => {
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 };
 
