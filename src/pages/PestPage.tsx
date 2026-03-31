@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import {
   Shield, AlertTriangle, ArrowLeft, ArrowRight, MapPin, Bug, Rat, Syringe,
-  TreeDeciduous, Bed, Hexagon, Waypoints, Wind, Fish,
+  TreeDeciduous, Bed, Hexagon, Waypoints, Wind, Fish, Antenna,
   Search, SprayCan, ShieldCheck, MessageCircle,
   CheckCircle, X as XIcon, Lightbulb,
 } from "lucide-react";
