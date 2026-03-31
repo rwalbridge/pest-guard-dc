@@ -204,7 +204,7 @@ const Header = () => {
 
       {/* Mobile Nav */}
       {mobileOpen && (
-        <div className="lg:hidden fixed inset-0 top-16 sm:top-20 bg-background z-40 overflow-y-auto">
+        <div className="lg:hidden fixed inset-0 top-16 sm:top-20 bg-background z-[60] overflow-y-auto">
           <div className="px-4 pb-24 pt-2">
             {mobileAnchorLink("#how-it-works", "How It Works")}
             {mobileAnchorLink("#plans", "Plans")}
