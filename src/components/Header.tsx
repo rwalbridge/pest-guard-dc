@@ -212,7 +212,7 @@ const Header = ({ onGetQuote }: HeaderProps) => {
               onClick={() => setMobilePestOpen(!mobilePestOpen)}
               className="flex items-center justify-between w-full py-3 text-sm font-medium text-muted-foreground hover:text-foreground"
             >
-              Pest Library
+              Pest Types
               <ChevronRight className={`h-4 w-4 transition-transform ${mobilePestOpen ? "rotate-90" : ""}`} />
             </button>
             {mobilePestOpen && (
