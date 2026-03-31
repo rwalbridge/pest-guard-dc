@@ -135,7 +135,7 @@ const PestPage = () => {
                 </div>
                 <Link to="/#plans">
                   <Button size="lg" className="mt-8">
-                    Get Protected Today
+                    Get a Quote
                   </Button>
                 </Link>
               </motion.div>
