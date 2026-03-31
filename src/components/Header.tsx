@@ -130,7 +130,7 @@ const Header = ({ onGetQuote }: HeaderProps) => {
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-6">
             {anchorLink("#how-it-works", "How It Works")}
-            {anchorLink("#plans", "Plans")}
+            <Link to="/plans" className={`text-sm font-medium transition-colors ${location.pathname === "/plans" ? "text-primary" : "text-muted-foreground hover:text-foreground"}`}>Plans</Link>
 
             {/* Pest Types Dropdown */}
             <div ref={pestRef} className="relative">
@@ -202,7 +202,7 @@ const Header = ({ onGetQuote }: HeaderProps) => {
         <div className="lg:hidden fixed inset-0 top-16 sm:top-20 bg-background z-[60] overflow-y-auto">
           <div className="px-4 pb-24 pt-2">
             {mobileAnchorLink("#how-it-works", "How It Works")}
-            {mobileAnchorLink("#plans", "Plans")}
+            <Link to="/plans" onClick={() => setMobileOpen(false)} className="block py-3 text-sm font-medium text-muted-foreground hover:text-foreground">Plans</Link>
 
             {/* Mobile Pest Accordion */}
             <button
