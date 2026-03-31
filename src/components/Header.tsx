@@ -132,13 +132,13 @@ const Header = ({ onGetQuote }: HeaderProps) => {
             {anchorLink("#how-it-works", "How It Works")}
             {anchorLink("#plans", "Plans")}
 
-            {/* Pest Library Dropdown */}
+            {/* Pest Types Dropdown */}
             <div ref={pestRef} className="relative">
               <button
                 onClick={() => { setPestDropdown(!pestDropdown); setLocationDropdown(false); }}
                 className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
-                Pest Library <ChevronDown className={`h-3.5 w-3.5 transition-transform ${pestDropdown ? "rotate-180" : ""}`} />
+                Pest Types <ChevronDown className={`h-3.5 w-3.5 transition-transform ${pestDropdown ? "rotate-180" : ""}`} />
               </button>
               {pestDropdown && (
                 <div className="absolute top-full left-0 mt-2 w-52 bg-background border border-border rounded-xl shadow-lg py-2 z-50">
