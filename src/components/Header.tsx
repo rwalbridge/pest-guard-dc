@@ -178,9 +178,6 @@ const Header = ({ onGetQuote }: HeaderProps) => {
               )}
             </div>
 
-            {anchorLink("#why-us", "Why Us")}
-            {anchorLink("#reviews", "Reviews")}
-            {anchorLink("#faq", "FAQ")}
             <Link to="/blog" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">The Nest</Link>
           </nav>
 
