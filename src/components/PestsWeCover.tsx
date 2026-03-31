@@ -1,4 +1,4 @@
-import { Bug, Rat, Syringe, TreeDeciduous, Bed, Hexagon, Waypoints, Wind, Fish } from "lucide-react";
+import { Bug, Rat, Syringe, TreeDeciduous, Bed, Hexagon, Waypoints, Wind, Fish, Antenna } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
