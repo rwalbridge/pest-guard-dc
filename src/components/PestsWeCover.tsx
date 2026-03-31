@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const pests = [
   { name: "Ants", icon: Bug, slug: "ants" },
-  { name: "Cockroaches", icon: Fish, slug: "cockroaches" },
+  { name: "Cockroaches", icon: Antenna, slug: "cockroaches" },
   { name: "Mice & Rats", icon: Rat, slug: "mice-rats" },
   { name: "Mosquitoes", icon: Syringe, slug: "mosquitoes" },
   { name: "Termites", icon: TreeDeciduous, slug: "termites" },
