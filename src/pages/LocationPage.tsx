@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import {
   MapPin, Shield, CheckCircle, ArrowLeft, BadgeCheck, Clock,
   Search, SprayCan, ShieldCheck, Bug, Rat, Syringe, TreeDeciduous,
-  Bed, Hexagon, Waypoints, Wind, Fish,
+  Bed, Hexagon, Waypoints, Wind, Fish, Antenna,
   X, Star, Flower2, Sun, CloudRain, Snowflake,
 } from "lucide-react";
 import { motion } from "framer-motion";
