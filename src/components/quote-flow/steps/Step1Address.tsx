@@ -73,18 +73,19 @@ const Step1Address = () => {
   const [manualSqft, setManualSqft] = useState("");
   const [addressValue, setAddressValue] = useState(quoteState.address || "");
   const inputRef = useRef<HTMLInputElement>(null);
-  const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null);
+  const autocompleteRef = useRef<any>(null);
 
   // Initialize Google Places Autocomplete
   useEffect(() => {
-    if (!window.google?.maps?.places || !inputRef.current || autocompleteRef.current) return;
+    const g = (window as any).google;
+    if (!g?.maps?.places || !inputRef.current || autocompleteRef.current) return;
 
-    const dcBounds = new google.maps.LatLngBounds(
-      new google.maps.LatLng(38.7916, -77.5194),
-      new google.maps.LatLng(39.158, -76.9093)
+    const dcBounds = new g.maps.LatLngBounds(
+      new g.maps.LatLng(38.7916, -77.5194),
+      new g.maps.LatLng(39.158, -76.9093)
     );
 
-    autocompleteRef.current = new google.maps.places.Autocomplete(inputRef.current, {
+    autocompleteRef.current = new g.maps.places.Autocomplete(inputRef.current, {
       types: ["address"],
       componentRestrictions: { country: "us" },
       bounds: dcBounds,
@@ -95,7 +96,7 @@ const Step1Address = () => {
       if (!place?.address_components) return;
 
       const get = (type: string) =>
-        place.address_components?.find((c) => c.types.includes(type))?.long_name || null;
+        place.address_components?.find((c: any) => c.types.includes(type))?.long_name || null;
 
       const formatted = place.formatted_address || "";
       const city = get("locality") || get("sublocality");
