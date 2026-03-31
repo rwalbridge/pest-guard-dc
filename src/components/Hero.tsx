@@ -10,7 +10,11 @@ const badges = [
   { icon: CheckCircle, label: "If They're Back, So Are We — Free" },
 ];
 
-const Hero = () => {
+interface HeroProps {
+  onGetQuote?: () => void;
+}
+
+const Hero = ({ onGetQuote }: HeroProps) => {
   return (
     <section className="relative bg-background min-h-screen flex items-center overflow-hidden">
       {/* Decorative background elements */}
