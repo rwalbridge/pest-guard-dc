@@ -105,7 +105,7 @@ const Hero = ({ onGetQuote }: HeroProps) => {
                 className="text-base font-semibold px-8 h-12 quote-trigger"
                 onClick={onGetQuote}
               >
-                Get a Free Quote
+                Get a Quote
               </Button>
             </motion.div>
 

@@ -253,9 +253,6 @@ const Header = ({ onGetQuote }: HeaderProps) => {
               </div>
             )}
 
-            {mobileAnchorLink("#why-us", "Why Us")}
-            {mobileAnchorLink("#reviews", "Reviews")}
-            {mobileAnchorLink("#faq", "FAQ")}
           </div>
 
           {/* Pinned CTA */}

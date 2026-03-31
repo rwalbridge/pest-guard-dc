@@ -578,7 +578,7 @@ const BlogArticle = () => {
                 <Link to="/#plans">See Our Protection Plans</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="border-primary/30 text-primary-foreground hover:bg-primary/10">
-                <Link to="/#plans">Get a Free Quote</Link>
+                <Link to="/#plans">Get a Quote</Link>
               </Button>
             </div>
           </div>

@@ -150,7 +150,7 @@ const LocationPage = () => {
                 </div>
                 <Link to="/#plans">
                   <Button size="lg" className="mt-8">
-                    Get Protected in {location.city}
+                    Get a Quote
                   </Button>
                 </Link>
               </motion.div>
