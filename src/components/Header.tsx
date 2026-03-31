@@ -186,7 +186,7 @@ const Header = ({ onGetQuote }: HeaderProps) => {
 
           <div className="hidden lg:block">
             <Button className="quote-trigger" onClick={onGetQuote}>
-              Get Protected
+              Get a Quote
             </Button>
           </div>
 
