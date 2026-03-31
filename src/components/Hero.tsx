@@ -165,88 +165,154 @@ const Hero = ({ onGetQuote }: HeroProps) => {
                 5. Reposition floating stat cards to avoid the photo focal point */}
 
             <div className="relative w-[320px] h-[320px] lg:w-[480px] lg:h-[480px]">
-              <svg
+            <svg
                 className="w-full h-full"
                 viewBox="0 0 520 480"
                 fill="none"
                 role="img"
                 aria-label="GreenShield technician greeting a homeowner at their front door"
               >
-                {/* Background circle */}
-                <circle cx="260" cy="240" r="200" fill="rgba(61,184,122,0.06)" />
+                {/* Subtle radial glow behind entire scene */}
+                <defs>
+                  <radialGradient id="sceneBg" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="rgba(61,184,122,0.05)" />
+                    <stop offset="100%" stopColor="transparent" />
+                  </radialGradient>
+                  <radialGradient id="porchLight" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="rgba(245,197,163,0.3)" />
+                    <stop offset="100%" stopColor="transparent" />
+                  </radialGradient>
+                  <linearGradient id="groundGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#1A3A2A" />
+                    <stop offset="100%" stopColor="#0F2A1A" />
+                  </linearGradient>
+                </defs>
+
+                {/* Scene background glow */}
+                <rect x="0" y="0" width="520" height="480" fill="url(#sceneBg)" />
+
+                {/* Background circle — visible edge */}
+                <circle cx="260" cy="230" r="200" fill="rgba(61,184,122,0.10)" stroke="rgba(61,184,122,0.2)" strokeWidth="1" />
 
                 {/* Small floating background shapes */}
                 <circle cx="120" cy="100" r="18" fill="rgba(61,184,122,0.12)" />
-                <rect x="400" y="130" width="24" height="24" rx="6" fill="rgba(61,184,122,0.12)" />
-                <circle cx="430" cy="340" r="12" fill="rgba(61,184,122,0.10)" />
+                <rect x="410" y="110" width="24" height="24" rx="6" fill="rgba(61,184,122,0.12)" />
+                <circle cx="440" cy="320" r="12" fill="rgba(61,184,122,0.10)" />
 
-                {/* Ground line */}
-                <rect x="60" y="400" width="400" height="2" rx="1" fill="rgba(255,255,255,0.1)" />
+                {/* === GROUND / GRASS === */}
+                <rect x="40" y="400" width="440" height="40" rx="0" fill="url(#groundGrad)" />
+                {/* Grass tufts — foreground */}
+                <ellipse cx="100" cy="400" rx="5" ry="12" fill="rgba(61,184,122,0.6)" />
+                <ellipse cx="115" cy="400" rx="4" ry="9" fill="rgba(61,184,122,0.4)" />
+                <ellipse cx="125" cy="400" rx="3" ry="7" fill="rgba(61,184,122,0.5)" />
+                <ellipse cx="400" cy="400" rx="4" ry="10" fill="rgba(61,184,122,0.5)" />
+                <ellipse cx="415" cy="400" rx="3" ry="8" fill="rgba(61,184,122,0.35)" />
+                <ellipse cx="220" cy="400" rx="4" ry="9" fill="rgba(61,184,122,0.4)" />
 
-                {/* Ground plants */}
-                <ellipse cx="110" cy="398" rx="8" ry="14" fill="rgba(61,184,122,0.3)" />
-                <ellipse cx="140" cy="396" rx="6" ry="10" fill="rgba(61,184,122,0.2)" />
-                <ellipse cx="380" cy="397" rx="7" ry="12" fill="rgba(61,184,122,0.25)" />
+                {/* === PATHWAY === */}
+                <rect x="320" y="400" width="50" height="40" fill="#2A3A4A" />
 
-                {/* === Door & Doorframe (right side) === */}
-                {/* Doorframe */}
-                <rect x="310" y="200" width="120" height="200" rx="4" fill="rgba(255,255,255,0.08)" />
+                {/* === HOUSE EXTERIOR === */}
+                {/* Walls */}
+                <rect x="260" y="230" width="200" height="170" fill="#1E3A5F" />
+                {/* Roofline */}
+                <polygon points="250,230 360,170 470,230" fill="#2D4A6B" />
+
+                {/* Door frame — green accent */}
+                <rect x="318" y="278" width="86" height="122" rx="0" fill="#3DB87A" />
                 {/* Door */}
-                <rect x="320" y="210" width="100" height="190" rx="3" fill="#0A1628" />
-                <rect x="320" y="210" width="100" height="190" rx="3" fill="rgba(255,255,255,0.12)" />
-                {/* Door handle */}
-                <circle cx="400" cy="310" r="4" fill="rgba(255,255,255,0.25)" />
+                <rect x="322" y="282" width="78" height="118" rx="4" fill="#2D4A6B" />
+                {/* Door knob */}
+                <circle cx="385" cy="345" r="5" fill="#F5C5A3" />
 
-                {/* Potted plant beside door */}
-                <rect x="290" y="380" width="16" height="20" rx="3" fill="rgba(255,255,255,0.15)" />
-                <circle cx="298" cy="374" r="12" fill="#3DB87A" opacity="0.6" />
-                <circle cx="292" cy="370" r="8" fill="#3DB87A" opacity="0.4" />
+                {/* Step / Porch */}
+                <rect x="295" y="400" width="100" height="16" rx="2" fill="#3A5A7A" />
 
-                {/* === Character 2 — Homeowner (at door) === */}
+                {/* Porch light */}
+                <circle cx="361" cy="268" r="20" fill="url(#porchLight)" />
+                <circle cx="361" cy="268" r="5" fill="#F5C5A3" />
+
+                {/* === PLANTS === */}
+                {/* Bush left of door */}
+                <circle cx="270" cy="388" r="14" fill="#2EA86A" />
+                <circle cx="282" cy="384" r="11" fill="#3DB87A" opacity="0.8" />
+                <circle cx="260" cy="384" r="10" fill="#2EA86A" opacity="0.7" />
+
+                {/* Tall plant right of doorframe */}
+                <line x1="420" y1="400" x2="420" y2="365" stroke="#2EA86A" strokeWidth="2" />
+                <ellipse cx="420" cy="358" rx="12" ry="16" fill="#3DB87A" />
+
+                {/* === CHARACTER 2 — HOMEOWNER (at door) === */}
                 {/* Body */}
-                <rect x="340" y="290" width="55" height="110" rx="16" fill="rgba(255,255,255,0.85)" />
-                {/* Head */}
-                <circle cx="367" cy="268" r="26" fill="#E8B99A" />
-                {/* Hair */}
-                <ellipse cx="367" cy="252" rx="22" ry="14" fill="#1A1A2E" />
-                {/* Eyes */}
-                <circle cx="358" cy="270" r="2.5" fill="#1A1A2E" />
-                <circle cx="376" cy="270" r="2.5" fill="#1A1A2E" />
-                {/* Greeting arm (raised) */}
-                <rect x="390" y="295" width="40" height="14" rx="7" fill="#E8B99A" transform="rotate(-30 390 302)" />
+                <rect x="340" y="310" width="50" height="90" rx="14" fill="rgba(255,255,255,0.85)" />
+                {/* Left arm — raised waving */}
+                <rect x="330" y="290" width="12" height="45" rx="6" fill="#D4A67A" transform="rotate(-30 336 312)" />
                 {/* Hand */}
-                <circle cx="424" cy="280" r="8" fill="#E8B99A" />
-
-                {/* === Character 1 — Technician (left) === */}
-                {/* Body (green uniform) */}
-                <rect x="140" y="290" width="60" height="110" rx="16" fill="#3DB87A" />
+                <circle cx="318" cy="278" r="7" fill="#D4A67A" />
+                {/* Right arm — relaxed at side */}
+                <rect x="387" y="320" width="12" height="40" rx="6" fill="#D4A67A" />
                 {/* Head */}
-                <circle cx="170" cy="268" r="28" fill="#F5C5A3" />
+                <circle cx="365" cy="288" r="24" fill="#C68642" />
                 {/* Hair */}
-                <ellipse cx="170" cy="250" rx="24" ry="14" fill="#1A1A2E" />
+                <ellipse cx="365" cy="274" rx="20" ry="12" fill="#1A1A2E" />
                 {/* Eyes */}
-                <circle cx="161" cy="270" r="2.5" fill="#1A1A2E" />
-                <circle cx="179" cy="270" r="2.5" fill="#1A1A2E" />
-                {/* Smile (subtle arc) */}
-                <path d="M163,280 Q170,286 177,280" stroke="#1A1A2E" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-                {/* Badge on chest */}
-                <path d="M165,300 L170,296 L175,300 L175,306 C175,308 170,310 170,310 C170,310 165,308 165,306Z" fill="white" opacity="0.9" />
-                <path d="M168,302 L170,304 L173,301" stroke="#3DB87A" strokeWidth="1" fill="none" strokeLinecap="round" />
-                {/* Left arm holding clipboard */}
-                <rect x="105" y="300" width="42" height="14" rx="7" fill="#F5C5A3" />
-                {/* Clipboard */}
-                <rect x="95" y="295" width="22" height="30" rx="3" fill="#E8F8F0" />
-                <rect x="100" y="302" width="12" height="2" rx="1" fill="#3DB87A" opacity="0.5" />
-                <rect x="100" y="307" width="10" height="2" rx="1" fill="#3DB87A" opacity="0.4" />
-                <rect x="100" y="312" width="8" height="2" rx="1" fill="#3DB87A" opacity="0.3" />
+                <circle cx="357" cy="290" r="2" fill="#1A1A2E" />
+                <circle cx="373" cy="290" r="2" fill="#1A1A2E" />
+                {/* Nose */}
+                <circle cx="365" cy="295" r="1.2" fill="rgba(26,26,46,0.4)" />
+                {/* Cheeks */}
+                <circle cx="354" cy="296" r="4" fill="rgba(240,150,120,0.3)" />
+                <circle cx="376" cy="296" r="4" fill="rgba(240,150,120,0.3)" />
+                {/* Smile */}
+                <path d="M358,300 Q365,306 372,300" stroke="#1A1A2E" strokeWidth="2" fill="none" strokeLinecap="round" />
 
-                {/* === Speech bubble above homeowner === */}
-                <rect x="400" y="225" width="42" height="28" rx="10" fill="white" />
-                {/* Bubble tail */}
-                <polygon points="412,253 418,253 408,262" fill="white" />
-                {/* Mini shield + check inside bubble */}
-                <path d="M416,233 L421,230 L426,233 L426,238 C426,240 421,242 421,242 C421,242 416,240 416,238Z" fill="#3DB87A" />
-                <path d="M419,236 L421,238 L424,234" stroke="white" strokeWidth="1.2" fill="none" strokeLinecap="round" />
+                {/* === CHARACTER 1 — TECHNICIAN (left) === */}
+                {/* Body (green uniform) */}
+                <rect x="140" y="310" width="60" height="90" rx="16" fill="#3DB87A" />
+                {/* Left arm — holding clipboard */}
+                <rect x="112" y="318" width="14" height="50" rx="7" fill="#2EA86A" transform="rotate(8 119 343)" />
+                {/* Clipboard */}
+                <rect x="98" y="350" width="20" height="26" rx="3" fill="white" />
+                <rect x="102" y="357" width="12" height="2" rx="1" fill="#3DB87A" opacity="0.6" />
+                <rect x="102" y="362" width="10" height="2" rx="1" fill="#3DB87A" opacity="0.5" />
+                <rect x="102" y="367" width="8" height="2" rx="1" fill="#3DB87A" opacity="0.4" />
+                {/* Right arm — greeting gesture */}
+                <rect x="196" y="305" width="14" height="48" rx="7" fill="#2EA86A" transform="rotate(-35 203 329)" />
+                {/* Hand */}
+                <circle cx="224" cy="295" r="8" fill="#F5C5A3" />
+                {/* Head */}
+                <circle cx="170" cy="288" r="28" fill="#F5C5A3" />
+                {/* Hair */}
+                <ellipse cx="170" cy="270" rx="24" ry="14" fill="#1A1A2E" />
+                {/* Eyes */}
+                <circle cx="161" cy="290" r="2" fill="#1A1A2E" />
+                <circle cx="179" cy="290" r="2" fill="#1A1A2E" />
+                {/* Nose */}
+                <circle cx="170" cy="296" r="1.2" fill="rgba(26,26,46,0.4)" />
+                {/* Cheeks */}
+                <circle cx="158" cy="297" r="4" fill="rgba(240,150,120,0.3)" />
+                <circle cx="182" cy="297" r="4" fill="rgba(240,150,120,0.3)" />
+                {/* Smile */}
+                <path d="M163,302 Q170,308 177,302" stroke="#1A1A2E" strokeWidth="2" fill="none" strokeLinecap="round" />
+                {/* Badge on chest */}
+                <path d="M165,320 L170,316 L175,320 L175,326 C175,328 170,330 170,330 C170,330 165,328 165,326Z" fill="white" opacity="0.9" />
+                <path d="M168,322 L170,324 L173,321" stroke="#3DB87A" strokeWidth="1" fill="none" strokeLinecap="round" />
+
+                {/* === SPEECH BUBBLE above homeowner === */}
+                <g filter="url(#bubbleShadow)">
+                  <rect x="395" y="240" width="46" height="30" rx="10" fill="white" />
+                  <polygon points="410,270 418,270 406,280" fill="white" />
+                </g>
+                {/* Shield + check inside bubble */}
+                <path d="M413,248 L418,245 L423,248 L423,254 C423,256 418,258 418,258 C418,258 413,256 413,254Z" fill="#3DB87A" />
+                <path d="M415,252 L418,255 L422,250" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+
+                {/* Shadow filter for speech bubble */}
+                <defs>
+                  <filter id="bubbleShadow" x="-10%" y="-10%" width="130%" height="140%">
+                    <feDropShadow dx="0" dy="2" stdDeviation="4" floodColor="rgba(0,0,0,0.3)" />
+                  </filter>
+                </defs>
               </svg>
 
               {/* Floating stat card 1 — upper right */}
