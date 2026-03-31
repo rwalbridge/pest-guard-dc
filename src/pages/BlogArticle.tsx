@@ -513,7 +513,7 @@ const BlogArticle = () => {
                   {/* CTA */}
                   <div className="bg-secondary text-secondary-foreground rounded-2xl p-5">
                     <Shield className="h-6 w-6 text-primary mb-2" />
-                    <h3 className="font-bold mb-1">Get Protected</h3>
+                    <h3 className="font-bold mb-1">Get a Quote</h3>
                     <p className="text-xs text-muted-foreground mb-3">Plans from $49/mo. No contracts.</p>
                     <Button asChild size="sm" className="w-full">
                       <Link to="/#plans">See Plans</Link>
@@ -578,7 +578,7 @@ const BlogArticle = () => {
                 <Link to="/#plans">See Our Protection Plans</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="border-primary/30 text-primary-foreground hover:bg-primary/10">
-                <Link to="/#plans">Get a Free Quote</Link>
+                <Link to="/#plans">Get a Quote</Link>
               </Button>
             </div>
           </div>

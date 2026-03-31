@@ -178,15 +178,12 @@ const Header = ({ onGetQuote }: HeaderProps) => {
               )}
             </div>
 
-            {anchorLink("#why-us", "Why Us")}
-            {anchorLink("#reviews", "Reviews")}
-            {anchorLink("#faq", "FAQ")}
             <Link to="/blog" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">The Nest</Link>
           </nav>
 
           <div className="hidden lg:block">
             <Button className="quote-trigger" onClick={onGetQuote}>
-              Get Protected
+              Get a Quote
             </Button>
           </div>
 
@@ -253,9 +250,6 @@ const Header = ({ onGetQuote }: HeaderProps) => {
               </div>
             )}
 
-            {mobileAnchorLink("#why-us", "Why Us")}
-            {mobileAnchorLink("#reviews", "Reviews")}
-            {mobileAnchorLink("#faq", "FAQ")}
           </div>
 
           {/* Pinned CTA */}
@@ -267,7 +261,7 @@ const Header = ({ onGetQuote }: HeaderProps) => {
                 onGetQuote?.();
               }}
             >
-              Get Protected
+              Get a Quote
             </Button>
           </div>
         </div>
