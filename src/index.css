@@ -81,4 +81,21 @@
   .container-max {
     @apply max-w-7xl mx-auto;
   }
+
+  @keyframes draw-circle {
+    0% { stroke-dasharray: 0 226; }
+    100% { stroke-dasharray: 226 0; }
+  }
+  @keyframes draw-check {
+    0% { stroke-dasharray: 0 60; opacity: 0; }
+    50% { opacity: 0; }
+    60% { opacity: 1; }
+    100% { stroke-dasharray: 60 0; opacity: 1; }
+  }
+  .animate-draw-circle {
+    animation: draw-circle 0.5s ease-out forwards;
+  }
+  .animate-draw-check {
+    animation: draw-check 0.8s ease-out forwards;
+  }
 }
