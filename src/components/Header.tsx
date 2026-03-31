@@ -267,7 +267,7 @@ const Header = ({ onGetQuote }: HeaderProps) => {
                 onGetQuote?.();
               }}
             >
-              Get Protected
+              Get a Quote
             </Button>
           </div>
         </div>
