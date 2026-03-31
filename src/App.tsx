@@ -10,6 +10,7 @@ import LocationPage from "./pages/LocationPage.tsx";
 import PestPage from "./pages/PestPage.tsx";
 import BlogIndex from "./pages/BlogIndex.tsx";
 import BlogArticle from "./pages/BlogArticle.tsx";
+import PlansPage from "./pages/PlansPage.tsx";
 
 const queryClient = new QueryClient();
 
