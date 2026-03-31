@@ -130,7 +130,7 @@ const Header = ({ onGetQuote }: HeaderProps) => {
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-6">
             {anchorLink("#how-it-works", "How It Works")}
-            {anchorLink("#plans", "Plans")}
+            <Link to="/plans" className={`text-sm font-medium transition-colors ${location.pathname === "/plans" ? "text-primary" : "text-muted-foreground hover:text-foreground"}`}>Plans</Link>
 
             {/* Pest Types Dropdown */}
             <div ref={pestRef} className="relative">
