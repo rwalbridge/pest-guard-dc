@@ -128,8 +128,7 @@ const Step1Address = () => {
       });
 
       handlePropertyLookup(formatted);
-    });
-  }, []);
+  };
 
   const handlePropertyLookup = useCallback(
     async (address: string) => {
