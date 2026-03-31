@@ -8,7 +8,8 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import {
   MapPin, Shield, CheckCircle, ArrowLeft, BadgeCheck, Clock,
-  Search, SprayCan, ShieldCheck, Bug, Rat, Zap, Leaf, Bird, Snail,
+  Search, SprayCan, ShieldCheck, Bug, Rat, Syringe, TreeDeciduous,
+  Bed, Hexagon, Waypoints, Wind, Fish,
   X, Star, Flower2, Sun, CloudRain, Snowflake,
 } from "lucide-react";
 import { motion } from "framer-motion";
