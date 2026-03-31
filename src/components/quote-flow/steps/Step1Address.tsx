@@ -75,8 +75,23 @@ const Step1Address = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const autocompleteRef = useRef<any>(null);
 
-  // Initialize Google Places Autocomplete
+  // Load Google Places script dynamically
   useEffect(() => {
+    const g = (window as any).google;
+    if (g?.maps?.places) return; // already loaded
+    if (document.getElementById("google-places-script")) return;
+    const key = import.meta.env.VITE_GOOGLE_PLACES_API_KEY;
+    if (!key) return;
+    const script = document.createElement("script");
+    script.id = "google-places-script";
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${key}&libraries=places`;
+    script.async = true;
+    script.defer = true;
+    script.onload = () => initAutocomplete();
+    document.head.appendChild(script);
+  }, []);
+
+  const initAutocomplete = () => {
     const g = (window as any).google;
     if (!g?.maps?.places || !inputRef.current || autocompleteRef.current) return;
 
