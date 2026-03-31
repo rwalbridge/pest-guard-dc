@@ -269,7 +269,7 @@ const QuoteFlow = ({ isOpen, onClose, preSelectedPlan }: QuoteFlowProps) => {
             </div>
 
             {/* Mobile bottom CTA bar */}
-            {!isConfirmation && (
+            {!isConfirmation && currentStep !== 6 && (
               <div className="md:hidden shrink-0 border-t border-border bg-background px-4 py-4">
                 <Button className="w-full h-12 text-base font-semibold" onClick={goToNextStep}>
                   {mobileCTALabels[currentStep]}
