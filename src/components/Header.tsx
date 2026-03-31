@@ -31,7 +31,11 @@ const locationLinks = [
   { label: "Annapolis, MD", slug: "annapolis-md" },
 ];
 
-const Header = () => {
+interface HeaderProps {
+  onGetQuote?: () => void;
+}
+
+const Header = ({ onGetQuote }: HeaderProps) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [pestDropdown, setPestDropdown] = useState(false);
@@ -181,15 +185,7 @@ const Header = () => {
           </nav>
 
           <div className="hidden lg:block">
-            <Button
-              onClick={() => {
-                if (isHome) {
-                  document.getElementById("plans")?.scrollIntoView({ behavior: "smooth" });
-                } else {
-                  window.location.href = "/#plans";
-                }
-              }}
-            >
+            <Button className="quote-trigger" onClick={onGetQuote}>
               Get Protected
             </Button>
           </div>
@@ -265,14 +261,10 @@ const Header = () => {
           {/* Pinned CTA */}
           <div className="fixed bottom-0 left-0 right-0 bg-background border-t border-border p-4 z-[70]">
             <Button
-              className="w-full"
+              className="w-full quote-trigger"
               onClick={() => {
                 setMobileOpen(false);
-                if (isHome) {
-                  document.getElementById("plans")?.scrollIntoView({ behavior: "smooth" });
-                } else {
-                  window.location.href = "/#plans";
-                }
+                onGetQuote?.();
               }}
             >
               Get Protected

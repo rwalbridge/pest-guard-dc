@@ -10,17 +10,17 @@ import Testimonials from "@/components/Testimonials";
 import ServiceArea from "@/components/ServiceArea";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
-import SignupModal from "@/components/SignupModal";
+import QuoteFlow from "@/components/quote-flow/QuoteFlow";
 
 const DOMAIN = "https://pest-guard-dc.lovable.app";
 
 const Index = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState("Plus");
+  const [quoteOpen, setQuoteOpen] = useState(false);
+  const [preSelectedPlan, setPreSelectedPlan] = useState<string | null>(null);
 
-  const handleSelectPlan = (plan: string) => {
-    setSelectedPlan(plan);
-    setModalOpen(true);
+  const openQuote = (plan?: string) => {
+    setPreSelectedPlan(plan ?? null);
+    setQuoteOpen(true);
   };
 
   return (
@@ -41,20 +41,20 @@ const Index = () => {
         <meta name="twitter:description" content="Eco-friendly, kid-safe pest protection for DC metro homes. No contracts. Satisfaction guaranteed. Plans from $49/mo." />
         <meta name="twitter:image" content={`${DOMAIN}/og-images/homepage.jpg`} />
       </Helmet>
-      <Header />
-      <Hero />
+      <Header onGetQuote={() => openQuote()} />
+      <Hero onGetQuote={() => openQuote()} />
       <HowItWorks />
-      <PricingPlans onSelectPlan={handleSelectPlan} />
+      <PricingPlans onSelectPlan={(plan) => openQuote(plan)} />
       <PestsWeCover />
       <WhyChooseUs />
       <Testimonials />
       <ServiceArea />
       <FAQ />
       <Footer />
-      <SignupModal
-        isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
-        selectedPlan={selectedPlan}
+      <QuoteFlow
+        isOpen={quoteOpen}
+        onClose={() => setQuoteOpen(false)}
+        preSelectedPlan={preSelectedPlan}
       />
     </div>
   );

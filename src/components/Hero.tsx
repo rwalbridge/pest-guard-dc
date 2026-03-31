@@ -10,7 +10,11 @@ const badges = [
   { icon: CheckCircle, label: "If They're Back, So Are We — Free" },
 ];
 
-const Hero = () => {
+interface HeroProps {
+  onGetQuote?: () => void;
+}
+
+const Hero = ({ onGetQuote }: HeroProps) => {
   return (
     <section className="relative bg-background min-h-screen flex items-center overflow-hidden">
       {/* Decorative background elements */}
@@ -98,10 +102,8 @@ const Hero = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="text-base font-semibold px-8 h-12"
-                onClick={() =>
-                  document.getElementById("signup")?.scrollIntoView({ behavior: "smooth" })
-                }
+                className="text-base font-semibold px-8 h-12 quote-trigger"
+                onClick={onGetQuote}
               >
                 Get a Free Quote
               </Button>
