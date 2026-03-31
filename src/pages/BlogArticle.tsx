@@ -513,7 +513,7 @@ const BlogArticle = () => {
                   {/* CTA */}
                   <div className="bg-secondary text-secondary-foreground rounded-2xl p-5">
                     <Shield className="h-6 w-6 text-primary mb-2" />
-                    <h3 className="font-bold mb-1">Get Protected</h3>
+                    <h3 className="font-bold mb-1">Get a Quote</h3>
                     <p className="text-xs text-muted-foreground mb-3">Plans from $49/mo. No contracts.</p>
                     <Button asChild size="sm" className="w-full">
                       <Link to="/#plans">See Plans</Link>
