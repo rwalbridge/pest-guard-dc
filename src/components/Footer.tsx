@@ -31,7 +31,7 @@ const pestLinks = [
 
 const companyLinks = [
   { label: "How It Works", href: "/#how-it-works" },
-  { label: "Our Plans", href: "/#plans" },
+  { label: "Our Plans", href: "/plans" },
   { label: "Why GreenShield", href: "/#why-us" },
   { label: "Reviews", href: "/#reviews" },
   { label: "FAQ", href: "/#faq" },
