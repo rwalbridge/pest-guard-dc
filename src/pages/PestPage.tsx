@@ -8,9 +8,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import {
-  Shield, AlertTriangle, ArrowLeft, ArrowRight, MapPin, Bug, Rat, Syringe,
-  TreeDeciduous, Bed, Hexagon, Waypoints, Wind, Fish, Antenna,
-  Search, SprayCan, ShieldCheck, MessageCircle,
+  Shield, AlertTriangle, ArrowLeft, ArrowRight, MapPin, Bug, Rat, Zap, Leaf,
+  Bird, Snail, Search, SprayCan, ShieldCheck, MessageCircle,
   CheckCircle, X as XIcon, Lightbulb,
 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -31,9 +30,9 @@ const fadeIn = (delay = 0) => ({
 
 /* Pest icon mapping */
 const pestIconMap: Record<string, React.ElementType> = {
-  ants: Bug, cockroaches: Antenna, "mice-rats": Rat, mosquitoes: Syringe,
-  termites: TreeDeciduous, "bed-bugs": Bed, "wasps-hornets": Hexagon,
-  spiders: Waypoints, "stink-bugs": Wind, silverfish: Fish,
+  ants: Bug, cockroaches: Bug, "mice-rats": Rat, mosquitoes: Zap,
+  termites: Bug, "bed-bugs": Bug, "wasps-hornets": Bird,
+  spiders: Bug, "stink-bugs": Leaf, silverfish: Snail,
 };
 
 /* Stat callouts per pest */

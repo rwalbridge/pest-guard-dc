@@ -1,18 +1,18 @@
-import { Bug, Rat, Syringe, TreeDeciduous, Bed, Hexagon, Waypoints, Wind, Fish, Antenna } from "lucide-react";
+import { Bug, Rat, Zap, Leaf, Bird, Snail } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const pests = [
   { name: "Ants", icon: Bug, slug: "ants" },
-  { name: "Cockroaches", icon: Antenna, slug: "cockroaches" },
+  { name: "Cockroaches", icon: Bug, slug: "cockroaches" },
   { name: "Mice & Rats", icon: Rat, slug: "mice-rats" },
-  { name: "Mosquitoes", icon: Syringe, slug: "mosquitoes" },
-  { name: "Termites", icon: TreeDeciduous, slug: "termites" },
-  { name: "Bed Bugs", icon: Bed, slug: "bed-bugs" },
-  { name: "Wasps & Hornets", icon: Hexagon, slug: "wasps-hornets" },
-  { name: "Spiders", icon: Waypoints, slug: "spiders" },
-  { name: "Stink Bugs", icon: Wind, slug: "stink-bugs" },
-  { name: "Silverfish", icon: Fish, slug: "silverfish" },
+  { name: "Mosquitoes", icon: Zap, slug: "mosquitoes" },
+  { name: "Termites", icon: Bug, slug: "termites" },
+  { name: "Bed Bugs", icon: Bug, slug: "bed-bugs" },
+  { name: "Wasps & Hornets", icon: Bird, slug: "wasps-hornets" },
+  { name: "Spiders", icon: Bug, slug: "spiders" },
+  { name: "Stink Bugs", icon: Leaf, slug: "stink-bugs" },
+  { name: "Silverfish", icon: Snail, slug: "silverfish" },
 ];
 
 const PestsWeCover = () => (
