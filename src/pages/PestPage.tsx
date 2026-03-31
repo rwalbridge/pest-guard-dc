@@ -31,9 +31,9 @@ const fadeIn = (delay = 0) => ({
 
 /* Pest icon mapping */
 const pestIconMap: Record<string, React.ElementType> = {
-  ants: Bug, cockroaches: Bug, "mice-rats": Rat, mosquitoes: Zap,
-  termites: Bug, "bed-bugs": Bug, "wasps-hornets": Bird,
-  spiders: Bug, "stink-bugs": Leaf, silverfish: Snail,
+  ants: Bug, cockroaches: Fish, "mice-rats": Rat, mosquitoes: Syringe,
+  termites: TreeDeciduous, "bed-bugs": Bed, "wasps-hornets": Hexagon,
+  spiders: Waypoints, "stink-bugs": Wind, silverfish: Fish,
 };
 
 /* Stat callouts per pest */
