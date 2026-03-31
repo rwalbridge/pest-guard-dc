@@ -185,15 +185,7 @@ const Header = ({ onGetQuote }: HeaderProps) => {
           </nav>
 
           <div className="hidden lg:block">
-            <Button
-              onClick={() => {
-                if (isHome) {
-                  document.getElementById("plans")?.scrollIntoView({ behavior: "smooth" });
-                } else {
-                  window.location.href = "/#plans";
-                }
-              }}
-            >
+            <Button className="quote-trigger" onClick={onGetQuote}>
               Get Protected
             </Button>
           </div>
