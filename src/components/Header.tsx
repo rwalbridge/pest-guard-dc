@@ -261,14 +261,10 @@ const Header = ({ onGetQuote }: HeaderProps) => {
           {/* Pinned CTA */}
           <div className="fixed bottom-0 left-0 right-0 bg-background border-t border-border p-4 z-[70]">
             <Button
-              className="w-full"
+              className="w-full quote-trigger"
               onClick={() => {
                 setMobileOpen(false);
-                if (isHome) {
-                  document.getElementById("plans")?.scrollIntoView({ behavior: "smooth" });
-                } else {
-                  window.location.href = "/#plans";
-                }
+                onGetQuote?.();
               }}
             >
               Get Protected

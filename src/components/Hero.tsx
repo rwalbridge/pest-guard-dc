@@ -102,10 +102,8 @@ const Hero = ({ onGetQuote }: HeroProps) => {
               <Button
                 variant="outline"
                 size="lg"
-                className="text-base font-semibold px-8 h-12"
-                onClick={() =>
-                  document.getElementById("signup")?.scrollIntoView({ behavior: "smooth" })
-                }
+                className="text-base font-semibold px-8 h-12 quote-trigger"
+                onClick={onGetQuote}
               >
                 Get a Free Quote
               </Button>
