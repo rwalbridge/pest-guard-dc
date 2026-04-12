@@ -22,12 +22,6 @@ const Hero = ({ onGetQuote }: HeroProps) => {
     { icon: RefreshCw, label: "If They're Back, So Are We" },
   ];
 
-  const stats = [
-    { value: "2,400+", label: "Homes Protected" },
-    { value: "4.9★",   label: "Average Rating" },
-    { value: "98%",    label: "Retention Rate" },
-  ];
-
   return (
     <section
       className="relative min-h-[100vh] flex items-center overflow-hidden"
@@ -379,52 +373,6 @@ const Hero = ({ onGetQuote }: HeroProps) => {
           </div>
         </div>
       </div>
-
-      {/* ── STATS BAR — pinned above wave ── */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.8 }}
-        className="absolute bottom-16 left-0 right-0 z-20
-                   hidden lg:flex justify-center"
-      >
-        <div
-          className="flex items-center gap-0 rounded-2xl overflow-hidden"
-          style={{
-            background: "rgba(255,255,255,0.06)",
-            border: "1px solid rgba(255,255,255,0.1)",
-            backdropFilter: "blur(12px)",
-          }}
-        >
-          {stats.map((stat, i) => (
-            <div key={stat.label} className="flex items-center">
-              {i > 0 && (
-                <div
-                  style={{
-                    width: "1px",
-                    height: "40px",
-                    background: "rgba(255,255,255,0.1)",
-                  }}
-                />
-              )}
-              <div className="px-10 py-4 text-center">
-                <div
-                  className="text-[22px] font-extrabold"
-                  style={{ color: "#3DB87A" }}
-                >
-                  {stat.value}
-                </div>
-                <div
-                  className="text-[12px] font-medium mt-0.5"
-                  style={{ color: "rgba(255,255,255,0.55)" }}
-                >
-                  {stat.label}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </motion.div>
 
       {/* ── SCROLL INDICATOR ── */}
       <div
