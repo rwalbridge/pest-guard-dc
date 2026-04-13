@@ -171,8 +171,8 @@ export const locations: LocationData[] = [
     ],
     faqs: [
       { q: "Are termites common in Bethesda's older homes?", a: "Very common. Homes in Bethesda built in the 1940s–1970s are especially susceptible to eastern subterranean termites due to wood framing, aging foundations, and landscaping features like mulch beds that retain moisture near the structure." },
-      { q: "What's the best way to prevent mosquitoes in Bethesda?", a: "Monthly exterior treatments from April through October are the most effective method. Also remove standing water from gutters, planters, bird baths, and pool covers. GreenShield's Plus and Premium plans include mosquito coverage." },
-      { q: "Is GreenShield's treatment safe for my garden and lawn?", a: "Yes. We use targeted application methods and EPA-approved products that minimize environmental impact. Our technicians avoid direct application to vegetable gardens and water features." },
+      { q: "What's the best way to prevent mosquitoes in Bethesda?", a: "Monthly exterior treatments from April through October are the most effective method. Also remove standing water from gutters, planters, bird baths, and pool covers. PestGuard's Plus and Premium plans include mosquito coverage." },
+      { q: "Is PestGuard's treatment safe for my garden and lawn?", a: "Yes. We use targeted application methods and EPA-approved products that minimize environmental impact. Our technicians avoid direct application to vegetable gardens and water features." },
       { q: "How often should I schedule pest control in Bethesda?", a: "For most Bethesda homes, bi-monthly treatments provide optimal year-round protection. Homes near wooded areas or with known termite history may benefit from monthly visits." }
     ],
     ctaText: "Give your Bethesda home the protection it deserves. View plans and schedule your free first treatment."
@@ -251,7 +251,7 @@ export const locations: LocationData[] = [
       { q: "Are cockroaches hard to get rid of in Silver Spring apartments?", a: "German cockroaches in multi-unit buildings can be persistent because infestations often span multiple units. Professional treatment with gel baits and insect growth regulators is far more effective than store-bought sprays." },
       { q: "Does GreenShield treat rental properties in Silver Spring?", a: "Yes. We work with renters and landlords throughout Silver Spring. If you're a tenant, you can sign up independently for pest protection." },
       { q: "What's the best plan for a Silver Spring townhouse?", a: "Our Plus plan at $79/month with bi-monthly visits is the most popular choice for Silver Spring townhouses. It covers a broad range of pests including mosquitoes and stink bugs." },
-      { q: "Is GreenShield's service safe for my pets?", a: "Absolutely. All our products are EPA-approved and pet-safe. We recommend keeping pets off treated surfaces for about 30 minutes while products dry, as a precaution." }
+      { q: "Is PestGuard's service safe for my pets?", a: "Absolutely. All our products are EPA-approved and pet-safe. We recommend keeping pets off treated surfaces for about 30 minutes while products dry, as a precaution." }
     ],
     ctaText: "Start protecting your Silver Spring home today. See our plans and schedule a free first treatment."
   },
@@ -484,7 +484,7 @@ export const locations: LocationData[] = [
     faqs: [
       { q: "Why are mosquitoes so bad near the Chesapeake Bay?", a: "The Chesapeake Bay, Severn River, and tidal marshes surrounding Annapolis create vast mosquito breeding habitat. Salt marsh and freshwater mosquitoes are both present, extending the season and increasing density." },
       { q: "Are termites a risk in Annapolis's Historic District?", a: "Extremely high risk. Historic District homes with original wood framing, brick foundations, and limited modern waterproofing are prime targets for subterranean termites. Annual inspections are essential." },
-      { q: "Is GreenShield's treatment safe for waterfront properties?", a: "Yes. We use EPA-approved products with targeted application methods designed to minimize runoff and protect aquatic environments. Our technicians follow strict protocols for bay-adjacent properties." },
+      { q: "Is PestGuard's treatment safe for waterfront properties?", a: "Yes. We use EPA-approved products with targeted application methods designed to minimize runoff and protect aquatic environments. Our technicians follow strict protocols for bay-adjacent properties." },
       { q: "How do I prevent rodents at my waterfront home in Annapolis?", a: "Seal gaps around docks, boathouses, and utility penetrations. Keep marine storage organized and elevated. Regular perimeter treatments and rodent exclusion are the most effective strategies." }
     ],
     ctaText: "Protect your Annapolis home from bay to backyard. Explore plans and start with a free first treatment."

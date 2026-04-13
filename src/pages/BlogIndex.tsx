@@ -47,7 +47,7 @@ const BlogIndex = () => {
         <meta property="og:url" content={`${DOMAIN}/blog`} />
         <meta property="og:image" content={`${DOMAIN}/og-images/blog-index.jpg`} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@GreenShieldDC" />
+        <meta name="twitter:site" content="@PestGuardDC" />
         <meta name="twitter:title" content="The Nest — Home Protection Insights by GreenShield" />
         <meta name="twitter:description" content="Real pest control advice for DC metro homeowners. Seasonal guides, DIY tips, pest identification, and honest pricing info." />
         <meta name="twitter:image" content={`${DOMAIN}/og-images/blog-index.jpg`} />

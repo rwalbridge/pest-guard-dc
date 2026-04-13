@@ -36,7 +36,7 @@ const Index = () => {
         <meta property="og:url" content={`${DOMAIN}/`} />
         <meta property="og:image" content={`${DOMAIN}/og-images/homepage.jpg`} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@GreenShieldDC" />
+        <meta name="twitter:site" content="@PestGuardDC" />
         <meta name="twitter:title" content="GreenShield — Trusted Pest Control in Washington DC" />
         <meta name="twitter:description" content="Eco-friendly, kid-safe pest protection for DC metro homes. No contracts. Satisfaction guaranteed. Plans from $49/mo." />
         <meta name="twitter:image" content={`${DOMAIN}/og-images/homepage.jpg`} />

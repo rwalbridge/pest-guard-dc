@@ -128,7 +128,7 @@ const Footer = () => (
 
       <div className="mt-12 pt-6 border-t border-secondary-foreground/10 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-xs text-secondary-foreground/40">
-          © {new Date().getFullYear()} GreenShield Pest Control. All rights reserved.
+          © {new Date().getFullYear()} PestGuard. All rights reserved.
         </p>
         <div className="flex gap-6 text-xs text-secondary-foreground/40">
           <span>Licensed & Insured</span>

@@ -57,7 +57,7 @@ export const pests: PestData[] = [
       { q: "How do I get rid of ants in my kitchen in Washington DC?", a: "Clean up food and moisture sources, seal cracks around windows and baseboards, and use ant bait near trails. For persistent infestations, professional treatment targets the colony at its source, which store-bought sprays cannot reach." },
       { q: "Are carpenter ants dangerous to my home?", a: "Yes. Carpenter ants excavate wood to create nesting galleries, which weakens structural timbers over time. Unlike termites, they don't eat wood — they remove it. Left untreated, damage can require costly repairs." },
       { q: "What's the difference between carpenter ants and termites?", a: "Carpenter ants leave smooth, clean galleries in wood and produce sawdust-like frass. Termites consume wood, leaving rough, mud-lined tunnels. Both cause structural damage, but treatment methods differ significantly." },
-      { q: "How much does ant control cost in the DC metro area?", a: "GreenShield's recurring plans start at $49/month and include ant treatment at every visit. One-time ant treatments from other providers typically range from $150-$300, but don't prevent re-infestation." },
+      { q: "How much does ant control cost in the DC metro area?", a: "PestGuard's recurring plans start at $49/month and include ant treatment at every visit. One-time ant treatments from other providers typically range from $150-$300, but don't prevent re-infestation." },
       { q: "When is ant season in Washington DC?", a: "Ant activity peaks from March through November in the DC area, with the heaviest infestations in late spring and summer. However, carpenter ants and some species remain active in heated buildings year-round." }
     ],
     ctaText: "Ready to get rid of ants for good?"
@@ -141,7 +141,7 @@ export const pests: PestData[] = [
       { q: "How do I know if I have mice or rats in my DC home?", a: "Check for droppings, gnaw marks on food packaging or wiring, scratching sounds in walls at night, and greasy smudge marks along baseboards. Any of these signs warrant a professional inspection." },
       { q: "Are rodents a health risk to my family?", a: "Yes. Mice and rats contaminate food and surfaces with urine and droppings that can carry salmonella, hantavirus, and other pathogens. They also chew electrical wiring, creating a documented fire hazard." },
       { q: "How much does rodent control cost in the DC metro area?", a: "GreenShield plans including rodent control start at $49/month. Standalone rodent exclusion services typically range from $300-$800 depending on the number of entry points needing sealing." },
-      { q: "Can mice come back after treatment?", a: "Without proper exclusion (sealing entry points), mice can return. GreenShield's approach combines trapping with exclusion and ongoing monitoring. Our recurring visits catch new activity early." },
+      { q: "Can mice come back after treatment?", a: "Without proper exclusion (sealing entry points), mice can return. PestGuard's approach combines trapping with exclusion and ongoing monitoring. Our recurring visits catch new activity early." },
       { q: "When are rodents most active in DC?", a: "Rodent activity peaks in fall and winter as mice and rats seek warmth indoors. However, they breed year-round in the DC metro area, making ongoing prevention the most effective strategy." }
     ],
     ctaText: "Ready to get rid of mice and rats for good?"
@@ -180,7 +180,7 @@ export const pests: PestData[] = [
       "Professional barrier treatments create a protective zone on your property that repels and kills mosquitoes on contact, providing consistent relief that DIY methods can't achieve. This makes the most sense for homeowners who use outdoor spaces regularly or live near waterways."
     ],
     faqs: [
-      { q: "How much does mosquito control cost in Washington DC?", a: "GreenShield's Plus and Premium plans include mosquito control. The Plus plan starts at $79/month with bi-monthly visits. Standalone mosquito-only treatments typically cost $70-$100 per application." },
+      { q: "How much does mosquito control cost in Washington DC?", a: "PestGuard's Plus and Premium plans include mosquito control. The Plus plan starts at $79/month with bi-monthly visits. Standalone mosquito-only treatments typically cost $70-$100 per application." },
       { q: "When should I start mosquito treatment in the DC area?", a: "Start in April before populations build. Monthly treatments through October provide consistent protection. Beginning early prevents the exponential population growth that makes mid-summer overwhelming." },
       { q: "Is mosquito spray safe for kids and pets?", a: "Yes. GreenShield uses EPA-approved products safe for children and pets once dry, which typically takes 30-60 minutes. We recommend keeping people and pets off treated vegetation during drying." },
       { q: "Do mosquito treatments kill bees and butterflies?", a: "Our targeted application methods minimize impact on pollinators. We apply products to mosquito resting areas rather than flowering plants, and avoid treating gardens during pollinator-active hours." },
@@ -222,7 +222,7 @@ export const pests: PestData[] = [
       "Professional treatment is essential if you find mud tubes, hollow-sounding wood, or swarmers inside your home. The cost of treatment is significantly less than the cost of structural repairs from undetected termite damage."
     ],
     faqs: [
-      { q: "How much does termite treatment cost in DC?", a: "Liquid barrier treatments typically range from $800-$2,500, and bait systems from $1,200-$3,000. GreenShield's Premium plan ($119/month) includes annual termite inspections for ongoing monitoring." },
+      { q: "How much does termite treatment cost in DC?", a: "Liquid barrier treatments typically range from $800-$2,500, and bait systems from $1,200-$3,000. PestGuard's Premium plan ($119/month) includes annual termite inspections for ongoing monitoring." },
       { q: "Does homeowners insurance cover termite damage?", a: "No. Standard homeowners insurance policies in DC, Maryland, and Virginia do not cover termite damage. This makes prevention and regular inspections especially important for protecting your investment." },
       { q: "How often should I get a termite inspection in the DC area?", a: "Annual termite inspections are recommended for all DC metro homes. Homes older than 20 years, with previous termite history, or near wooded areas should be inspected every year without exception." },
       { q: "When is termite season in Washington DC?", a: "Termite swarm season in DC runs from March through May, when winged termites emerge to start new colonies. However, subterranean termites work year-round underground and inside structures." },
@@ -352,7 +352,7 @@ export const pests: PestData[] = [
       { q: "Why do I have so many spiders in my basement?", a: "Basements provide dark, undisturbed environments with consistent moisture — ideal for spiders. More importantly, basements attract prey insects that spiders feed on. Treating the prey problem typically reduces spider populations." },
       { q: "Do spiders come inside during winter in DC?", a: "Some outdoor spiders migrate indoors as temperatures drop in fall. However, many indoor spiders are year-round residents. Sealing entry points in September and October reduces seasonal spider influx." },
       { q: "How do I keep spiders out of my garage?", a: "Seal gaps around the garage door and windows, reduce clutter, use yellow bulbs in exterior lights, and maintain regular pest treatments to reduce insect prey. Glue traps along walls help monitor activity." },
-      { q: "Does GreenShield's regular treatment cover spiders?", a: "Yes. All GreenShield plans include spider treatment as part of the regular service. Our approach targets both spiders and the insect prey that attracts them." }
+      { q: "Does PestGuard's regular treatment cover spiders?", a: "Yes. All GreenShield plans include spider treatment as part of the regular service. Our approach targets both spiders and the insect prey that attracts them." }
     ],
     ctaText: "Want fewer spiders in your home?"
   },
@@ -394,7 +394,7 @@ export const pests: PestData[] = [
       { q: "Do stink bugs cause damage to homes?", a: "No. Stink bugs don't bite, sting, or damage structures. They're a nuisance pest that enters homes for warmth. Their primary annoyance is their numbers and the foul odor when disturbed." },
       { q: "Why do stink bugs appear inside on warm winter days?", a: "Stink bugs overwintering in wall voids and attics become active when temperatures rise on sunny winter days. They're drawn toward light and warmth, appearing around windows and light fixtures." },
       { q: "How do I get stink bugs out without the smell?", a: "Use a shop vacuum — empty the canister outdoors immediately. You can also capture individual bugs with a tissue and flush them. Avoid crushing them, which triggers the defensive odor." },
-      { q: "Does GreenShield's treatment prevent stink bugs?", a: "Yes. Our Plus and Premium plans include fall preventive stink bug treatment. We apply exterior barrier treatments in late summer/early fall before migration begins." }
+      { q: "Does PestGuard's treatment prevent stink bugs?", a: "Yes. Our Plus and Premium plans include fall preventive stink bug treatment. We apply exterior barrier treatments in late summer/early fall before migration begins." }
     ],
     ctaText: "Stop stink bugs before they get in."
   },

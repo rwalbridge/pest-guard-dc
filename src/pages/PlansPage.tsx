@@ -283,7 +283,7 @@ const PlansPage = () => {
     <div className="min-h-screen">
       <Helmet>
         <title>Pest Control Plans & Pricing — GreenShield DC Metro</title>
-        <meta name="description" content="Compare GreenShield's Basic, Plus, and Premium pest control plans for DC metro homes. Transparent pricing, no contracts, first treatment free. Plans from $49/month." />
+        <meta name="description" content="Compare PestGuard's Basic, Plus, and Premium pest control plans for DC metro homes. Transparent pricing, no contracts, first treatment free. Plans from $49/month." />
         <link rel="canonical" href={`${DOMAIN}/plans`} />
         <script type="application/ld+json">{JSON.stringify(productSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>

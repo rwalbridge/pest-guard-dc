@@ -173,7 +173,7 @@ export const blogArticles: BlogArticle[] = [
       { type: 'heading', level: 2, text: "When DIY Stops Working and You Need a Pro" },
       { type: 'text', text: "Let's be honest — DIY pest prevention works great for most homeowners. Sealing gaps, eliminating standing water, keeping food stored properly. These basics go a long way." },
       { type: 'text', text: "But there's a threshold. If you're seeing pests consistently indoors despite doing the basics, if you find evidence of termites, or if rodent activity keeps coming back — that's when professional treatment makes sense. Not because DIY can't work, but because some pest problems require tools, products, and knowledge that aren't available at the hardware store." },
-      { type: 'text', text: "If you're in the DC metro area and want to skip the guesswork, GreenShield's seasonal protection plans are built around this exact calendar." },
+      { type: 'text', text: "If you're in the DC metro area and want to skip the guesswork, PestGuard's seasonal protection plans are built around this exact calendar." },
     ],
     faqs: [
       { q: "When does pest season start in Washington DC?", a: "Pest activity in DC typically begins in late February as soil temperatures rise above 50°F. Ants, termites, and overwintering insects become active well before spring officially begins." },
@@ -908,7 +908,7 @@ export const blogArticles: BlogArticle[] = [
         "Is there a contract? What are the cancellation terms?",
         "Are follow-up visits included if pests return?"
       ]},
-      { type: 'text', text: "GreenShield's plan pricing is transparent and available on our plans page — no quote needed to see what you'll pay." },
+      { type: 'text', text: "PestGuard's plan pricing is transparent and available on our plans page — no quote needed to see what you'll pay." },
     ],
     faqs: [
       { q: "How much does an exterminator cost in Washington DC?", a: "A one-time general pest treatment in DC typically costs $120-$250. Specialty treatments like termites ($800-$2,500) and bed bugs ($500-$3,000) cost more. Recurring plans run $40-$120/month." },

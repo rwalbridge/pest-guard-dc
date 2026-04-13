@@ -119,7 +119,7 @@ const LocationPage = () => {
         <meta property="og:url" content={`${DOMAIN}/locations/${location.slug}`} />
         <meta property="og:image" content={`${DOMAIN}/og-images/homepage.jpg`} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@GreenShieldDC" />
+        <meta name="twitter:site" content="@PestGuardDC" />
         <meta name="twitter:title" content={ogTitle} />
         <meta name="twitter:description" content={ogDesc} />
         <meta name="twitter:image" content={`${DOMAIN}/og-images/homepage.jpg`} />

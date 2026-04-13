@@ -19,7 +19,7 @@ function generateICS(state: {
     "BEGIN:VEVENT",
     `DTSTART:${fmt(d)}`,
     `DTEND:${fmt(end)}`,
-    "SUMMARY:GreenShield Pest Control Visit",
+    "SUMMARY:PestGuard Visit",
     `DESCRIPTION:Your first GreenShield treatment at ${state.addressFormatted || "your home"}`,
     `LOCATION:${state.addressFormatted || ""}`,
     "END:VEVENT",
@@ -55,7 +55,7 @@ const ConfirmationScreen = () => {
   };
 
   const handleShareText = () => {
-    const msg = `I just scheduled GreenShield pest control for ${quoteState.addressFormatted || "my home"}. First visit: ${dayLabel} between ${quoteState.appointmentTime || "TBD"}. greenshieldpest.com`;
+    const msg = `I just scheduled GreenShield pest control for ${quoteState.addressFormatted || "my home"}. First visit: ${dayLabel} between ${quoteState.appointmentTime || "TBD"}. pestguard.com`;
     window.open(`sms:?body=${encodeURIComponent(msg)}`, "_self");
   };
 
