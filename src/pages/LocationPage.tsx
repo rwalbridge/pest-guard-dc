@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import {
   MapPin, Shield, CheckCircle, ArrowLeft, BadgeCheck, Clock,
-  Search, SprayCan, ShieldCheck, Bug, Rat, Zap, Leaf, Bird, Snail,
+  Search, SprayCan, ShieldCheck,
   X, Star, Flower2, Sun, CloudRain, Snowflake,
 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -27,12 +27,12 @@ const fadeIn = (delay = 0) => ({
   transition: { duration: 0.5, delay },
 });
 
-/* Pest icon mapping */
-const pestIconMap: Record<string, React.ElementType> = {
-  Ants: Bug, Cockroaches: Bug, "Mice & Rats": Rat, Mice: Rat, Rodents: Rat,
-  Mosquitoes: Zap, Termites: Bug, "Bed Bugs": Bug,
-  "Wasps & Hornets": Bird, Spiders: Bug, "Stink Bugs": Leaf,
-  Silverfish: Snail, "Carpenter Ants": Bug,
+/* Pest emoji mapping */
+const pestEmojiMap: Record<string, string> = {
+  Ants: "🐜", Cockroaches: "🪳", "Mice & Rats": "🐭", Mice: "🐭", Rodents: "🐭",
+  Mosquitoes: "🦟", Termites: "🪲", "Bed Bugs": "🛏️",
+  "Wasps & Hornets": "🐝", Spiders: "🕷️", "Stink Bugs": "🐛",
+  Silverfish: "🐟", "Carpenter Ants": "🐜",
 };
 
 const pestNameToSlug: Record<string, string> = {
@@ -213,7 +213,7 @@ const LocationPage = () => {
             </motion.div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
               {location.pests.map((pest, i) => {
-                const IconComp = pestIconMap[pest.name] || Bug;
+                const emoji = pestEmojiMap[pest.name] || "🐛";
                 const pestSlug = pestNameToSlug[pest.name];
                 return (
                   <motion.div key={pest.name} {...fadeIn(i * 0.08)}>
@@ -222,7 +222,7 @@ const LocationPage = () => {
                       className="block h-full bg-card rounded-xl border-2 border-border hover:border-primary/40 hover:shadow-lg transition-all p-6 group"
                     >
                       <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                        <IconComp className="h-6 w-6 text-primary" />
+                        <span className="text-2xl" role="img" aria-label={pest.name}>{emoji}</span>
                       </div>
                       <h3 className="font-bold text-foreground text-lg group-hover:text-primary transition-colors">
                         {pest.name}
