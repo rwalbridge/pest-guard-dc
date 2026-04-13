@@ -13,54 +13,52 @@ const homeSizeOptions = [
 
 type LookupStatus = "idle" | "loading" | "success" | "failed";
 
-const fetchAttomFallback = async (address: string) => {
-  try {
-    const response = await fetch(
-      `https://api.gateway.attomdata.com/propertyapi/v1.0.0/property/basicprofile?address1=${encodeURIComponent(address)}`,
-      {
-        headers: {
-          apikey: import.meta.env.VITE_ATTOM_API_KEY || "",
-          accept: "application/json",
-        },
-      }
-    );
-    if (!response.ok) throw new Error("ATTOM failed");
-    const data = await response.json();
-    const property = data?.property?.[0]?.building?.size;
-    return {
-      squareFootage: property?.universalsize || null,
-      propertyType: data?.property?.[0]?.summary?.proptype || null,
-      yearBuilt: data?.property?.[0]?.summary?.yearbuilt || null,
-      lotSize: null,
-    };
-  } catch {
-    return null;
-  }
-};
-
 const fetchPropertyData = async (address: string) => {
   try {
+    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+    const supabaseKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+
+    if (!supabaseUrl) {
+      console.error('Supabase URL not configured');
+      return null;
+    }
+
     const response = await fetch(
-      `https://api.rentcast.io/v1/properties?address=${encodeURIComponent(address)}&limit=1`,
+      `${supabaseUrl}/functions/v1/property-lookup`,
       {
+        method: 'POST',
         headers: {
-          "X-Api-Key": import.meta.env.VITE_RENTCAST_API_KEY || "",
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${supabaseKey}`,
+          'apikey': supabaseKey || '',
         },
+        body: JSON.stringify({ address }),
       }
     );
-    if (!response.ok) throw new Error("Rentcast failed");
+
+    if (!response.ok) {
+      console.error('Property lookup failed:', response.status);
+      return null;
+    }
+
     const data = await response.json();
-    const property = data[0];
-    if (!property) throw new Error("No property found");
+
+    console.log('Quote Event: property_data_source', {
+      source: data.source,
+      hasSquareFootage: !!data.squareFootage,
+    });
+
+    if (!data.squareFootage) return null;
+
     return {
-      squareFootage: property.squareFootage || null,
-      propertyType: property.propertyType || null,
-      yearBuilt: property.yearBuilt || null,
-      lotSize: property.lotSize || null,
+      squareFootage: data.squareFootage,
+      propertyType: data.propertyType,
+      yearBuilt: data.yearBuilt,
+      lotSize: data.lotSize,
     };
-  } catch {
-    return await fetchAttomFallback(address);
+  } catch (error) {
+    console.error('Property lookup error:', error);
+    return null;
   }
 };
 
