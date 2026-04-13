@@ -123,7 +123,7 @@ const Header = ({ onGetQuote }: HeaderProps) => {
           <Link to="/" className="flex items-center gap-2">
             <Shield className="h-7 w-7 text-primary" />
             <span className="text-xl font-bold text-secondary">
-              Green<span className="text-primary">Shield</span>
+              Pest<span className="text-primary">Guard</span>
             </span>
           </Link>
 

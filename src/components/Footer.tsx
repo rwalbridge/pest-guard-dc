@@ -49,7 +49,7 @@ const Footer = () => (
           <Link to="/" className="flex items-center gap-2 mb-4">
             <Shield className="h-6 w-6 text-primary" />
             <span className="text-lg font-bold">
-              Green<span className="text-primary">Shield</span>
+              Pest<span className="text-primary">Guard</span>
             </span>
           </Link>
           <p className="text-sm text-secondary-foreground/60 leading-relaxed">
