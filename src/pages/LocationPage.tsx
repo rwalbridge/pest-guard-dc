@@ -63,7 +63,7 @@ const comparisonRows = [
 
 /* Testimonials */
 const genericTestimonials = [
-  { name: "Sarah M.", text: "GreenShield has been fantastic. After one treatment the ant problem we'd been fighting for months was completely gone.", rating: 5 },
+  { name: "Sarah M.", text: "PestGuard has been fantastic. After one treatment the ant problem we'd been fighting for months was completely gone.", rating: 5 },
   { name: "James R.", text: "Professional, on time, and they actually explain what they're doing. The best pest control company I've ever used.", rating: 5 },
   { name: "Priya K.", text: "We switched from a national chain and the difference is night and day. They know the local pest issues inside and out.", rating: 5 },
 ];
@@ -103,15 +103,15 @@ const LocationPage = () => {
     .slice(0, 4);
 
   const DOMAIN = "https://pest-guard-dc.lovable.app";
-  const ogTitle = `Pest Control in ${location.city}, ${location.state} | GreenShield`;
-  const ogDesc = `GreenShield provides eco-friendly pest control in ${location.city}. Licensed in DC, MD & VA. No contracts. Same-week service.`;
+  const ogTitle = `Pest Control in ${location.city}, ${location.state} | PestGuard`;
+  const ogDesc = `PestGuard provides eco-friendly pest control in ${location.city}. Licensed in DC, MD & VA. No contracts. Same-week service.`;
 
   return (
     <div className="min-h-screen">
       <Helmet>
         <title>{location.titleTag}</title>
         <meta name="description" content={location.metaDescription} />
-        <meta property="og:site_name" content="GreenShield" />
+        <meta property="og:site_name" content="PestGuard" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:title" content={ogTitle} />
@@ -275,7 +275,7 @@ const LocationPage = () => {
           <div className="container-max">
             <motion.div {...fadeIn()}>
               <h2 className="text-2xl sm:text-3xl font-bold text-foreground text-center">
-                GreenShield Serves All of {location.city}
+                PestGuard Serves All of {location.city}
               </h2>
             </motion.div>
             <motion.div {...fadeIn(0.1)} className="mt-10 flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
@@ -328,12 +328,12 @@ const LocationPage = () => {
               <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
                 Local Service. Better Results.
               </h2>
-              <p className="mt-3 text-muted-foreground">See how GreenShield compares to the big national chains.</p>
+              <p className="mt-3 text-muted-foreground">See how PestGuard compares to the big national chains.</p>
             </motion.div>
             <motion.div {...fadeIn(0.1)} className="bg-card rounded-xl border border-border overflow-hidden shadow-sm">
               <div className="grid grid-cols-3 text-center font-bold text-sm border-b border-border">
                 <div className="p-4 text-muted-foreground text-left">Feature</div>
-                <div className="p-4 text-primary bg-primary/5">GreenShield</div>
+                <div className="p-4 text-primary bg-primary/5">PestGuard</div>
                 <div className="p-4 text-muted-foreground">National Chains</div>
               </div>
               {comparisonRows.map((row, i) => (

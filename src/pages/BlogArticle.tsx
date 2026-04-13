@@ -211,7 +211,7 @@ const BlogArticle = () => {
         const labels = {
           'tip': 'Pro Tip',
           'warning': 'Warning',
-          'greenshield': 'GreenShield Note',
+          'greenshield': 'PestGuard Note',
           'quick-answer': 'Quick Answer',
         };
         return (
@@ -310,7 +310,7 @@ const BlogArticle = () => {
       <Helmet>
         <title>{article.titleTag}</title>
         <meta name="description" content={article.metaDescription} />
-        <meta property="og:site_name" content="GreenShield" />
+        <meta property="og:site_name" content="PestGuard" />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:title" content={article.title} />

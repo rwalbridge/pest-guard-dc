@@ -20,7 +20,7 @@ function generateICS(state: {
     `DTSTART:${fmt(d)}`,
     `DTEND:${fmt(end)}`,
     "SUMMARY:PestGuard Visit",
-    `DESCRIPTION:Your first GreenShield treatment at ${state.addressFormatted || "your home"}`,
+    `DESCRIPTION:Your first PestGuard treatment at ${state.addressFormatted || "your home"}`,
     `LOCATION:${state.addressFormatted || ""}`,
     "END:VEVENT",
     "END:VCALENDAR",
@@ -55,7 +55,7 @@ const ConfirmationScreen = () => {
   };
 
   const handleShareText = () => {
-    const msg = `I just scheduled GreenShield pest control for ${quoteState.addressFormatted || "my home"}. First visit: ${dayLabel} between ${quoteState.appointmentTime || "TBD"}. pestguard.com`;
+    const msg = `I just scheduled PestGuard pest control for ${quoteState.addressFormatted || "my home"}. First visit: ${dayLabel} between ${quoteState.appointmentTime || "TBD"}. pestguard.com`;
     window.open(`sms:?body=${encodeURIComponent(msg)}`, "_self");
   };
 
@@ -98,7 +98,7 @@ const ConfirmationScreen = () => {
       {/* Summary card */}
       <div className="mt-8 mx-auto max-w-md rounded-2xl border-2 border-primary bg-primary/5 p-7 text-left">
         <p className="text-[11px] text-muted-foreground uppercase tracking-wider font-semibold">
-          Your GreenShield Quote
+          Your PestGuard Quote
         </p>
         <p className="text-lg font-bold text-foreground mt-1">
           {quoteState.selectedPlan} Plan — {priceLabel}

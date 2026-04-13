@@ -148,16 +148,16 @@ const comparisonGroups = [
 /* ─── FAQ DATA ─── */
 const planFaqs = [
   { q: "How does the subscription work?", a: "You choose a plan and we schedule your first visit — usually within the same week. Your technician treats your home on the schedule your plan includes (quarterly, bi-monthly, or monthly). We remind you before each visit by text and email. Your card is charged monthly or annually, depending on what you choose. No surprises." },
-  { q: "Is there a contract I have to sign?", a: "No. GreenShield has no contracts, no minimum commitment, and no cancellation fees. You can pause or cancel your plan anytime by logging into your account or sending us a text. We keep customers because of our service, not because we locked them in." },
+  { q: "Is there a contract I have to sign?", a: "No. PestGuard has no contracts, no minimum commitment, and no cancellation fees. You can pause or cancel your plan anytime by logging into your account or sending us a text. We keep customers because of our service, not because we locked them in." },
   { q: "What if I see pests between visits?", a: "Call or text us. We'll schedule a free re-treatment within 48 hours on Basic and Plus plans, and within 24 hours on Premium. This is included in your plan — there's no extra charge, ever." },
   { q: "When is my first payment taken?", a: "Your first treatment is free — we don't charge anything until after your first visit is complete and you're happy with the service. After that, billing starts on a monthly or annual cycle depending on what you chose." },
   { q: "Can I upgrade or downgrade my plan later?", a: "Yes, anytime. If you start on Basic and want to add mosquito coverage for summer, upgrade to Plus in minutes from your account. Downgrade just as easily. Changes take effect at your next billing cycle." },
   { q: "Do I need to be home during treatment?", a: "No. Most customers aren't home. As long as we have access to the exterior, we can complete the treatment. For interior treatment we do ask that someone is home — we'll confirm this when scheduling." },
-  { q: "Are your products safe for kids and pets?", a: "Yes. Every product GreenShield uses is selected specifically for safety around children and pets. We use EPA-registered, eco-friendly formulations that are effective against pests and gentle on everything else. We'll let you know if any specific precautions apply after your treatment." },
+  { q: "Are your products safe for kids and pets?", a: "Yes. Every product PestGuard uses is selected specifically for safety around children and pets. We use EPA-registered, eco-friendly formulations that are effective against pests and gentle on everything else. We'll let you know if any specific precautions apply after your treatment." },
   { q: "What's the difference between Plus and Premium besides termite and bed bug coverage?", a: "Plus gives you 6 visits per year and re-treatment within 48 hours. Premium gives you 12 visits per year (monthly), a dedicated named technician who knows your home, same-day emergency service, crawlspace and attic treatment, and re-treatment within 24 hours. It's built for larger homes and homeowners who want maximum coverage." },
   { q: "Do you offer a discount for annual billing?", a: "Yes — paying annually saves you the equivalent of 2 months, which works out to about 20% off. You can switch between monthly and annual billing anytime from your account." },
-  { q: "What areas do you service?", a: "GreenShield serves the greater Washington DC metro area including DC, Northern Virginia (Arlington, Alexandria, McLean, Fairfax, Reston, Tysons), and Maryland suburbs (Bethesda, Rockville, Silver Spring, College Park, Annapolis). Not sure if we cover your area? Enter your address in our quote tool and we'll confirm instantly." },
-  { q: "Can I use GreenShield for a commercial property?", a: "Yes — our Premium plan covers commercial properties. We work with property managers, small offices, and retail spaces across the DC metro area. For larger commercial accounts contact us for a custom quote." },
+  { q: "What areas do you service?", a: "PestGuard serves the greater Washington DC metro area including DC, Northern Virginia (Arlington, Alexandria, McLean, Fairfax, Reston, Tysons), and Maryland suburbs (Bethesda, Rockville, Silver Spring, College Park, Annapolis). Not sure if we cover your area? Enter your address in our quote tool and we'll confirm instantly." },
+  { q: "Can I use PestGuard for a commercial property?", a: "Yes — our Premium plan covers commercial properties. We work with property managers, small offices, and retail spaces across the DC metro area. For larger commercial accounts contact us for a custom quote." },
   { q: "What happens if I want to cancel?", a: "Text or call us and we'll cancel your plan same day — no forms, no hold times, no cancellation fees. If you've paid annually and cancel mid-year, we'll prorate a refund for unused months." },
 ];
 
@@ -171,7 +171,7 @@ const testimonials = [
 /* ─── HOW IT WORKS STEPS ─── */
 const howSteps = [
   { icon: ClipboardList, title: "Choose Your Plan", body: "Pick Basic, Plus, or Premium. Takes 2 minutes online. No payment until your first visit is complete." },
-  { icon: Calendar, title: "We Schedule Your First Visit", body: "A licensed GreenShield technician reaches out within 2 hours to confirm your first appointment — usually available within the same week." },
+  { icon: Calendar, title: "We Schedule Your First Visit", body: "A licensed PestGuard technician reaches out within 2 hours to confirm your first appointment — usually available within the same week." },
   { icon: ShieldCheck, title: "Your Home Gets Treated", body: "Interior and exterior treatment with eco-friendly, kid-safe products. Takes 45–90 minutes. You don't even need to be home." },
   { icon: RefreshCw, title: "Stay Protected Automatically", body: "We return on your plan schedule before pests have a chance to come back. Pests return between visits? We come back within 48 hours, free." },
 ];
@@ -234,7 +234,7 @@ const CellValue = ({ value }: { value: boolean | string }) => {
 const productSchema = plans.map((p) => ({
   "@context": "https://schema.org",
   "@type": "Product",
-  name: `GreenShield ${p.name}`,
+  name: `PestGuard ${p.name}`,
   description: p.idealFor,
   offers: {
     "@type": "Offer",
@@ -282,7 +282,7 @@ const PlansPage = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>Pest Control Plans & Pricing — GreenShield DC Metro</title>
+        <title>Pest Control Plans & Pricing — PestGuard DC Metro</title>
         <meta name="description" content="Compare PestGuard's Basic, Plus, and Premium pest control plans for DC metro homes. Transparent pricing, no contracts, first treatment free. Plans from $49/month." />
         <link rel="canonical" href={`${DOMAIN}/plans`} />
         <script type="application/ld+json">{JSON.stringify(productSchema)}</script>
@@ -305,7 +305,7 @@ const PlansPage = () => {
           </h1>
 
           <p className="mt-5 text-lg max-w-[580px] mx-auto mb-10" style={{ color: "rgba(255,255,255,0.7)" }}>
-            One clear plan. One monthly price. Zero surprises. GreenShield covers your home year-round so you never have to think about pests again.
+            One clear plan. One monthly price. Zero surprises. PestGuard covers your home year-round so you never have to think about pests again.
           </p>
 
           <div className="flex flex-wrap justify-center gap-2.5">
@@ -579,7 +579,7 @@ const PlansPage = () => {
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <div className="inline-flex items-center rounded-full px-3.5 py-1 mb-6" style={{ background: "rgba(61,184,122,0.15)", border: "1px solid rgba(61,184,122,0.4)" }}>
-              <span className="text-[13px] font-medium" style={{ color: "#3DB87A" }}>The GreenShield Guarantee</span>
+              <span className="text-[13px] font-medium" style={{ color: "#3DB87A" }}>The PestGuard Guarantee</span>
             </div>
             <h2 className="text-[36px] lg:text-[42px] font-extrabold text-white leading-[1.1] mb-6">
               If Pests Come Back, So Do We.
@@ -588,7 +588,7 @@ const PlansPage = () => {
               Every plan includes our no-questions-asked re-treatment guarantee. If you see pest activity between your scheduled visits, call or text us. We'll be back within 48 hours — at no extra charge, on any plan, every time.
             </p>
             <p className="text-[17px] leading-[1.7] mb-8" style={{ color: "rgba(255,255,255,0.75)" }}>
-              We don't hide this in the fine print. It's the foundation of how GreenShield works. We keep customers because of our service — not because of contracts.
+              We don't hide this in the fine print. It's the foundation of how PestGuard works. We keep customers because of our service — not because of contracts.
             </p>
 
             <ul className="space-y-3 mb-8">
@@ -613,7 +613,7 @@ const PlansPage = () => {
             <div className="relative">
               {/* Outer glow */}
               <div className="absolute inset-0 rounded-full" style={{ width: 340, height: 340, background: "radial-gradient(circle, rgba(61,184,122,0.2) 0%, transparent 70%)" }} />
-              <svg width="340" height="340" viewBox="0 0 340 340" fill="none" className="relative z-10" role="img" aria-label="GreenShield guarantee badge">
+              <svg width="340" height="340" viewBox="0 0 340 340" fill="none" className="relative z-10" role="img" aria-label="PestGuard guarantee badge">
                 {/* Outer ring */}
                 <circle cx="170" cy="170" r="165" fill="rgba(61,184,122,0.15)" />
                 {/* Dashed rotating ring */}

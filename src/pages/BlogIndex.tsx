@@ -37,18 +37,18 @@ const BlogIndex = () => {
   return (
     <>
       <Helmet>
-        <title>The Nest — Home Protection Insights by GreenShield</title>
+        <title>The Nest — Home Protection Insights by PestGuard</title>
         <meta name="description" content="Real pest control advice for DC metro homeowners. Seasonal guides, DIY tips, pest identification, and honest pricing info." />
-        <meta property="og:site_name" content="GreenShield" />
+        <meta property="og:site_name" content="PestGuard" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_US" />
-        <meta property="og:title" content="The Nest — Home Protection Insights by GreenShield" />
+        <meta property="og:title" content="The Nest — Home Protection Insights by PestGuard" />
         <meta property="og:description" content="Real pest control advice for DC metro homeowners. Seasonal guides, DIY tips, pest identification, and honest pricing info." />
         <meta property="og:url" content={`${DOMAIN}/blog`} />
         <meta property="og:image" content={`${DOMAIN}/og-images/blog-index.jpg`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@PestGuardDC" />
-        <meta name="twitter:title" content="The Nest — Home Protection Insights by GreenShield" />
+        <meta name="twitter:title" content="The Nest — Home Protection Insights by PestGuard" />
         <meta name="twitter:description" content="Real pest control advice for DC metro homeowners. Seasonal guides, DIY tips, pest identification, and honest pricing info." />
         <meta name="twitter:image" content={`${DOMAIN}/og-images/blog-index.jpg`} />
       </Helmet>
@@ -59,7 +59,7 @@ const BlogIndex = () => {
           <div className="container-max">
             <div className="flex items-center gap-2 mb-4">
               <Shield className="h-5 w-5 text-primary" />
-              <span className="text-sm text-primary font-medium">by GreenShield</span>
+              <span className="text-sm text-primary font-medium">by PestGuard</span>
             </div>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}

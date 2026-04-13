@@ -94,7 +94,7 @@ const PestPage = () => {
   const relatedPests = pests.filter((p) => relatedSlugs.includes(p.slug));
 
   const DOMAIN = "https://pest-guard-dc.lovable.app";
-  const ogTitle = `${pest.name} Control in Washington DC | GreenShield`;
+  const ogTitle = `${pest.name} Control in Washington DC | PestGuard`;
   const ogDesc = pest.quickAnswer.length > 155 ? pest.quickAnswer.slice(0, 152) + '...' : pest.quickAnswer;
 
   return (
@@ -102,7 +102,7 @@ const PestPage = () => {
       <Helmet>
         <title>{pest.titleTag}</title>
         <meta name="description" content={pest.metaDescription} />
-        <meta property="og:site_name" content="GreenShield" />
+        <meta property="og:site_name" content="PestGuard" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:title" content={ogTitle} />
@@ -223,7 +223,7 @@ const PestPage = () => {
           <div className="container-max">
             <motion.div {...fadeIn()} className="text-center mb-14">
               <h2 className="text-2xl sm:text-3xl font-bold">
-                How GreenShield Treats {pest.name}
+                How PestGuard Treats {pest.name}
               </h2>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
@@ -441,7 +441,7 @@ const PestPage = () => {
                     From The Nest — Our Home Protection Blog
                   </h2>
                   <p className="text-base text-muted-foreground">
-                    Practical advice from the GreenShield field team
+                    Practical advice from the PestGuard field team
                   </p>
                 </motion.div>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -10,7 +10,7 @@ const steps = [
   {
     icon: Home,
     title: "We come to you. You do nothing.",
-    desc: "A licensed GreenShield technician treats your home inside and out. Kid-safe, pet-safe products. You don't even need to be there.",
+    desc: "A licensed PestGuard technician treats your home inside and out. Kid-safe, pet-safe products. You don't even need to be there.",
   },
   {
     icon: ShieldCheck,
@@ -26,7 +26,7 @@ const HowItWorks = () => (
         How It Works
       </h2>
       <p className="mt-3 text-muted-foreground max-w-lg mx-auto">
-        Three steps. Zero hassle. Here's how GreenShield keeps your home pest-free.
+        Three steps. Zero hassle. Here's how PestGuard keeps your home pest-free.
       </p>
 
       <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-10">
