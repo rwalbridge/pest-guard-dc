@@ -13,54 +13,52 @@ const homeSizeOptions = [
 
 type LookupStatus = "idle" | "loading" | "success" | "failed";
 
-const fetchAttomFallback = async (address: string) => {
-  try {
-    const response = await fetch(
-      `https://api.gateway.attomdata.com/propertyapi/v1.0.0/property/basicprofile?address1=${encodeURIComponent(address)}`,
-      {
-        headers: {
-          apikey: import.meta.env.VITE_ATTOM_API_KEY || "",
-          accept: "application/json",
-        },
-      }
-    );
-    if (!response.ok) throw new Error("ATTOM failed");
-    const data = await response.json();
-    const property = data?.property?.[0]?.building?.size;
-    return {
-      squareFootage: property?.universalsize || null,
-      propertyType: data?.property?.[0]?.summary?.proptype || null,
-      yearBuilt: data?.property?.[0]?.summary?.yearbuilt || null,
-      lotSize: null,
-    };
-  } catch {
-    return null;
-  }
-};
-
 const fetchPropertyData = async (address: string) => {
   try {
+    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+    const supabaseKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+
+    if (!supabaseUrl) {
+      console.error('Supabase URL not configured');
+      return null;
+    }
+
     const response = await fetch(
-      `https://api.rentcast.io/v1/properties?address=${encodeURIComponent(address)}&limit=1`,
+      `${supabaseUrl}/functions/v1/property-lookup`,
       {
+        method: 'POST',
         headers: {
-          "X-Api-Key": import.meta.env.VITE_RENTCAST_API_KEY || "",
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${supabaseKey}`,
+          'apikey': supabaseKey || '',
         },
+        body: JSON.stringify({ address }),
       }
     );
-    if (!response.ok) throw new Error("Rentcast failed");
+
+    if (!response.ok) {
+      console.error('Property lookup failed:', response.status);
+      return null;
+    }
+
     const data = await response.json();
-    const property = data[0];
-    if (!property) throw new Error("No property found");
+
+    console.log('Quote Event: property_data_source', {
+      source: data.source,
+      hasSquareFootage: !!data.squareFootage,
+    });
+
+    if (!data.squareFootage) return null;
+
     return {
-      squareFootage: property.squareFootage || null,
-      propertyType: property.propertyType || null,
-      yearBuilt: property.yearBuilt || null,
-      lotSize: property.lotSize || null,
+      squareFootage: data.squareFootage,
+      propertyType: data.propertyType,
+      yearBuilt: data.yearBuilt,
+      lotSize: data.lotSize,
     };
-  } catch {
-    return await fetchAttomFallback(address);
+  } catch (error) {
+    console.error('Property lookup error:', error);
+    return null;
   }
 };
 
@@ -77,20 +75,31 @@ const Step1Address = () => {
 
   // Load Google Places script dynamically
   useEffect(() => {
+  useEffect(() => {
+    const key = import.meta.env.VITE_GOOGLE_PLACES_API_KEY;
+
+    if (!key) {
+      setShowManual(true);
+      return;
+    }
+
     const g = (window as any).google;
     if (g?.maps?.places) {
       initAutocomplete();
       return;
     }
     if (document.getElementById("google-places-script")) return;
-    const key = import.meta.env.VITE_GOOGLE_PLACES_API_KEY;
-    if (!key) return;
+
     const script = document.createElement("script");
     script.id = "google-places-script";
     script.src = `https://maps.googleapis.com/maps/api/js?key=${key}&libraries=places`;
     script.async = true;
     script.defer = true;
     script.onload = () => initAutocomplete();
+    script.onerror = () => {
+      console.error("Google Places script failed to load");
+      setShowManual(true);
+    };
     document.head.appendChild(script);
   }, []);
 
@@ -98,40 +107,45 @@ const Step1Address = () => {
     const g = (window as any).google;
     if (!g?.maps?.places || !inputRef.current || autocompleteRef.current) return;
 
-    const dcBounds = new g.maps.LatLngBounds(
-      new g.maps.LatLng(38.7916, -77.5194),
-      new g.maps.LatLng(39.158, -76.9093)
-    );
+    try {
+      const dcBounds = new g.maps.LatLngBounds(
+        new g.maps.LatLng(38.7916, -77.5194),
+        new g.maps.LatLng(39.158, -76.9093)
+      );
 
-    autocompleteRef.current = new g.maps.places.Autocomplete(inputRef.current, {
-      types: ["address"],
-      componentRestrictions: { country: "us" },
-      bounds: dcBounds,
-    });
-
-    autocompleteRef.current.addListener("place_changed", () => {
-      const place = autocompleteRef.current?.getPlace();
-      if (!place?.address_components) return;
-
-      const get = (type: string) =>
-        place.address_components?.find((c: any) => c.types.includes(type))?.long_name || null;
-
-      const formatted = place.formatted_address || "";
-      const city = get("locality") || get("sublocality");
-      const state = get("administrative_area_level_1");
-      const zip = get("postal_code");
-
-      setAddressValue(formatted);
-      updateQuoteState({
-        address: formatted,
-        addressFormatted: formatted,
-        city,
-        state,
-        zipCode: zip,
+      autocompleteRef.current = new g.maps.places.Autocomplete(inputRef.current, {
+        types: ["address"],
+        componentRestrictions: { country: "us" },
+        bounds: dcBounds,
       });
 
-      handlePropertyLookup(formatted);
-    });
+      autocompleteRef.current.addListener("place_changed", () => {
+        const place = autocompleteRef.current?.getPlace();
+        if (!place?.address_components) return;
+
+        const get = (type: string) =>
+          place.address_components?.find((c: any) => c.types.includes(type))?.long_name || null;
+
+        const formatted = place.formatted_address || "";
+        const city = get("locality") || get("sublocality");
+        const state = get("administrative_area_level_1");
+        const zip = get("postal_code");
+
+        setAddressValue(formatted);
+        updateQuoteState({
+          address: formatted,
+          addressFormatted: formatted,
+          city,
+          state,
+          zipCode: zip,
+        });
+
+        handlePropertyLookup(formatted);
+      });
+    } catch (error) {
+      console.error("Google Places init failed:", error);
+      setShowManual(true);
+    }
   };
 
   const handlePropertyLookup = useCallback(
