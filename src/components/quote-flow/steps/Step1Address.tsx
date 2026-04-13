@@ -75,7 +75,6 @@ const Step1Address = () => {
 
   // Load Google Places script dynamically
   useEffect(() => {
-  useEffect(() => {
     const key = import.meta.env.VITE_GOOGLE_PLACES_API_KEY;
 
     if (!key) {
