@@ -75,20 +75,31 @@ const Step1Address = () => {
 
   // Load Google Places script dynamically
   useEffect(() => {
+  useEffect(() => {
+    const key = import.meta.env.VITE_GOOGLE_PLACES_API_KEY;
+
+    if (!key) {
+      setShowManual(true);
+      return;
+    }
+
     const g = (window as any).google;
     if (g?.maps?.places) {
       initAutocomplete();
       return;
     }
     if (document.getElementById("google-places-script")) return;
-    const key = import.meta.env.VITE_GOOGLE_PLACES_API_KEY;
-    if (!key) return;
+
     const script = document.createElement("script");
     script.id = "google-places-script";
     script.src = `https://maps.googleapis.com/maps/api/js?key=${key}&libraries=places`;
     script.async = true;
     script.defer = true;
     script.onload = () => initAutocomplete();
+    script.onerror = () => {
+      console.error("Google Places script failed to load");
+      setShowManual(true);
+    };
     document.head.appendChild(script);
   }, []);
 
