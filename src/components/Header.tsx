@@ -125,6 +125,9 @@ const Header = ({ onGetQuote }: HeaderProps) => {
             <span className="text-xl font-bold text-secondary">
               Pest<span className="text-primary">Guard</span>
             </span>
+            <span className="hidden lg:inline text-[11px] font-normal uppercase tracking-[0.08em] ml-3" style={{ color: scrolled ? '#6B7280' : 'rgba(255,255,255,0.45)' }}>
+              DC Metro Pest Control
+            </span>
           </Link>
 
           {/* Desktop Nav */}
@@ -183,7 +186,7 @@ const Header = ({ onGetQuote }: HeaderProps) => {
 
           <div className="hidden lg:block">
             <Button className="quote-trigger" onClick={onGetQuote}>
-              Get a Quote
+              Get a Free Quote
             </Button>
           </div>
 
