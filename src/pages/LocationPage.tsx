@@ -191,7 +191,7 @@ const LocationPage = () => {
                     <ul className="space-y-1.5">
                       {s.pests.map((p) => (
                         <li key={p} className="text-sm text-muted-foreground flex items-center gap-2">
-                          <Bug className="h-3.5 w-3.5 text-primary/60" />
+                          <span className="text-sm" role="img" aria-label={p}>{pestEmojiMap[p] || "🐛"}</span>
                           {p}
                         </li>
                       ))}
