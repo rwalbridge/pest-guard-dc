@@ -15,8 +15,8 @@ type LookupStatus = "idle" | "loading" | "success" | "failed";
 
 const fetchPropertyData = async (address: string) => {
   try {
-    const supabaseUrl = 'https://ghtdkmeyswcmuyrsyrhj.supabase.co';
-    const supabaseKey = 'sb_publishable_RHggplCqHm1ntSVn-mBtjA_zGntXt2j';
+    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+    const supabaseKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 
     if (!supabaseUrl) {
       console.error('Supabase URL not configured');
