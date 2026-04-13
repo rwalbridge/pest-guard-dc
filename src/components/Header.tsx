@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import { Shield, Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 
 const pestLinks = [
@@ -45,13 +44,18 @@ const Header = ({ onGetQuote }: HeaderProps) => {
   const pestRef = useRef<HTMLDivElement>(null);
   const locationRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
-  const isHome = location.pathname === "/";
+  const isHomepage = location.pathname === "/";
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    if (!isHomepage) {
+      setScrolled(false);
+      return;
+    }
+    const handleScroll = () => setScrolled(window.scrollY > 80);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isHomepage]);
 
   useEffect(() => {
     setMobileOpen(false);
@@ -68,34 +72,33 @@ const Header = ({ onGetQuote }: HeaderProps) => {
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
+  const isSolid = !isHomepage || scrolled || mobileOpen;
+
+  const navLinkClass = "text-sm font-medium transition-colors";
+  const navLinkColor = "text-white/75 hover:text-white";
+
   const anchorLink = (href: string, label: string) => {
-    if (isHome) {
+    if (isHomepage) {
       return (
-        <a
-          href={href}
-          className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-        >
+        <a href={href} className={`${navLinkClass} ${navLinkColor}`}>
           {label}
         </a>
       );
     }
     return (
-      <Link
-        to={`/${href}`}
-        className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-      >
+      <Link to={`/${href}`} className={`${navLinkClass} ${navLinkColor}`}>
         {label}
       </Link>
     );
   };
 
   const mobileAnchorLink = (href: string, label: string) => {
-    if (isHome) {
+    if (isHomepage) {
       return (
         <a
           href={href}
           onClick={() => setMobileOpen(false)}
-          className="block py-3 text-sm font-medium text-muted-foreground hover:text-foreground"
+          className={`block py-3 ${navLinkClass} ${navLinkColor}`}
         >
           {label}
         </a>
@@ -105,7 +108,7 @@ const Header = ({ onGetQuote }: HeaderProps) => {
       <Link
         to={`/${href}`}
         onClick={() => setMobileOpen(false)}
-        className="block py-3 text-sm font-medium text-muted-foreground hover:text-foreground"
+        className={`block py-3 ${navLinkClass} ${navLinkColor}`}
       >
         {label}
       </Link>
@@ -115,17 +118,22 @@ const Header = ({ onGetQuote }: HeaderProps) => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled || mobileOpen ? "bg-background/95 backdrop-blur-md shadow-sm" : "bg-transparent"
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 transition-[background,box-shadow] duration-300 ease-out"
+        style={{
+          background: isSolid ? "#0A1628" : "transparent",
+          boxShadow: isSolid ? "0 1px 0 rgba(255,255,255,0.08)" : "none",
+        }}
       >
         <div className="container-max flex items-center justify-between h-16 sm:h-20 px-4 sm:px-6 lg:px-8">
           <Link to="/" className="flex items-center gap-2">
-            <Shield className="h-7 w-7 text-primary" />
-            <span className="text-xl font-bold text-secondary">
-              Pest<span className="text-primary">Guard</span>
+            <Shield className="h-7 w-7" style={{ color: "#3DB87A" }} />
+            <span className="text-xl font-bold text-white">
+              Pest<span style={{ color: "#3DB87A" }}>Guard</span>
             </span>
-            <span className="hidden lg:inline text-[11px] font-normal uppercase tracking-[0.08em] ml-3" style={{ color: scrolled ? '#6B7280' : 'rgba(255,255,255,0.45)' }}>
+            <span
+              className="hidden lg:inline text-[11px] font-normal uppercase tracking-[0.08em] ml-3"
+              style={{ color: "rgba(255,255,255,0.45)" }}
+            >
               DC Metro Pest Control
             </span>
           </Link>
@@ -133,23 +141,52 @@ const Header = ({ onGetQuote }: HeaderProps) => {
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-6">
             {anchorLink("#how-it-works", "How It Works")}
-            <Link to="/plans" className={`text-sm font-medium transition-colors ${location.pathname === "/plans" ? "text-primary" : "text-muted-foreground hover:text-foreground"}`}>Plans</Link>
+            <Link
+              to="/plans"
+              className={`${navLinkClass} ${
+                location.pathname === "/plans"
+                  ? "text-white font-semibold"
+                  : navLinkColor
+              }`}
+            >
+              Plans
+            </Link>
 
             {/* Pest Types Dropdown */}
             <div ref={pestRef} className="relative">
               <button
                 onClick={() => { setPestDropdown(!pestDropdown); setLocationDropdown(false); }}
-                className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className={`flex items-center gap-1 ${navLinkClass} ${navLinkColor}`}
               >
-                Pest Types <ChevronDown className={`h-3.5 w-3.5 transition-transform ${pestDropdown ? "rotate-180" : ""}`} />
+                Pest Types
+                <ChevronDown
+                  className={`h-3.5 w-3.5 transition-transform ${pestDropdown ? "rotate-180" : ""}`}
+                  style={{ color: "rgba(255,255,255,0.6)" }}
+                />
               </button>
               {pestDropdown && (
-                <div className="absolute top-full left-0 mt-2 w-52 bg-background border border-border rounded-xl shadow-lg py-2 z-50">
+                <div
+                  className="absolute top-full left-0 mt-2 w-52 rounded-xl py-2 z-50"
+                  style={{
+                    background: "#0A1628",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    boxShadow: "0 8px 32px rgba(0,0,0,0.3)",
+                  }}
+                >
                   {pestLinks.map((p) => (
                     <Link
                       key={p.slug}
                       to={`/pests/${p.slug}`}
-                      className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                      className="block px-3.5 py-2 text-sm rounded-lg mx-1.5 transition-colors"
+                      style={{ color: "rgba(255,255,255,0.75)" }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.color = "white";
+                        e.currentTarget.style.background = "rgba(255,255,255,0.06)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.color = "rgba(255,255,255,0.75)";
+                        e.currentTarget.style.background = "transparent";
+                      }}
                     >
                       {p.label}
                     </Link>
@@ -162,17 +199,37 @@ const Header = ({ onGetQuote }: HeaderProps) => {
             <div ref={locationRef} className="relative">
               <button
                 onClick={() => { setLocationDropdown(!locationDropdown); setPestDropdown(false); }}
-                className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className={`flex items-center gap-1 ${navLinkClass} ${navLinkColor}`}
               >
-                Service Areas <ChevronDown className={`h-3.5 w-3.5 transition-transform ${locationDropdown ? "rotate-180" : ""}`} />
+                Service Areas
+                <ChevronDown
+                  className={`h-3.5 w-3.5 transition-transform ${locationDropdown ? "rotate-180" : ""}`}
+                  style={{ color: "rgba(255,255,255,0.6)" }}
+                />
               </button>
               {locationDropdown && (
-                <div className="absolute top-full left-0 mt-2 w-56 bg-background border border-border rounded-xl shadow-lg py-2 z-50">
+                <div
+                  className="absolute top-full left-0 mt-2 w-56 rounded-xl py-2 z-50"
+                  style={{
+                    background: "#0A1628",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    boxShadow: "0 8px 32px rgba(0,0,0,0.3)",
+                  }}
+                >
                   {locationLinks.map((l) => (
                     <Link
                       key={l.slug}
                       to={`/locations/${l.slug}`}
-                      className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                      className="block px-3.5 py-2 text-sm rounded-lg mx-1.5 transition-colors"
+                      style={{ color: "rgba(255,255,255,0.75)" }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.color = "white";
+                        e.currentTarget.style.background = "rgba(255,255,255,0.06)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.color = "rgba(255,255,255,0.75)";
+                        e.currentTarget.style.background = "transparent";
+                      }}
                     >
                       {l.label}
                     </Link>
@@ -181,17 +238,32 @@ const Header = ({ onGetQuote }: HeaderProps) => {
               )}
             </div>
 
-            <Link to="/blog" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">The Nest</Link>
+            <Link
+              to="/blog"
+              className={`${navLinkClass} ${
+                location.pathname.startsWith("/blog")
+                  ? "text-white font-semibold"
+                  : navLinkColor
+              }`}
+            >
+              The Nest
+            </Link>
           </nav>
 
           <div className="hidden lg:block">
-            <Button className="quote-trigger" onClick={onGetQuote}>
+            <button
+              onClick={onGetQuote}
+              className="rounded-full text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5"
+              style={{ background: "#3DB87A", padding: "10px 22px" }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = "#2ea86a")}
+              onMouseLeave={(e) => (e.currentTarget.style.background = "#3DB87A")}
+            >
               Get a Free Quote
-            </Button>
+            </button>
           </div>
 
           <button
-            className="lg:hidden p-2 text-foreground"
+            className="lg:hidden p-2 text-white"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -200,29 +272,41 @@ const Header = ({ onGetQuote }: HeaderProps) => {
         </div>
       </header>
 
-      {/* Mobile Nav — rendered outside header to avoid stacking context issues */}
+      {/* Mobile Nav */}
       {mobileOpen && (
-        <div className="lg:hidden fixed inset-0 top-16 sm:top-20 bg-background z-[60] overflow-y-auto">
+        <div
+          className="lg:hidden fixed inset-0 top-16 sm:top-20 z-[60] overflow-y-auto"
+          style={{
+            background: "#0A1628",
+            borderBottom: "1px solid rgba(255,255,255,0.1)",
+          }}
+        >
           <div className="px-4 pb-24 pt-2">
             {mobileAnchorLink("#how-it-works", "How It Works")}
-            <Link to="/plans" onClick={() => setMobileOpen(false)} className="block py-3 text-sm font-medium text-muted-foreground hover:text-foreground">Plans</Link>
+            <Link
+              to="/plans"
+              onClick={() => setMobileOpen(false)}
+              className={`block py-3 ${navLinkClass} ${navLinkColor}`}
+            >
+              Plans
+            </Link>
 
             {/* Mobile Pest Accordion */}
             <button
               onClick={() => setMobilePestOpen(!mobilePestOpen)}
-              className="flex items-center justify-between w-full py-3 text-sm font-medium text-muted-foreground hover:text-foreground"
+              className={`flex items-center justify-between w-full py-3 ${navLinkClass} ${navLinkColor}`}
             >
               Pest Types
               <ChevronRight className={`h-4 w-4 transition-transform ${mobilePestOpen ? "rotate-90" : ""}`} />
             </button>
             {mobilePestOpen && (
-              <div className="pl-4 border-l-2 border-primary/20 mb-2">
+              <div className="pl-4 mb-2" style={{ borderLeft: "2px solid rgba(61,184,122,0.3)" }}>
                 {pestLinks.map((p) => (
                   <Link
                     key={p.slug}
                     to={`/pests/${p.slug}`}
                     onClick={() => setMobileOpen(false)}
-                    className="block py-2.5 text-sm text-muted-foreground hover:text-foreground"
+                    className={`block py-2.5 text-sm ${navLinkColor}`}
                   >
                     {p.label}
                   </Link>
@@ -233,39 +317,45 @@ const Header = ({ onGetQuote }: HeaderProps) => {
             {/* Mobile Location Accordion */}
             <button
               onClick={() => setMobileLocationOpen(!mobileLocationOpen)}
-              className="flex items-center justify-between w-full py-3 text-sm font-medium text-muted-foreground hover:text-foreground"
+              className={`flex items-center justify-between w-full py-3 ${navLinkClass} ${navLinkColor}`}
             >
               Service Areas
               <ChevronRight className={`h-4 w-4 transition-transform ${mobileLocationOpen ? "rotate-90" : ""}`} />
             </button>
             {mobileLocationOpen && (
-              <div className="pl-4 border-l-2 border-primary/20 mb-2">
+              <div className="pl-4 mb-2" style={{ borderLeft: "2px solid rgba(61,184,122,0.3)" }}>
                 {locationLinks.map((l) => (
                   <Link
                     key={l.slug}
                     to={`/locations/${l.slug}`}
                     onClick={() => setMobileOpen(false)}
-                    className="block py-2.5 text-sm text-muted-foreground hover:text-foreground"
+                    className={`block py-2.5 text-sm ${navLinkColor}`}
                   >
                     {l.label}
                   </Link>
                 ))}
               </div>
             )}
-
           </div>
 
           {/* Pinned CTA */}
-          <div className="fixed bottom-0 left-0 right-0 bg-background border-t border-border p-4 z-[70]">
-            <Button
-              className="w-full quote-trigger"
+          <div
+            className="fixed bottom-0 left-0 right-0 p-4 z-[70]"
+            style={{
+              background: "#0A1628",
+              borderTop: "1px solid rgba(255,255,255,0.1)",
+            }}
+          >
+            <button
+              className="w-full rounded-full text-sm font-semibold text-white py-3"
+              style={{ background: "#3DB87A" }}
               onClick={() => {
                 setMobileOpen(false);
                 onGetQuote?.();
               }}
             >
-              Get a Quote
-            </Button>
+              Get a Free Quote
+            </button>
           </div>
         </div>
       )}
