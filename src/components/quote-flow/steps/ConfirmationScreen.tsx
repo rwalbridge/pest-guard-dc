@@ -49,7 +49,7 @@ const ConfirmationScreen = () => {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "greenshield-appointment.ics";
+    a.download = "pestguard-appointment.ics";
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -60,7 +60,7 @@ const ConfirmationScreen = () => {
   };
 
   const handleReturn = () => {
-    localStorage.removeItem("greenshield_quote_draft");
+    localStorage.removeItem("pestguard_quote_draft");
     closeFlow();
   };
 

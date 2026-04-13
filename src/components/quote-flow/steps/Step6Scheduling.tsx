@@ -102,7 +102,7 @@ const Step6Scheduling = () => {
     sendCustomerConfirmation(quoteState);
     sendAdminNotification(quoteState);
 
-    localStorage.removeItem("greenshield_quote_draft");
+    localStorage.removeItem("pestguard_quote_draft");
     goToNextStep();
   };
 
@@ -112,7 +112,7 @@ const Step6Scheduling = () => {
       submittedAt: new Date().toISOString(),
     });
     console.log("Quote Event:", "call_to_schedule_selected", { timestamp: new Date().toISOString() });
-    localStorage.removeItem("greenshield_quote_draft");
+    localStorage.removeItem("pestguard_quote_draft");
     goToNextStep();
   };
 

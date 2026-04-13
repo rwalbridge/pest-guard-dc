@@ -10,7 +10,7 @@ import Step5ContactDetails from "./steps/Step5ContactDetails";
 import Step6Scheduling from "./steps/Step6Scheduling";
 import ConfirmationScreen from "./steps/ConfirmationScreen";
 
-const STORAGE_KEY = "greenshield_quote_draft";
+const STORAGE_KEY = "pestguard_quote_draft";
 const DRAFT_TTL = 24 * 60 * 60 * 1000; // 24 hours
 
 const stepProgress: Record<number, number> = {
@@ -211,7 +211,7 @@ const QuoteFlow = ({ isOpen, onClose, preSelectedPlan }: QuoteFlowProps) => {
               <div className="flex items-center gap-1.5">
                 <Shield className="h-5 w-5 text-primary" />
                 <span className="text-base font-bold text-secondary">
-                  Green<span className="text-primary">Shield</span>
+                  Pest<span className="text-primary">Guard</span>
                 </span>
               </div>
 
