@@ -17,9 +17,9 @@ const Hero = ({ onGetQuote }: HeroProps) => {
 
   const trustItems = [
     { icon: Shield,    label: "Licensed in DC, MD & VA" },
-    { icon: Star,      label: "4.9 Stars · 800+ Families" },
+    { icon: Star,      label: "4.9 Stars · 800+ DC Families Protected" },
     { icon: Clock,     label: "Same-Week Service" },
-    { icon: RefreshCw, label: "If They're Back, So Are We" },
+    { icon: RefreshCw, label: "Pests Return? We Come Back Free" },
   ];
 
   return (
@@ -39,7 +39,7 @@ const Hero = ({ onGetQuote }: HeroProps) => {
         */}
         <img
           src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1400&q=85&fit=crop"
-          alt="Beautiful suburban home protected by PestGuard"
+          alt="Beautiful suburban home protected by PestGuard pest control"
           className="w-full h-full object-cover object-center"
         />
 
@@ -154,10 +154,10 @@ const Hero = ({ onGetQuote }: HeroProps) => {
                 className="text-[13px] font-semibold leading-tight"
                 style={{ color: "#0A1628" }}
               >
-                Same-week service
+                Same-week pest treatment
               </p>
               <p className="text-[11px]" style={{ color: "#6B7280" }}>
-                available in your area
+                available in DC metro
               </p>
             </div>
           </div>
@@ -189,7 +189,7 @@ const Hero = ({ onGetQuote }: HeroProps) => {
                   fontWeight: 500,
                 }}
               >
-                Eco-friendly · Kid-safe · Licensed in DC, MD &amp; VA
+                DC Metro's Trusted Pest Control — Eco-Friendly &amp; Kid-Safe
               </span>
             </motion.div>
 
@@ -230,7 +230,7 @@ const Hero = ({ onGetQuote }: HeroProps) => {
                 fontSize: "clamp(20px, 2.5vw, 26px)",
               }}
             >
-              We make sure it does.
+              PestGuard keeps pests out so you never have to think about them.
             </motion.p>
 
             {/* Body copy */}
@@ -245,10 +245,10 @@ const Hero = ({ onGetQuote }: HeroProps) => {
               }}
             >
               Most DC homeowners don't think about pest control until something
-              shows up uninvited. PestGuard runs quietly in the background —
-              eco-friendly, kid-safe treatments on a schedule that keeps your
-              home protected before problems start. No contracts, no surprises,
-              just peace of mind.
+              shows up uninvited — a mouse in the kitchen, ants on the counter,
+              termites in the walls. PestGuard handles it before it starts.
+              Eco-friendly treatments, kid-safe products, year-round protection
+              on autopilot. No contracts, no surprises.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -276,7 +276,7 @@ const Hero = ({ onGetQuote }: HeroProps) => {
                   (e.currentTarget.style.background = "#3DB87A")
                 }
               >
-                See Our Plans
+                See Pest Control Plans
               </button>
 
               <button
