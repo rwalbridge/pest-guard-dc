@@ -217,9 +217,13 @@ const Step1Address = () => {
     addressValue.length > 0 || manualDropdown || (manualSqft && parseInt(manualSqft, 10) >= 200);
 
   const handleCTA = () => {
-    if (lookupStatus === "success" || showManual) {
+    if (lookupStatus === "success") {
+      goToNextStep();
+    } else if (showManual && (manualDropdown || manualSqft)) {
+      // User filled manual fields — proceed without lookup
       goToNextStep();
     } else if (addressValue) {
+      // Try property lookup via edge function
       handlePropertyLookup(addressValue);
     }
   };
