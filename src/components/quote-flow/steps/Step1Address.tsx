@@ -107,40 +107,45 @@ const Step1Address = () => {
     const g = (window as any).google;
     if (!g?.maps?.places || !inputRef.current || autocompleteRef.current) return;
 
-    const dcBounds = new g.maps.LatLngBounds(
-      new g.maps.LatLng(38.7916, -77.5194),
-      new g.maps.LatLng(39.158, -76.9093)
-    );
+    try {
+      const dcBounds = new g.maps.LatLngBounds(
+        new g.maps.LatLng(38.7916, -77.5194),
+        new g.maps.LatLng(39.158, -76.9093)
+      );
 
-    autocompleteRef.current = new g.maps.places.Autocomplete(inputRef.current, {
-      types: ["address"],
-      componentRestrictions: { country: "us" },
-      bounds: dcBounds,
-    });
-
-    autocompleteRef.current.addListener("place_changed", () => {
-      const place = autocompleteRef.current?.getPlace();
-      if (!place?.address_components) return;
-
-      const get = (type: string) =>
-        place.address_components?.find((c: any) => c.types.includes(type))?.long_name || null;
-
-      const formatted = place.formatted_address || "";
-      const city = get("locality") || get("sublocality");
-      const state = get("administrative_area_level_1");
-      const zip = get("postal_code");
-
-      setAddressValue(formatted);
-      updateQuoteState({
-        address: formatted,
-        addressFormatted: formatted,
-        city,
-        state,
-        zipCode: zip,
+      autocompleteRef.current = new g.maps.places.Autocomplete(inputRef.current, {
+        types: ["address"],
+        componentRestrictions: { country: "us" },
+        bounds: dcBounds,
       });
 
-      handlePropertyLookup(formatted);
-    });
+      autocompleteRef.current.addListener("place_changed", () => {
+        const place = autocompleteRef.current?.getPlace();
+        if (!place?.address_components) return;
+
+        const get = (type: string) =>
+          place.address_components?.find((c: any) => c.types.includes(type))?.long_name || null;
+
+        const formatted = place.formatted_address || "";
+        const city = get("locality") || get("sublocality");
+        const state = get("administrative_area_level_1");
+        const zip = get("postal_code");
+
+        setAddressValue(formatted);
+        updateQuoteState({
+          address: formatted,
+          addressFormatted: formatted,
+          city,
+          state,
+          zipCode: zip,
+        });
+
+        handlePropertyLookup(formatted);
+      });
+    } catch (error) {
+      console.error("Google Places init failed:", error);
+      setShowManual(true);
+    }
   };
 
   const handlePropertyLookup = useCallback(
