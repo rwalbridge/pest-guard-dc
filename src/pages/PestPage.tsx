@@ -8,8 +8,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import {
-  Shield, AlertTriangle, ArrowLeft, ArrowRight, MapPin, Bug, Rat, Zap, Leaf,
-  Bird, Snail, Search, SprayCan, ShieldCheck, MessageCircle,
+  Shield, AlertTriangle, ArrowLeft, ArrowRight, MapPin,
+  Search, SprayCan, ShieldCheck, MessageCircle,
   CheckCircle, X as XIcon, Lightbulb,
 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -28,11 +28,11 @@ const fadeIn = (delay = 0) => ({
   transition: { duration: 0.5, delay },
 });
 
-/* Pest icon mapping */
-const pestIconMap: Record<string, React.ElementType> = {
-  ants: Bug, cockroaches: Bug, "mice-rats": Rat, mosquitoes: Zap,
-  termites: Bug, "bed-bugs": Bug, "wasps-hornets": Bird,
-  spiders: Bug, "stink-bugs": Leaf, silverfish: Snail,
+/* Pest emoji mapping */
+const pestEmojiMap: Record<string, string> = {
+  ants: "🐜", cockroaches: "🪳", "mice-rats": "🐭", mosquitoes: "🦟",
+  termites: "🪲", "bed-bugs": "🛏️", "wasps-hornets": "🐝",
+  spiders: "🕷️", "stink-bugs": "🐛", silverfish: "🐟",
 };
 
 /* Stat callouts per pest */
@@ -88,7 +88,7 @@ const PestPage = () => {
     );
   }
 
-  const PestIcon = pestIconMap[slug || ""] || Bug;
+  const pestEmoji = pestEmojiMap[slug || ""] || "🐛";
   const stat = pestStats[slug || ""];
   const relatedSlugs = relatedPestMap[slug || ""] || [];
   const relatedPests = pests.filter((p) => relatedSlugs.includes(p.slug));
@@ -142,7 +142,7 @@ const PestPage = () => {
               {/* Pest Illustration */}
               <motion.div {...fadeIn(0.2)} className="flex justify-center">
                 <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-secondary-foreground/5 border border-secondary-foreground/10 flex items-center justify-center">
-                  <PestIcon className="h-24 w-24 sm:h-32 sm:w-32 text-primary/40" strokeWidth={1} />
+                  <span className="text-7xl sm:text-8xl" role="img" aria-label={pest.name}>{pestEmoji}</span>
                 </div>
               </motion.div>
             </div>
@@ -374,14 +374,14 @@ const PestPage = () => {
               </motion.div>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {relatedPests.map((rp, i) => {
-                  const RpIcon = pestIconMap[rp.slug] || Bug;
+                  const rpEmoji = pestEmojiMap[rp.slug] || "🐛";
                   return (
                     <motion.div key={rp.slug} {...fadeIn(i * 0.1)}>
                       <Link
                         to={`/pests/${rp.slug}`}
                         className="block bg-card rounded-xl border border-border p-5 hover:border-primary/30 hover:shadow-md transition-all text-center group"
                       >
-                        <RpIcon className="h-8 w-8 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                        <span className="text-4xl block mx-auto mb-3 group-hover:scale-110 transition-transform inline-block" role="img" aria-label={rp.name}>{rpEmoji}</span>
                         <span className="font-semibold text-foreground group-hover:text-primary transition-colors">{rp.name}</span>
                         <p className="text-xs text-muted-foreground mt-1">Learn more →</p>
                       </Link>

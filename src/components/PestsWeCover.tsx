@@ -1,18 +1,17 @@
-import { Bug, Rat, Zap, Leaf, Bird, Snail } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const pests = [
-  { name: "Ants", icon: Bug, slug: "ants" },
-  { name: "Cockroaches", icon: Bug, slug: "cockroaches" },
-  { name: "Mice & Rats", icon: Rat, slug: "mice-rats" },
-  { name: "Mosquitoes", icon: Zap, slug: "mosquitoes" },
-  { name: "Termites", icon: Bug, slug: "termites" },
-  { name: "Bed Bugs", icon: Bug, slug: "bed-bugs" },
-  { name: "Wasps & Hornets", icon: Bird, slug: "wasps-hornets" },
-  { name: "Spiders", icon: Bug, slug: "spiders" },
-  { name: "Stink Bugs", icon: Leaf, slug: "stink-bugs" },
-  { name: "Silverfish", icon: Snail, slug: "silverfish" },
+  { name: "Ants", emoji: "🐜", slug: "ants" },
+  { name: "Cockroaches", emoji: "🪳", slug: "cockroaches" },
+  { name: "Mice & Rats", emoji: "🐭", slug: "mice-rats" },
+  { name: "Mosquitoes", emoji: "🦟", slug: "mosquitoes" },
+  { name: "Termites", emoji: "🪲", slug: "termites" },
+  { name: "Bed Bugs", emoji: "🛏️", slug: "bed-bugs" },
+  { name: "Wasps & Hornets", emoji: "🐝", slug: "wasps-hornets" },
+  { name: "Spiders", emoji: "🕷️", slug: "spiders" },
+  { name: "Stink Bugs", emoji: "🐛", slug: "stink-bugs" },
+  { name: "Silverfish", emoji: "🐟", slug: "silverfish" },
 ];
 
 const PestsWeCover = () => (
@@ -38,7 +37,7 @@ const PestsWeCover = () => (
               to={`/pests/${p.slug}`}
               className="flex flex-col items-center gap-3 p-4 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all"
             >
-              <p.icon className="h-8 w-8 text-primary" />
+              <span className="text-4xl" role="img" aria-label={p.name}>{p.emoji}</span>
               <span className="text-sm font-medium text-foreground">{p.name}</span>
             </Link>
           </motion.div>
