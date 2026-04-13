@@ -7,7 +7,7 @@ const reviews = [
     location: "Capitol Hill",
     stars: 5,
     quote:
-      "We had ants every spring. GreenShield came out, treated everything, and they haven't been back in over a year. Best money we've spent on our home.",
+      "We had ants every spring. PestGuard came out, treated everything, and they haven't been back in over a year. Best money we've spent on our home.",
   },
   {
     name: "James T.",

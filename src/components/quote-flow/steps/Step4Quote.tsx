@@ -100,7 +100,7 @@ const Step4Quote = () => {
   return (
     <div className="p-6 md:p-10">
       <h2 className="text-[28px] font-bold text-secondary leading-tight">
-        Here's your GreenShield estimate.
+        Here's your PestGuard estimate.
       </h2>
       {subParts.length > 0 && (
         <p className="mt-2 text-base text-muted-foreground">

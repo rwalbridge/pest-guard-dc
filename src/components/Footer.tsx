@@ -32,7 +32,7 @@ const pestLinks = [
 const companyLinks = [
   { label: "How It Works", href: "/#how-it-works" },
   { label: "Our Plans", href: "/plans" },
-  { label: "Why GreenShield", href: "/#why-us" },
+  { label: "Why PestGuard", href: "/#why-us" },
   { label: "Reviews", href: "/#reviews" },
   { label: "FAQ", href: "/#faq" },
   { label: "Contact Us", href: "/#plans" },
@@ -49,7 +49,7 @@ const Footer = () => (
           <Link to="/" className="flex items-center gap-2 mb-4">
             <Shield className="h-6 w-6 text-primary" />
             <span className="text-lg font-bold">
-              Green<span className="text-primary">Shield</span>
+              Pest<span className="text-primary">Guard</span>
             </span>
           </Link>
           <p className="text-sm text-secondary-foreground/60 leading-relaxed">
@@ -128,7 +128,7 @@ const Footer = () => (
 
       <div className="mt-12 pt-6 border-t border-secondary-foreground/10 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-xs text-secondary-foreground/40">
-          © {new Date().getFullYear()} GreenShield Pest Control. All rights reserved.
+          © {new Date().getFullYear()} PestGuard. All rights reserved.
         </p>
         <div className="flex gap-6 text-xs text-secondary-foreground/40">
           <span>Licensed & Insured</span>

@@ -25,13 +25,13 @@ export const locations: LocationData[] = [
     slug: "washington-dc",
     city: "Washington DC",
     state: "DC",
-    titleTag: "Pest Control in Washington DC | GreenShield — Eco-Friendly & Licensed",
+    titleTag: "Pest Control in Washington DC | PestGuard — Eco-Friendly & Licensed",
     metaDescription: "Top-rated pest control in Washington DC. Eco-friendly treatments for ants, roaches, termites & more. No contracts. Schedule same-week service today.",
     h1: "Pest Control in Washington DC",
     subtitle: "Year-Round Protection for Every Neighborhood",
     introParagraphs: [
       "Washington DC's unique mix of historic row houses, modern condominiums, and tree-lined residential streets creates the perfect environment for a wide range of pests. The city's hot, humid summers drive mosquitoes, ants, and cockroaches indoors, while older buildings with stone foundations and unfinished basements are magnets for rodents and termites.",
-      "Whether you live in a century-old Georgetown townhome or a new Navy Yard apartment, pest pressure in the District is real — and it's year-round. GreenShield delivers trusted, recurring pest control across every DC neighborhood. Our licensed technicians know the District inside and out, and we tailor every treatment plan to your home's specific needs."
+      "Whether you live in a century-old Georgetown townhome or a new Navy Yard apartment, pest pressure in the District is real — and it's year-round. PestGuard delivers trusted, recurring pest control across every DC neighborhood. Our licensed technicians know the District inside and out, and we tailor every treatment plan to your home's specific needs."
     ],
     pests: [
       { name: "Ants", description: "Odorous house ants and pavement ants are the most common ant species in DC. They enter homes through cracks in foundations and around windows, especially in spring and summer when colonies expand." },
@@ -55,8 +55,8 @@ export const locations: LocationData[] = [
     faqs: [
       { q: "Do termites affect older row houses in Capitol Hill?", a: "Yes. Eastern subterranean termites are common in Capitol Hill and other historic DC neighborhoods. Older wood-frame construction and stone foundations with limited ventilation create ideal conditions for termite colonies. Annual inspections are strongly recommended." },
       { q: "Are mosquitoes worse near the Potomac River?", a: "Mosquito activity is significantly higher near the Potomac and Anacostia Rivers. Standing water, marshlands, and poor drainage in waterfront neighborhoods increase breeding sites. Regular exterior treatments can reduce mosquito populations by up to 90%." },
-      { q: "Does GreenShield treat both apartments and houses in DC?", a: "Absolutely. We serve single-family homes, townhouses, row houses, and apartments throughout Washington DC. Our technicians adapt treatment plans to your property type and layout." },
-      { q: "How quickly can GreenShield start service in DC?", a: "We offer same-week scheduling for most DC neighborhoods. After you sign up, a technician will contact you within 24 hours to book your first visit." }
+      { q: "Does PestGuard treat both apartments and houses in DC?", a: "Absolutely. We serve single-family homes, townhouses, row houses, and apartments throughout Washington DC. Our technicians adapt treatment plans to your property type and layout." },
+      { q: "How quickly can PestGuard start service in DC?", a: "We offer same-week scheduling for most DC neighborhoods. After you sign up, a technician will contact you within 24 hours to book your first visit." }
     ],
     ctaText: "Ready to protect your DC home? Choose a plan and get started with Washington DC's most trusted pest control service. Your first treatment is free."
   },
@@ -64,13 +64,13 @@ export const locations: LocationData[] = [
     slug: "arlington-va",
     city: "Arlington",
     state: "VA",
-    titleTag: "Pest Control Arlington VA | GreenShield — Licensed & Eco-Friendly",
+    titleTag: "Pest Control Arlington VA | PestGuard — Licensed & Eco-Friendly",
     metaDescription: "Reliable pest control in Arlington, VA. Ants, roaches, mosquitoes, termites & more. Eco-friendly, no contracts. Same-week scheduling available.",
     h1: "Pest Control in Arlington, VA",
     subtitle: "Reliable Home Protection Across Every Neighborhood",
     introParagraphs: [
       "Arlington's dense mix of single-family homes, mid-rise apartments, and historic neighborhoods creates diverse pest challenges throughout the year. The county's proximity to the Potomac River and Rock Creek contribute to elevated mosquito and rodent pressure, while mature tree canopies and older construction invite ants, termites, and wildlife.",
-      "Arlington homeowners deal with pest pressure from the first warm days of March through the cold snaps of December. GreenShield provides recurring, subscription-based pest control tailored to Arlington homes. Our technicians are licensed in Virginia, trained on local pest patterns, and equipped with eco-friendly products safe for children and pets."
+      "Arlington homeowners deal with pest pressure from the first warm days of March through the cold snaps of December. PestGuard provides recurring, subscription-based pest control tailored to Arlington homes. Our technicians are licensed in Virginia, trained on local pest patterns, and equipped with eco-friendly products safe for children and pets."
     ],
     pests: [
       { name: "Ants", description: "Carpenter ants and odorous house ants are prevalent in Arlington, particularly in homes near wooded areas like along Four Mile Run. They nest in wall voids and damaged wood, often going unnoticed until colonies are well established." },
@@ -94,22 +94,22 @@ export const locations: LocationData[] = [
     faqs: [
       { q: "Are carpenter ants common in Arlington neighborhoods near parks?", a: "Yes. Carpenter ants thrive in wooded areas and are frequently found in Arlington homes near parks, creeks, and mature tree lines. They nest in damp or damaged wood and can cause structural damage over time." },
       { q: "When is mosquito season worst in Arlington?", a: "Mosquito activity peaks from June through September in Arlington, but early-season breeding can begin in April near creeks and the Potomac. Consistent exterior treatments starting in spring are the most effective preventive measure." },
-      { q: "Does GreenShield service apartment buildings in Arlington?", a: "Yes. We work with individual renters and property managers in Arlington's apartment and condo communities. We adapt treatment plans for multi-unit buildings." },
-      { q: "What eco-friendly products does GreenShield use?", a: "We use EPA-approved, reduced-risk products including botanical-based sprays, gel baits, and targeted application methods that minimize exposure. All products are safe for children, pets, and the environment." }
+      { q: "Does PestGuard service apartment buildings in Arlington?", a: "Yes. We work with individual renters and property managers in Arlington's apartment and condo communities. We adapt treatment plans for multi-unit buildings." },
+      { q: "What eco-friendly products does PestGuard use?", a: "We use EPA-approved, reduced-risk products including botanical-based sprays, gel baits, and targeted application methods that minimize exposure. All products are safe for children, pets, and the environment." }
     ],
-    ctaText: "Protect your Arlington home today. See our plans and start with a free first treatment. GreenShield is Arlington's trusted home pest protection partner."
+    ctaText: "Protect your Arlington home today. See our plans and start with a free first treatment. PestGuard is Arlington's trusted home pest protection partner."
   },
   {
     slug: "alexandria-va",
     city: "Alexandria",
     state: "VA",
-    titleTag: "Pest Control Alexandria VA | GreenShield — Trusted & Eco-Friendly",
+    titleTag: "Pest Control Alexandria VA | PestGuard — Trusted & Eco-Friendly",
     metaDescription: "Expert pest control in Alexandria, VA. Termites, ants, rodents & more. Eco-friendly, licensed, no contracts. Book same-week service now.",
     h1: "Pest Control in Alexandria, VA",
     subtitle: "Expert Protection for Old Town to the West End",
     introParagraphs: [
       "Alexandria's charm — its cobblestone streets, historic waterfront, and centuries-old architecture — comes with unique pest challenges. Old Town's row houses and brick foundations are vulnerable to termites and rodents, while the city's Potomac River frontage drives mosquito pressure from spring through fall.",
-      "Newer developments in the West End and Kingstowne face their own challenges with ants, stink bugs, and occasional wildlife intrusions. GreenShield provides eco-friendly, subscription pest control across all of Alexandria. Our Virginia-licensed technicians understand the specific pest pressures that come with Alexandria's diverse housing stock and waterfront geography."
+      "Newer developments in the West End and Kingstowne face their own challenges with ants, stink bugs, and occasional wildlife intrusions. PestGuard provides eco-friendly, subscription pest control across all of Alexandria. Our Virginia-licensed technicians understand the specific pest pressures that come with Alexandria's diverse housing stock and waterfront geography."
     ],
     pests: [
       { name: "Termites", description: "Eastern subterranean termites are a serious threat to Alexandria's older homes, especially in Old Town where original wood framing and limited crawl space ventilation are common. Annual inspections are essential for homes built before 1950." },
@@ -133,8 +133,8 @@ export const locations: LocationData[] = [
     faqs: [
       { q: "Are termites a risk in Old Town Alexandria homes?", a: "Absolutely. Old Town's historic homes — many with original wood framing, brick foundations, and limited ventilation — are prime targets for eastern subterranean termites. We recommend annual termite inspections for any home built before 1960." },
       { q: "How can I reduce mosquitoes in my Alexandria yard?", a: "Eliminate standing water, keep gutters clear, and trim vegetation. Professional exterior treatments applied monthly from April through October reduce mosquito populations significantly around your property." },
-      { q: "Does GreenShield treat condos and townhouses in Alexandria?", a: "Yes. We provide pest control for all property types in Alexandria, including condominiums, townhouses, single-family homes, and apartments. We coordinate with HOAs and property managers as needed." },
-      { q: "Is GreenShield licensed in Virginia?", a: "Yes. GreenShield holds all required Virginia Department of Agriculture and Consumer Services (VDACS) pest control licenses, and every technician is individually certified." }
+      { q: "Does PestGuard treat condos and townhouses in Alexandria?", a: "Yes. We provide pest control for all property types in Alexandria, including condominiums, townhouses, single-family homes, and apartments. We coordinate with HOAs and property managers as needed." },
+      { q: "Is PestGuard licensed in Virginia?", a: "Yes. PestGuard holds all required Virginia Department of Agriculture and Consumer Services (VDACS) pest control licenses, and every technician is individually certified." }
     ],
     ctaText: "Keep your Alexandria home pest-free. Explore our plans and start with a free first treatment today."
   },
@@ -142,13 +142,13 @@ export const locations: LocationData[] = [
     slug: "bethesda-md",
     city: "Bethesda",
     state: "MD",
-    titleTag: "Pest Control Bethesda MD | GreenShield — Safe & Eco-Friendly",
+    titleTag: "Pest Control Bethesda MD | PestGuard — Safe & Eco-Friendly",
     metaDescription: "Premium pest control in Bethesda, MD. Safe for kids & pets. Ants, termites, mosquitoes & more. No contracts. Book your first free treatment.",
     h1: "Pest Control in Bethesda, MD",
     subtitle: "Premium Protection for Your Family & Home",
     introParagraphs: [
       "Bethesda's established neighborhoods feature mature landscaping, large lots, and homes ranging from mid-century colonials to modern builds. This lush, wooded suburban environment is beautiful — but it also supports thriving pest populations.",
-      "Termites, carpenter ants, and mosquitoes benefit from Bethesda's tree cover and proximity to Rock Creek and the C&O Canal. Large homes with finished basements and attached garages create additional entry points and harborage areas for rodents and spiders. GreenShield delivers recurring, eco-friendly pest control built for Bethesda's discerning homeowners."
+      "Termites, carpenter ants, and mosquitoes benefit from Bethesda's tree cover and proximity to Rock Creek and the C&O Canal. Large homes with finished basements and attached garages create additional entry points and harborage areas for rodents and spiders. PestGuard delivers recurring, eco-friendly pest control built for Bethesda's discerning homeowners."
     ],
     pests: [
       { name: "Termites", description: "Bethesda's older homes and wooded lots make it a hotspot for eastern subterranean termites. Homes with mulch beds near foundations, wood decks, and poor drainage are at greatest risk." },
@@ -171,8 +171,8 @@ export const locations: LocationData[] = [
     ],
     faqs: [
       { q: "Are termites common in Bethesda's older homes?", a: "Very common. Homes in Bethesda built in the 1940s–1970s are especially susceptible to eastern subterranean termites due to wood framing, aging foundations, and landscaping features like mulch beds that retain moisture near the structure." },
-      { q: "What's the best way to prevent mosquitoes in Bethesda?", a: "Monthly exterior treatments from April through October are the most effective method. Also remove standing water from gutters, planters, bird baths, and pool covers. GreenShield's Plus and Premium plans include mosquito coverage." },
-      { q: "Is GreenShield's treatment safe for my garden and lawn?", a: "Yes. We use targeted application methods and EPA-approved products that minimize environmental impact. Our technicians avoid direct application to vegetable gardens and water features." },
+      { q: "What's the best way to prevent mosquitoes in Bethesda?", a: "Monthly exterior treatments from April through October are the most effective method. Also remove standing water from gutters, planters, bird baths, and pool covers. PestGuard's Plus and Premium plans include mosquito coverage." },
+      { q: "Is PestGuard's treatment safe for my garden and lawn?", a: "Yes. We use targeted application methods and EPA-approved products that minimize environmental impact. Our technicians avoid direct application to vegetable gardens and water features." },
       { q: "How often should I schedule pest control in Bethesda?", a: "For most Bethesda homes, bi-monthly treatments provide optimal year-round protection. Homes near wooded areas or with known termite history may benefit from monthly visits." }
     ],
     ctaText: "Give your Bethesda home the protection it deserves. View plans and schedule your free first treatment."
@@ -181,13 +181,13 @@ export const locations: LocationData[] = [
     slug: "rockville-md",
     city: "Rockville",
     state: "MD",
-    titleTag: "Pest Control Rockville MD | GreenShield — Licensed & Guaranteed",
+    titleTag: "Pest Control Rockville MD | PestGuard — Licensed & Guaranteed",
     metaDescription: "Dependable pest control in Rockville, MD. Ants, termites, rodents, mosquitoes. Eco-friendly, no contracts, satisfaction guaranteed. Start today.",
     h1: "Pest Control in Rockville, MD",
     subtitle: "Dependable Coverage for Homes & Families",
     introParagraphs: [
       "Rockville sits at the heart of Montgomery County, with a housing mix spanning everything from 1950s colonials in Woodley Gardens to brand-new developments near Pike & Rose. This diversity means pest challenges vary block by block.",
-      "Older homes face termite and rodent pressure from aging foundations and crawl spaces, while newer construction encounters ant and stink bug invasions through settling gaps and fresh landscaping. Rockville's creeks, parks, and suburban green spaces also support healthy mosquito populations from spring through fall. GreenShield serves Rockville with recurring, eco-friendly pest treatments."
+      "Older homes face termite and rodent pressure from aging foundations and crawl spaces, while newer construction encounters ant and stink bug invasions through settling gaps and fresh landscaping. Rockville's creeks, parks, and suburban green spaces also support healthy mosquito populations from spring through fall. PestGuard serves Rockville with recurring, eco-friendly pest treatments."
     ],
     pests: [
       { name: "Ants", description: "Odorous house ants and pavement ants are the most frequently reported pests in Rockville. They're active from March through November and often nest near kitchen and bathroom plumbing." },
@@ -209,9 +209,9 @@ export const locations: LocationData[] = [
       { title: "Guaranteed results", description: "If pests return between visits, we come back and treat for free." }
     ],
     faqs: [
-      { q: "How much does pest control cost in Rockville?", a: "GreenShield plans start at $49/month for quarterly visits. Our most popular plan is $79/month for bi-monthly service with expanded pest coverage. No contracts or hidden fees." },
+      { q: "How much does pest control cost in Rockville?", a: "PestGuard plans start at $49/month for quarterly visits. Our most popular plan is $79/month for bi-monthly service with expanded pest coverage. No contracts or hidden fees." },
       { q: "When should I start pest control in Rockville?", a: "Year-round coverage is ideal, but the best time to start is early spring before ant, termite, and mosquito activity increases. Fall is also critical for preventing rodent and stink bug intrusions." },
-      { q: "Does GreenShield handle termite inspections in Rockville?", a: "Yes. Our Premium plan includes an annual termite inspection. We also offer standalone termite evaluations for home sales and real estate transactions." },
+      { q: "Does PestGuard handle termite inspections in Rockville?", a: "Yes. Our Premium plan includes an annual termite inspection. We also offer standalone termite evaluations for home sales and real estate transactions." },
       { q: "Can I schedule service on weekends in Rockville?", a: "Yes. We offer flexible scheduling including Saturday appointments for Rockville residents. Book online or call us to find a time that works." }
     ],
     ctaText: "Protect your Rockville home. Explore plans and start with a free first treatment."
@@ -220,13 +220,13 @@ export const locations: LocationData[] = [
     slug: "silver-spring-md",
     city: "Silver Spring",
     state: "MD",
-    titleTag: "Pest Control Silver Spring MD | GreenShield — Trusted & Eco-Friendly",
+    titleTag: "Pest Control Silver Spring MD | PestGuard — Trusted & Eco-Friendly",
     metaDescription: "Expert pest control in Silver Spring, MD. Eco-friendly treatments for ants, roaches, rodents & more. No contracts, satisfaction guaranteed.",
     h1: "Pest Control in Silver Spring, MD",
     subtitle: "Trusted Protection for a Diverse Community",
     introParagraphs: [
       "Silver Spring is one of the DC metro area's most vibrant and densely populated suburbs, with a mix of high-rise apartments downtown, mid-century bungalows in Woodside and Takoma Park, and sprawling homes in Forest Glen and Four Corners.",
-      "This housing diversity creates a wide spectrum of pest challenges. Older homes face termite and rodent pressure, while apartment buildings contend with cockroaches and bed bugs. Sligo Creek and Northwest Branch provide mosquito breeding grounds that affect neighborhoods across the area. GreenShield provides subscription-based pest control tailored to Silver Spring's unique housing landscape."
+      "This housing diversity creates a wide spectrum of pest challenges. Older homes face termite and rodent pressure, while apartment buildings contend with cockroaches and bed bugs. Sligo Creek and Northwest Branch provide mosquito breeding grounds that affect neighborhoods across the area. PestGuard provides subscription-based pest control tailored to Silver Spring's unique housing landscape."
     ],
     pests: [
       { name: "Cockroaches", description: "German cockroaches are widespread in Silver Spring's older apartment buildings and townhome communities. They thrive in kitchens and bathrooms and require professional-grade treatments to eliminate." },
@@ -249,9 +249,9 @@ export const locations: LocationData[] = [
     ],
     faqs: [
       { q: "Are cockroaches hard to get rid of in Silver Spring apartments?", a: "German cockroaches in multi-unit buildings can be persistent because infestations often span multiple units. Professional treatment with gel baits and insect growth regulators is far more effective than store-bought sprays." },
-      { q: "Does GreenShield treat rental properties in Silver Spring?", a: "Yes. We work with renters and landlords throughout Silver Spring. If you're a tenant, you can sign up independently for pest protection." },
+      { q: "Does PestGuard treat rental properties in Silver Spring?", a: "Yes. We work with renters and landlords throughout Silver Spring. If you're a tenant, you can sign up independently for pest protection." },
       { q: "What's the best plan for a Silver Spring townhouse?", a: "Our Plus plan at $79/month with bi-monthly visits is the most popular choice for Silver Spring townhouses. It covers a broad range of pests including mosquitoes and stink bugs." },
-      { q: "Is GreenShield's service safe for my pets?", a: "Absolutely. All our products are EPA-approved and pet-safe. We recommend keeping pets off treated surfaces for about 30 minutes while products dry, as a precaution." }
+      { q: "Is PestGuard's service safe for my pets?", a: "Absolutely. All our products are EPA-approved and pet-safe. We recommend keeping pets off treated surfaces for about 30 minutes while products dry, as a precaution." }
     ],
     ctaText: "Start protecting your Silver Spring home today. See our plans and schedule a free first treatment."
   },
@@ -259,13 +259,13 @@ export const locations: LocationData[] = [
     slug: "mclean-va",
     city: "McLean",
     state: "VA",
-    titleTag: "Pest Control McLean VA | GreenShield — Premium & Eco-Friendly",
+    titleTag: "Pest Control McLean VA | PestGuard — Premium & Eco-Friendly",
     metaDescription: "Premium pest control in McLean, VA. Termites, ants, mosquitoes & more. Eco-friendly, licensed, satisfaction guaranteed. Start today.",
     h1: "Pest Control in McLean, VA",
     subtitle: "Premium Protection for Upscale Homes",
     introParagraphs: [
       "McLean is one of Northern Virginia's most prestigious communities, known for large estates, wooded lots, and beautifully landscaped properties. These features — mature trees, extensive gardens, and spacious basements — also create ideal conditions for termites, carpenter ants, mosquitoes, and wildlife.",
-      "Homes on larger lots with pools, guest houses, and detached garages require comprehensive perimeter protection that covers more ground than a typical suburban treatment. GreenShield provides white-glove pest control tailored to McLean's premium homes and discerning homeowners."
+      "Homes on larger lots with pools, guest houses, and detached garages require comprehensive perimeter protection that covers more ground than a typical suburban treatment. PestGuard provides white-glove pest control tailored to McLean's premium homes and discerning homeowners."
     ],
     pests: [
       { name: "Termites", description: "McLean's wooded environment and large older homes make it a high-risk area for subterranean termites. Properties with wood decks, mulch beds, and mature trees near foundations need annual monitoring." },
@@ -289,22 +289,22 @@ export const locations: LocationData[] = [
     faqs: [
       { q: "Do large McLean properties need more frequent pest control?", a: "Generally yes. Larger lots with extensive landscaping, pools, and outbuildings have more perimeter to protect. We recommend monthly treatments for estates over 4,000 sq ft." },
       { q: "How do I prevent termites on my McLean property?", a: "Reduce wood-to-soil contact, maintain proper drainage, and keep mulch at least 6 inches from your foundation. Annual professional termite inspections are the best prevention strategy." },
-      { q: "Does GreenShield treat pool houses and guest houses?", a: "Yes. Our treatment plans can cover multiple structures on your property. We treat main residences, guest houses, pool houses, and detached garages." },
+      { q: "Does PestGuard treat pool houses and guest houses?", a: "Yes. Our treatment plans can cover multiple structures on your property. We treat main residences, guest houses, pool houses, and detached garages." },
       { q: "What time of year is pest control most important in McLean?", a: "Year-round coverage is ideal. Spring and summer address ants, termites, and mosquitoes. Fall prevents stink bugs and rodent entry. Winter keeps mice and rats from nesting indoors." }
     ],
-    ctaText: "Protect your McLean estate. View our plans and experience premium pest control with GreenShield."
+    ctaText: "Protect your McLean estate. View our plans and experience premium pest control with PestGuard."
   },
   {
     slug: "fairfax-va",
     city: "Fairfax",
     state: "VA",
-    titleTag: "Pest Control Fairfax VA | GreenShield — Reliable & Eco-Friendly",
+    titleTag: "Pest Control Fairfax VA | PestGuard — Reliable & Eco-Friendly",
     metaDescription: "Trusted pest control in Fairfax, VA. Ants, termites, mosquitoes, rodents & more. Eco-friendly, no contracts. Schedule same-week service.",
     h1: "Pest Control in Fairfax, VA",
     subtitle: "Reliable Protection for Families Across the County",
     introParagraphs: [
       "Fairfax County is the largest jurisdiction in Virginia, with residential areas ranging from dense townhome communities to suburban single-family neighborhoods. The county's warm, humid summers and mild winters allow many common pests to remain active nearly year-round.",
-      "Ants, mosquitoes, and termites dominate spring and summer, while rodents and stink bugs become the primary concerns in fall and winter. Fairfax's network of streams, parks, and green spaces supports robust pest populations across every neighborhood. GreenShield provides reliable, eco-friendly pest control to homeowners throughout Fairfax."
+      "Ants, mosquitoes, and termites dominate spring and summer, while rodents and stink bugs become the primary concerns in fall and winter. Fairfax's network of streams, parks, and green spaces supports robust pest populations across every neighborhood. PestGuard provides reliable, eco-friendly pest control to homeowners throughout Fairfax."
     ],
     pests: [
       { name: "Ants", description: "Multiple ant species are active in Fairfax, including odorous house ants, pavement ants, and carpenter ants. Infestations spike in spring when colonies expand and scouts search for food sources indoors." },
@@ -328,8 +328,8 @@ export const locations: LocationData[] = [
     faqs: [
       { q: "How much does pest control cost in Fairfax County?", a: "Plans start at $49/month for quarterly service. Our Plus plan at $79/month is the most popular for Fairfax families, offering bi-monthly visits and broader pest coverage." },
       { q: "Are wasps dangerous around my Fairfax home?", a: "Yellow jackets and paper wasps can be aggressive, especially near nests. If you notice nests under eaves, in bushes, or around play areas, professional removal is safer than DIY attempts." },
-      { q: "Does GreenShield serve Vienna, Burke, and Centreville?", a: "Yes. We serve all communities within Fairfax County, including Vienna, Burke, Centreville, Chantilly, Oakton, Annandale, and more." },
-      { q: "What should I do if I find termite damage in my Fairfax home?", a: "Contact a professional immediately. Termite damage indicates an active or recent colony. GreenShield provides termite inspections and treatment as part of our Premium plan." }
+      { q: "Does PestGuard serve Vienna, Burke, and Centreville?", a: "Yes. We serve all communities within Fairfax County, including Vienna, Burke, Centreville, Chantilly, Oakton, Annandale, and more." },
+      { q: "What should I do if I find termite damage in my Fairfax home?", a: "Contact a professional immediately. Termite damage indicates an active or recent colony. PestGuard provides termite inspections and treatment as part of our Premium plan." }
     ],
     ctaText: "Secure your Fairfax home. Choose a plan and get your first treatment free."
   },
@@ -337,13 +337,13 @@ export const locations: LocationData[] = [
     slug: "reston-va",
     city: "Reston",
     state: "VA",
-    titleTag: "Pest Control Reston VA | GreenShield — Eco-Friendly & Guaranteed",
+    titleTag: "Pest Control Reston VA | PestGuard — Eco-Friendly & Guaranteed",
     metaDescription: "Professional pest control in Reston, VA. Ants, termites, mosquitoes, rodents. Eco-friendly, no contracts, satisfaction guaranteed. Get started.",
     h1: "Pest Control in Reston, VA",
     subtitle: "Community-Focused Home Protection",
     introParagraphs: [
       "Reston's planned community design — with its extensive trail system, man-made lakes, and clusters of townhomes and condos surrounded by natural areas — creates a unique pest environment. The abundance of water features supports heavy mosquito populations, while wooded common areas harbor carpenter ants, termites, and wildlife.",
-      "Reston's mix of 1960s-era original homes and modern construction means pest challenges vary significantly by neighborhood. GreenShield delivers eco-friendly pest control across all of Reston, with subscription plans designed for the community's distinct housing and environmental profile."
+      "Reston's mix of 1960s-era original homes and modern construction means pest challenges vary significantly by neighborhood. PestGuard delivers eco-friendly pest control across all of Reston, with subscription plans designed for the community's distinct housing and environmental profile."
     ],
     pests: [
       { name: "Mosquitoes", description: "Reston's lakes, streams, and stormwater features make it one of Northern Virginia's highest-pressure mosquito environments. Residents near Lake Anne and Lake Thoreau experience particularly heavy activity." },
@@ -366,23 +366,23 @@ export const locations: LocationData[] = [
     ],
     faqs: [
       { q: "Why are mosquitoes so bad in Reston?", a: "Reston's three man-made lakes, multiple streams, and extensive stormwater management features create abundant mosquito breeding habitat. Monthly exterior treatments from April through October dramatically reduce populations." },
-      { q: "Can GreenShield coordinate with my Reston HOA?", a: "Yes. We work with Reston HOAs and property managers to provide coordinated treatment for common areas and individual units." },
+      { q: "Can PestGuard coordinate with my Reston HOA?", a: "Yes. We work with Reston HOAs and property managers to provide coordinated treatment for common areas and individual units." },
       { q: "Are carpenter ants common near Reston's trails?", a: "Very common. Homes adjacent to Reston's extensive trail system and wooded common areas see elevated carpenter ant activity, especially where trees overhang roofs and decking." },
       { q: "What plan is best for a Reston townhome?", a: "Our Plus plan is ideal for Reston townhomes — bi-monthly visits, mosquito coverage, and priority scheduling at $79/month." }
     ],
-    ctaText: "Join hundreds of Reston homeowners who trust GreenShield. See plans and get started today."
+    ctaText: "Join hundreds of Reston homeowners who trust PestGuard. See plans and get started today."
   },
   {
     slug: "tysons-va",
     city: "Tysons",
     state: "VA",
-    titleTag: "Pest Control Tysons VA | GreenShield — Modern Homes, Expert Care",
+    titleTag: "Pest Control Tysons VA | PestGuard — Modern Homes, Expert Care",
     metaDescription: "Professional pest control in Tysons, VA. Ants, roaches, mosquitoes, rodents. Eco-friendly, no contracts. Same-week scheduling available.",
     h1: "Pest Control in Tysons, VA",
     subtitle: "Expert Care for a Rapidly Growing Community",
     introParagraphs: [
       "Tysons has transformed from a suburban office corridor into a thriving urban center with new high-rise condos, luxury apartments, and mixed-use developments. But rapid construction brings its own pest challenges. New buildings attract ants and cockroaches as landscaping matures, while ongoing development disturbs rodent habitats.",
-      "Older communities surrounding Tysons Corner still face traditional suburban pest pressures including termites, stink bugs, and mosquitoes. GreenShield serves both new and established Tysons residences with modern, eco-friendly pest control on a flexible subscription basis."
+      "Older communities surrounding Tysons Corner still face traditional suburban pest pressures including termites, stink bugs, and mosquitoes. PestGuard serves both new and established Tysons residences with modern, eco-friendly pest control on a flexible subscription basis."
     ],
     pests: [
       { name: "Ants", description: "Construction activity in Tysons disturbs ant colonies, driving them into nearby buildings. Odorous house ants and pavement ants are the most frequently encountered species." },
@@ -405,7 +405,7 @@ export const locations: LocationData[] = [
     ],
     faqs: [
       { q: "Do new buildings in Tysons have pest problems?", a: "Yes. New construction often attracts ants and cockroaches as landscaping matures, and construction gaps can allow rodent entry. Preventive treatment during the first year of occupancy is highly recommended." },
-      { q: "Can GreenShield treat my Tysons high-rise condo?", a: "Absolutely. We serve individual condo units and work with building management to coordinate access and treatment schedules." },
+      { q: "Can PestGuard treat my Tysons high-rise condo?", a: "Absolutely. We serve individual condo units and work with building management to coordinate access and treatment schedules." },
       { q: "How does construction activity affect pest problems in Tysons?", a: "Construction disturbs underground rodent burrows and ant colonies, pushing them toward nearby buildings. It also creates temporary water pooling that attracts mosquitoes." },
       { q: "What plan works best for a Tysons apartment?", a: "Our Basic plan at $49/month provides excellent quarterly coverage for apartments. If you're in a ground-floor or garden-level unit, the Plus plan offers more frequent visits." }
     ],
@@ -415,13 +415,13 @@ export const locations: LocationData[] = [
     slug: "college-park-md",
     city: "College Park",
     state: "MD",
-    titleTag: "Pest Control College Park MD | GreenShield — Homes & Rentals Protected",
+    titleTag: "Pest Control College Park MD | PestGuard — Homes & Rentals Protected",
     metaDescription: "Affordable pest control in College Park, MD. Ants, roaches, mice, bed bugs & more. Eco-friendly, no contracts. Perfect for homeowners & renters.",
     h1: "Pest Control in College Park, MD",
     subtitle: "Affordable Protection for Homeowners & Renters",
     introParagraphs: [
       "College Park's proximity to the University of Maryland creates a unique housing environment. The area features a mix of single-family homes, student rental properties, older apartment buildings, and newer developments along Route 1 and near the Metro.",
-      "This dense, transient housing environment presents specific pest challenges — cockroaches and bed bugs in multi-unit buildings, rodents in older rental properties, and ants and mosquitoes throughout the community. GreenShield delivers accessible, eco-friendly pest control for both homeowners and renters in College Park."
+      "This dense, transient housing environment presents specific pest challenges — cockroaches and bed bugs in multi-unit buildings, rodents in older rental properties, and ants and mosquitoes throughout the community. PestGuard delivers accessible, eco-friendly pest control for both homeowners and renters in College Park."
     ],
     pests: [
       { name: "Cockroaches", description: "German cockroaches are prevalent in College Park's older rental properties and apartment buildings. High occupant turnover and shared walls facilitate spread between units." },
@@ -443,9 +443,9 @@ export const locations: LocationData[] = [
       { title: "Maryland-licensed", description: "Full licensing and insurance. Every treatment uses safe, EPA-approved products." }
     ],
     faqs: [
-      { q: "Can renters in College Park sign up for GreenShield?", a: "Yes. You don't need your landlord's permission to sign up for pest control. Our technicians treat your unit's interior and the accessible exterior perimeter." },
+      { q: "Can renters in College Park sign up for PestGuard?", a: "Yes. You don't need your landlord's permission to sign up for pest control. Our technicians treat your unit's interior and the accessible exterior perimeter." },
       { q: "Are bed bugs common in College Park apartments?", a: "Unfortunately, yes. High tenant turnover, shared walls, and proximity to the university contribute to bed bug spread. Professional treatment is far more effective than DIY methods." },
-      { q: "Does GreenShield offer one-time treatments in College Park?", a: "While our core service is subscription-based, we do offer move-in/move-out treatments and standalone bed bug inspections for College Park residents." },
+      { q: "Does PestGuard offer one-time treatments in College Park?", a: "While our core service is subscription-based, we do offer move-in/move-out treatments and standalone bed bug inspections for College Park residents." },
       { q: "What's the most affordable pest control plan for College Park?", a: "Our Basic plan at $49/month covers quarterly visits and the most common pests. It's our most budget-friendly option and includes free re-treatments." }
     ],
     ctaText: "Protect your College Park home or rental. View plans and start with a free first treatment."
@@ -454,13 +454,13 @@ export const locations: LocationData[] = [
     slug: "annapolis-md",
     city: "Annapolis",
     state: "MD",
-    titleTag: "Pest Control Annapolis MD | GreenShield — Waterfront & Historic Home Experts",
+    titleTag: "Pest Control Annapolis MD | PestGuard — Waterfront & Historic Home Experts",
     metaDescription: "Expert pest control in Annapolis, MD. Termites, mosquitoes, ants & more. Eco-friendly, licensed, no contracts. Protect your waterfront home.",
     h1: "Pest Control in Annapolis, MD",
     subtitle: "Waterfront & Historic Home Protection",
     introParagraphs: [
       "Annapolis brings together waterfront living, historic architecture, and lush Chesapeake Bay landscapes — and all of these create distinct pest challenges. The city's proximity to the Chesapeake Bay and Severn River drives intense mosquito pressure, while historic downtown homes with centuries-old foundations are vulnerable to termites, powder post beetles, and rodents.",
-      "Waterfront properties face additional risks from moisture-loving pests. Even newer developments in West Annapolis and Parole encounter seasonal ant and stink bug invasions. GreenShield serves Annapolis with specialized, eco-friendly pest control designed for the city's waterfront environment and diverse housing stock."
+      "Waterfront properties face additional risks from moisture-loving pests. Even newer developments in West Annapolis and Parole encounter seasonal ant and stink bug invasions. PestGuard serves Annapolis with specialized, eco-friendly pest control designed for the city's waterfront environment and diverse housing stock."
     ],
     pests: [
       { name: "Mosquitoes", description: "Annapolis's Chesapeake Bay location and tidal waterways create one of Maryland's most intense mosquito environments. Without treatment, outdoor living spaces are unusable from May through October." },
@@ -484,7 +484,7 @@ export const locations: LocationData[] = [
     faqs: [
       { q: "Why are mosquitoes so bad near the Chesapeake Bay?", a: "The Chesapeake Bay, Severn River, and tidal marshes surrounding Annapolis create vast mosquito breeding habitat. Salt marsh and freshwater mosquitoes are both present, extending the season and increasing density." },
       { q: "Are termites a risk in Annapolis's Historic District?", a: "Extremely high risk. Historic District homes with original wood framing, brick foundations, and limited modern waterproofing are prime targets for subterranean termites. Annual inspections are essential." },
-      { q: "Is GreenShield's treatment safe for waterfront properties?", a: "Yes. We use EPA-approved products with targeted application methods designed to minimize runoff and protect aquatic environments. Our technicians follow strict protocols for bay-adjacent properties." },
+      { q: "Is PestGuard's treatment safe for waterfront properties?", a: "Yes. We use EPA-approved products with targeted application methods designed to minimize runoff and protect aquatic environments. Our technicians follow strict protocols for bay-adjacent properties." },
       { q: "How do I prevent rodents at my waterfront home in Annapolis?", a: "Seal gaps around docks, boathouses, and utility penetrations. Keep marine storage organized and elevated. Regular perimeter treatments and rodent exclusion are the most effective strategies." }
     ],
     ctaText: "Protect your Annapolis home from bay to backyard. Explore plans and start with a free first treatment."

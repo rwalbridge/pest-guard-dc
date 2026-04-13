@@ -23,7 +23,7 @@ export const pests: PestData[] = [
   {
     slug: "ants",
     name: "Ants",
-    titleTag: "Ant Control Washington DC & MD/VA | GreenShield — Eco-Friendly Treatment",
+    titleTag: "Ant Control Washington DC & MD/VA | PestGuard — Eco-Friendly Treatment",
     metaDescription: "Get rid of ants in your DC metro home. Eco-friendly ant control for carpenter ants, odorous ants & more. Safe for kids & pets. No contracts.",
     h1: "Ant Control in Washington DC & Surrounding Areas",
     quickAnswer: "Ant infestations are one of the most common pest problems in the DC metro area. Professional ant control targets colonies at their source, eliminates entry points, and prevents re-infestation — something store-bought sprays rarely accomplish.",
@@ -57,7 +57,7 @@ export const pests: PestData[] = [
       { q: "How do I get rid of ants in my kitchen in Washington DC?", a: "Clean up food and moisture sources, seal cracks around windows and baseboards, and use ant bait near trails. For persistent infestations, professional treatment targets the colony at its source, which store-bought sprays cannot reach." },
       { q: "Are carpenter ants dangerous to my home?", a: "Yes. Carpenter ants excavate wood to create nesting galleries, which weakens structural timbers over time. Unlike termites, they don't eat wood — they remove it. Left untreated, damage can require costly repairs." },
       { q: "What's the difference between carpenter ants and termites?", a: "Carpenter ants leave smooth, clean galleries in wood and produce sawdust-like frass. Termites consume wood, leaving rough, mud-lined tunnels. Both cause structural damage, but treatment methods differ significantly." },
-      { q: "How much does ant control cost in the DC metro area?", a: "GreenShield's recurring plans start at $49/month and include ant treatment at every visit. One-time ant treatments from other providers typically range from $150-$300, but don't prevent re-infestation." },
+      { q: "How much does ant control cost in the DC metro area?", a: "PestGuard's recurring plans start at $49/month and include ant treatment at every visit. One-time ant treatments from other providers typically range from $150-$300, but don't prevent re-infestation." },
       { q: "When is ant season in Washington DC?", a: "Ant activity peaks from March through November in the DC area, with the heaviest infestations in late spring and summer. However, carpenter ants and some species remain active in heated buildings year-round." }
     ],
     ctaText: "Ready to get rid of ants for good?"
@@ -65,7 +65,7 @@ export const pests: PestData[] = [
   {
     slug: "cockroaches",
     name: "Cockroaches",
-    titleTag: "Cockroach Control DC Metro | GreenShield — Safe, Effective Treatment",
+    titleTag: "Cockroach Control DC Metro | PestGuard — Safe, Effective Treatment",
     metaDescription: "Eliminate cockroaches in your DC metro home. German & American roach treatment. Eco-friendly, safe for families. No contracts. Get started today.",
     h1: "Cockroach Control in Washington DC & Surrounding Areas",
     quickAnswer: "Cockroaches are a health hazard that thrive in DC's warm, humid climate. Professional cockroach control uses targeted baits and growth regulators to eliminate colonies completely — far more effective than store-bought sprays, which only kill roaches on contact.",
@@ -99,7 +99,7 @@ export const pests: PestData[] = [
       { q: "Are cockroaches dangerous to my family's health?", a: "Yes. Cockroach allergens — found in their droppings, shed skins, and saliva — are a leading trigger for asthma and allergic reactions, especially in children. They also carry bacteria including Salmonella and E. coli." },
       { q: "How do I get rid of German cockroaches in my DC apartment?", a: "Keep your kitchen spotless, fix water leaks, and seal cracks around pipes and cabinets. For established infestations, professional gel bait treatment is the most effective method. Coordinate with your building manager." },
       { q: "Why do I see large cockroaches in my basement?", a: "Large cockroaches in basements are typically American cockroaches (water bugs). They enter through floor drains, foundation cracks, and utility penetrations from the storm drain system." },
-      { q: "How much does cockroach treatment cost in the DC area?", a: "GreenShield plans covering cockroach treatment start at $49/month. Standalone cockroach treatments typically cost $200-$400. Recurring treatment is more cost-effective for prevention." },
+      { q: "How much does cockroach treatment cost in the DC area?", a: "PestGuard plans covering cockroach treatment start at $49/month. Standalone cockroach treatments typically cost $200-$400. Recurring treatment is more cost-effective for prevention." },
       { q: "How long does it take to get rid of cockroaches?", a: "With professional treatment, most cockroach populations are reduced by 80-90% within 2-3 weeks. Complete elimination typically requires 2-3 treatment cycles over 4-8 weeks." }
     ],
     ctaText: "Ready to get rid of cockroaches for good?"
@@ -107,7 +107,7 @@ export const pests: PestData[] = [
   {
     slug: "mice-rats",
     name: "Mice & Rats",
-    titleTag: "Rodent Control DC Metro | GreenShield — Mice & Rat Removal",
+    titleTag: "Rodent Control DC Metro | PestGuard — Mice & Rat Removal",
     metaDescription: "Mice and rat control in Washington DC, MD & VA. Humane, eco-friendly rodent removal. Seal entry points, eliminate infestations. No contracts.",
     h1: "Mice & Rat Control in Washington DC & Surrounding Areas",
     quickAnswer: "Mice and rats are year-round pests in the DC metro area. Professional rodent control combines trapping, exclusion (sealing entry points), and monitoring to eliminate current infestations and prevent new ones — far more effective than traps alone.",
@@ -140,8 +140,8 @@ export const pests: PestData[] = [
     faqs: [
       { q: "How do I know if I have mice or rats in my DC home?", a: "Check for droppings, gnaw marks on food packaging or wiring, scratching sounds in walls at night, and greasy smudge marks along baseboards. Any of these signs warrant a professional inspection." },
       { q: "Are rodents a health risk to my family?", a: "Yes. Mice and rats contaminate food and surfaces with urine and droppings that can carry salmonella, hantavirus, and other pathogens. They also chew electrical wiring, creating a documented fire hazard." },
-      { q: "How much does rodent control cost in the DC metro area?", a: "GreenShield plans including rodent control start at $49/month. Standalone rodent exclusion services typically range from $300-$800 depending on the number of entry points needing sealing." },
-      { q: "Can mice come back after treatment?", a: "Without proper exclusion (sealing entry points), mice can return. GreenShield's approach combines trapping with exclusion and ongoing monitoring. Our recurring visits catch new activity early." },
+      { q: "How much does rodent control cost in the DC metro area?", a: "PestGuard plans including rodent control start at $49/month. Standalone rodent exclusion services typically range from $300-$800 depending on the number of entry points needing sealing." },
+      { q: "Can mice come back after treatment?", a: "Without proper exclusion (sealing entry points), mice can return. PestGuard's approach combines trapping with exclusion and ongoing monitoring. Our recurring visits catch new activity early." },
       { q: "When are rodents most active in DC?", a: "Rodent activity peaks in fall and winter as mice and rats seek warmth indoors. However, they breed year-round in the DC metro area, making ongoing prevention the most effective strategy." }
     ],
     ctaText: "Ready to get rid of mice and rats for good?"
@@ -149,7 +149,7 @@ export const pests: PestData[] = [
   {
     slug: "mosquitoes",
     name: "Mosquitoes",
-    titleTag: "Mosquito Control DC Metro | GreenShield — Yard Treatment That Works",
+    titleTag: "Mosquito Control DC Metro | PestGuard — Yard Treatment That Works",
     metaDescription: "Effective mosquito control in Washington DC, MD & VA. Monthly yard treatments reduce mosquitoes up to 90%. Eco-friendly. No contracts.",
     h1: "Mosquito Control in Washington DC & Surrounding Areas",
     quickAnswer: "Professional mosquito control in the DC metro area uses monthly barrier treatments applied to your yard's perimeter, vegetation, and standing water sources. These treatments reduce mosquito populations on your property by up to 90%, making outdoor spaces usable again.",
@@ -180,9 +180,9 @@ export const pests: PestData[] = [
       "Professional barrier treatments create a protective zone on your property that repels and kills mosquitoes on contact, providing consistent relief that DIY methods can't achieve. This makes the most sense for homeowners who use outdoor spaces regularly or live near waterways."
     ],
     faqs: [
-      { q: "How much does mosquito control cost in Washington DC?", a: "GreenShield's Plus and Premium plans include mosquito control. The Plus plan starts at $79/month with bi-monthly visits. Standalone mosquito-only treatments typically cost $70-$100 per application." },
+      { q: "How much does mosquito control cost in Washington DC?", a: "PestGuard's Plus and Premium plans include mosquito control. The Plus plan starts at $79/month with bi-monthly visits. Standalone mosquito-only treatments typically cost $70-$100 per application." },
       { q: "When should I start mosquito treatment in the DC area?", a: "Start in April before populations build. Monthly treatments through October provide consistent protection. Beginning early prevents the exponential population growth that makes mid-summer overwhelming." },
-      { q: "Is mosquito spray safe for kids and pets?", a: "Yes. GreenShield uses EPA-approved products safe for children and pets once dry, which typically takes 30-60 minutes. We recommend keeping people and pets off treated vegetation during drying." },
+      { q: "Is mosquito spray safe for kids and pets?", a: "Yes. PestGuard uses EPA-approved products safe for children and pets once dry, which typically takes 30-60 minutes. We recommend keeping people and pets off treated vegetation during drying." },
       { q: "Do mosquito treatments kill bees and butterflies?", a: "Our targeted application methods minimize impact on pollinators. We apply products to mosquito resting areas rather than flowering plants, and avoid treating gardens during pollinator-active hours." },
       { q: "What's the most effective way to reduce mosquitoes in my yard?", a: "Combine professional barrier treatment with property maintenance: eliminate standing water, keep gutters clean, trim overgrown vegetation, and repair window screens. This two-pronged approach gives the best results." }
     ],
@@ -191,7 +191,7 @@ export const pests: PestData[] = [
   {
     slug: "termites",
     name: "Termites",
-    titleTag: "Termite Control DC Metro | GreenShield — Inspection & Treatment",
+    titleTag: "Termite Control DC Metro | PestGuard — Inspection & Treatment",
     metaDescription: "Termite treatment in Washington DC, MD & VA. Annual inspections, eco-friendly treatment, prevention. Protect your home's structure. No contracts.",
     h1: "Termite Control in Washington DC & Surrounding Areas",
     quickAnswer: "Termites cause an estimated $5 billion in property damage annually in the United States, and the DC metro area's climate and housing stock make it a high-risk region. Professional termite control includes annual inspections, liquid barrier treatments or bait systems, and ongoing monitoring.",
@@ -222,7 +222,7 @@ export const pests: PestData[] = [
       "Professional treatment is essential if you find mud tubes, hollow-sounding wood, or swarmers inside your home. The cost of treatment is significantly less than the cost of structural repairs from undetected termite damage."
     ],
     faqs: [
-      { q: "How much does termite treatment cost in DC?", a: "Liquid barrier treatments typically range from $800-$2,500, and bait systems from $1,200-$3,000. GreenShield's Premium plan ($119/month) includes annual termite inspections for ongoing monitoring." },
+      { q: "How much does termite treatment cost in DC?", a: "Liquid barrier treatments typically range from $800-$2,500, and bait systems from $1,200-$3,000. PestGuard's Premium plan ($119/month) includes annual termite inspections for ongoing monitoring." },
       { q: "Does homeowners insurance cover termite damage?", a: "No. Standard homeowners insurance policies in DC, Maryland, and Virginia do not cover termite damage. This makes prevention and regular inspections especially important for protecting your investment." },
       { q: "How often should I get a termite inspection in the DC area?", a: "Annual termite inspections are recommended for all DC metro homes. Homes older than 20 years, with previous termite history, or near wooded areas should be inspected every year without exception." },
       { q: "When is termite season in Washington DC?", a: "Termite swarm season in DC runs from March through May, when winged termites emerge to start new colonies. However, subterranean termites work year-round underground and inside structures." },
@@ -233,7 +233,7 @@ export const pests: PestData[] = [
   {
     slug: "bed-bugs",
     name: "Bed Bugs",
-    titleTag: "Bed Bug Treatment DC Metro | GreenShield — Fast, Effective Removal",
+    titleTag: "Bed Bug Treatment DC Metro | PestGuard — Fast, Effective Removal",
     metaDescription: "Bed bug treatment in Washington DC, MD & VA. Professional heat and chemical treatment. Discreet, effective, guaranteed results. Contact us today.",
     h1: "Bed Bug Treatment in Washington DC & Surrounding Areas",
     quickAnswer: "Bed bugs are wingless parasitic insects that feed on human blood, typically at night. Washington DC consistently ranks among the top US cities for bed bug infestations. Professional treatment using heat or targeted chemical methods is the most reliable way to eliminate them.",
@@ -275,7 +275,7 @@ export const pests: PestData[] = [
   {
     slug: "wasps-hornets",
     name: "Wasps & Hornets",
-    titleTag: "Wasp & Hornet Control DC Metro | GreenShield — Safe Nest Removal",
+    titleTag: "Wasp & Hornet Control DC Metro | PestGuard — Safe Nest Removal",
     metaDescription: "Wasp and hornet nest removal in Washington DC, MD & VA. Safe, eco-friendly. Paper wasps, yellow jackets, hornets. Don't risk DIY. Call today.",
     h1: "Wasp & Hornet Control in Washington DC & Surrounding Areas",
     quickAnswer: "Wasps and hornets build nests around homes from spring through fall in the DC metro area. Professional removal is the safest option — disturbing a nest without proper equipment can trigger aggressive stinging behavior, which is dangerous for anyone with allergies.",
@@ -310,14 +310,14 @@ export const pests: PestData[] = [
       { q: "When are wasps most active in the DC area?", a: "Wasp activity peaks from July through October in the DC metro area. Colonies reach maximum size in late summer and become more aggressive as they compete for diminishing food sources." },
       { q: "Are bald-faced hornets dangerous?", a: "Yes. Bald-faced hornets are highly aggressive when their nest is disturbed and can sting repeatedly. Their nests should only be removed by professionals with proper protective equipment." },
       { q: "Can wasps damage my home?", a: "Wasps don't cause major structural damage, but yellow jackets nesting in wall voids can chew through interior drywall. Paper wasp nests stain surfaces and attract other pests when abandoned." },
-      { q: "How much does wasp nest removal cost in DC?", a: "Standalone wasp nest removal typically costs $100-$300 per visit. GreenShield subscribers have wasp treatment included in their recurring plan at no extra charge." }
+      { q: "How much does wasp nest removal cost in DC?", a: "Standalone wasp nest removal typically costs $100-$300 per visit. PestGuard subscribers have wasp treatment included in their recurring plan at no extra charge." }
     ],
     ctaText: "Ready to remove wasps and hornets safely?"
   },
   {
     slug: "spiders",
     name: "Spiders",
-    titleTag: "Spider Control DC Metro | GreenShield — Safe Removal & Prevention",
+    titleTag: "Spider Control DC Metro | PestGuard — Safe Removal & Prevention",
     metaDescription: "Spider control in Washington DC, MD & VA. Remove spiders and prevent infestations. Eco-friendly, safe for families. No contracts. Get protected.",
     h1: "Spider Control in Washington DC & Surrounding Areas",
     quickAnswer: "Most spiders in the DC metro area are harmless and actually beneficial — they eat other pests. However, large spider populations inside your home often indicate an underlying insect prey problem. Professional spider control addresses both the spiders and the pests attracting them.",
@@ -352,14 +352,14 @@ export const pests: PestData[] = [
       { q: "Why do I have so many spiders in my basement?", a: "Basements provide dark, undisturbed environments with consistent moisture — ideal for spiders. More importantly, basements attract prey insects that spiders feed on. Treating the prey problem typically reduces spider populations." },
       { q: "Do spiders come inside during winter in DC?", a: "Some outdoor spiders migrate indoors as temperatures drop in fall. However, many indoor spiders are year-round residents. Sealing entry points in September and October reduces seasonal spider influx." },
       { q: "How do I keep spiders out of my garage?", a: "Seal gaps around the garage door and windows, reduce clutter, use yellow bulbs in exterior lights, and maintain regular pest treatments to reduce insect prey. Glue traps along walls help monitor activity." },
-      { q: "Does GreenShield's regular treatment cover spiders?", a: "Yes. All GreenShield plans include spider treatment as part of the regular service. Our approach targets both spiders and the insect prey that attracts them." }
+      { q: "Does PestGuard's regular treatment cover spiders?", a: "Yes. All PestGuard plans include spider treatment as part of the regular service. Our approach targets both spiders and the insect prey that attracts them." }
     ],
     ctaText: "Want fewer spiders in your home?"
   },
   {
     slug: "stink-bugs",
     name: "Stink Bugs",
-    titleTag: "Stink Bug Control DC Metro | GreenShield — Prevention & Treatment",
+    titleTag: "Stink Bug Control DC Metro | PestGuard — Prevention & Treatment",
     metaDescription: "Stink bug control in Washington DC, MD & VA. Prevent fall invasions. Eco-friendly treatment, seal entry points. No contracts. Start today.",
     h1: "Stink Bug Control in Washington DC & Surrounding Areas",
     quickAnswer: "Brown marmorated stink bugs invade DC-area homes every fall seeking warmth. They don't bite or cause structural damage, but they release a foul odor when disturbed. Preventive exterior treatment in late summer is the most effective control strategy.",
@@ -394,14 +394,14 @@ export const pests: PestData[] = [
       { q: "Do stink bugs cause damage to homes?", a: "No. Stink bugs don't bite, sting, or damage structures. They're a nuisance pest that enters homes for warmth. Their primary annoyance is their numbers and the foul odor when disturbed." },
       { q: "Why do stink bugs appear inside on warm winter days?", a: "Stink bugs overwintering in wall voids and attics become active when temperatures rise on sunny winter days. They're drawn toward light and warmth, appearing around windows and light fixtures." },
       { q: "How do I get stink bugs out without the smell?", a: "Use a shop vacuum — empty the canister outdoors immediately. You can also capture individual bugs with a tissue and flush them. Avoid crushing them, which triggers the defensive odor." },
-      { q: "Does GreenShield's treatment prevent stink bugs?", a: "Yes. Our Plus and Premium plans include fall preventive stink bug treatment. We apply exterior barrier treatments in late summer/early fall before migration begins." }
+      { q: "Does PestGuard's treatment prevent stink bugs?", a: "Yes. Our Plus and Premium plans include fall preventive stink bug treatment. We apply exterior barrier treatments in late summer/early fall before migration begins." }
     ],
     ctaText: "Stop stink bugs before they get in."
   },
   {
     slug: "silverfish",
     name: "Silverfish",
-    titleTag: "Silverfish Control DC Metro | GreenShield — Removal & Prevention",
+    titleTag: "Silverfish Control DC Metro | PestGuard — Removal & Prevention",
     metaDescription: "Silverfish control in Washington DC, MD & VA. Protect books, clothes & paper. Eco-friendly treatment, moisture solutions. No contracts.",
     h1: "Silverfish Control in Washington DC & Surrounding Areas",
     quickAnswer: "Silverfish are moisture-loving insects that feed on paper, glue, and starchy materials. They're common in DC-area bathrooms, basements, and attics. Professional treatment combines targeted insecticide application with moisture reduction to eliminate them and prevent their return.",

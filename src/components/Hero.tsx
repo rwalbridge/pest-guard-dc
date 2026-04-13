@@ -39,7 +39,7 @@ const Hero = ({ onGetQuote }: HeroProps) => {
         */}
         <img
           src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1400&q=85&fit=crop"
-          alt="Beautiful suburban home protected by GreenShield"
+          alt="Beautiful suburban home protected by PestGuard"
           className="w-full h-full object-cover object-center"
         />
 
@@ -245,7 +245,7 @@ const Hero = ({ onGetQuote }: HeroProps) => {
               }}
             >
               Most DC homeowners don't think about pest control until something
-              shows up uninvited. GreenShield runs quietly in the background —
+              shows up uninvited. PestGuard runs quietly in the background —
               eco-friendly, kid-safe treatments on a schedule that keeps your
               home protected before problems start. No contracts, no surprises,
               just peace of mind.

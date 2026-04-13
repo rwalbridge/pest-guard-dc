@@ -5,7 +5,7 @@ const values = [
   {
     icon: MapPin,
     title: "We live here too.",
-    desc: "GreenShield is a local DC metro company. We know the row houses in Capitol Hill, the wooded lots in McLean, and exactly which pests show up when in this region.",
+    desc: "PestGuard is a local DC metro company. We know the row houses in Capitol Hill, the wooded lots in McLean, and exactly which pests show up when in this region.",
   },
   {
     icon: RefreshCw,
@@ -28,7 +28,7 @@ const WhyChooseUs = () => (
   <section id="why-us" className="section-padding">
     <div className="container-max text-center">
       <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-        Why DC Homeowners Choose GreenShield
+        Why DC Homeowners Choose PestGuard
       </h2>
       <p className="mt-3 text-muted-foreground max-w-lg mx-auto">
         It's not just pest control. It's peace of mind that actually shows up.

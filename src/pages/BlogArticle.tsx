@@ -211,7 +211,7 @@ const BlogArticle = () => {
         const labels = {
           'tip': 'Pro Tip',
           'warning': 'Warning',
-          'greenshield': 'GreenShield Note',
+          'greenshield': 'PestGuard Note',
           'quick-answer': 'Quick Answer',
         };
         return (
@@ -298,8 +298,8 @@ const BlogArticle = () => {
     description: article.metaDescription,
     image: article.heroImage,
     datePublished: article.publishDate,
-    author: { "@type": "Organization", name: "GreenShield Pest Control" },
-    publisher: { "@type": "Organization", name: "GreenShield Pest Control" },
+    author: { "@type": "Organization", name: "PestGuard" },
+    publisher: { "@type": "Organization", name: "PestGuard" },
   };
 
   const DOMAIN = "https://pest-guard-dc.lovable.app";
@@ -310,7 +310,7 @@ const BlogArticle = () => {
       <Helmet>
         <title>{article.titleTag}</title>
         <meta name="description" content={article.metaDescription} />
-        <meta property="og:site_name" content="GreenShield" />
+        <meta property="og:site_name" content="PestGuard" />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:title" content={article.title} />
@@ -318,7 +318,7 @@ const BlogArticle = () => {
         <meta property="og:url" content={`${DOMAIN}/blog/${article.slug}`} />
         <meta property="og:image" content={article.heroImage} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@GreenShieldDC" />
+        <meta name="twitter:site" content="@PestGuardDC" />
         <meta name="twitter:title" content={article.title} />
         <meta name="twitter:description" content={ogDesc} />
         <meta name="twitter:image" content={article.heroImage} />
