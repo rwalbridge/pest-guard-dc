@@ -239,17 +239,25 @@ const Step1Address = () => {
   };
 
   const canProceed =
-    addressValue.length > 0 || manualDropdown || (manualSqft && parseInt(manualSqft, 10) >= 200);
+    (addressValue.length > 0 || (inputRef.current?.value?.length ?? 0) > 0) ||
+    manualDropdown ||
+    (manualSqft && parseInt(manualSqft, 10) >= 200);
 
   const handleCTA = () => {
+    // For uncontrolled input, prefer the live DOM value over React state
+    const currentAddress = inputRef.current?.value || addressValue;
     if (lookupStatus === "success") {
       goToNextStep();
     } else if (showManual && (manualDropdown || manualSqft)) {
-      // User filled manual fields — proceed without lookup
+      // User filled manual fields — ensure address is saved, then proceed
+      if (currentAddress) {
+        updateQuoteState({ address: currentAddress, addressFormatted: currentAddress });
+      }
       goToNextStep();
-    } else if (addressValue) {
+    } else if (currentAddress) {
       // Try property lookup via edge function
-      handlePropertyLookup(addressValue);
+      updateQuoteState({ address: currentAddress, addressFormatted: currentAddress });
+      handlePropertyLookup(currentAddress);
     }
   };
 
@@ -276,7 +284,7 @@ const Step1Address = () => {
         <input
           ref={inputRef}
           type="text"
-          value={addressValue}
+          defaultValue={quoteState.address || ""}
           onChange={(e) => setAddressValue(e.target.value)}
           placeholder="Start typing your address..."
           disabled={lookupStatus === "loading"}
@@ -363,9 +371,9 @@ const Step1Address = () => {
         </p>
       </div>
 
-      {/* Desktop CTA */}
+      {/* CTA — shown on all screen sizes; QuoteFlow mobile bar is excluded for step 1 */}
       <Button
-        className="hidden md:flex w-full mt-8 h-[52px] text-[17px] font-bold rounded-full"
+        className="w-full mt-8 mb-4 h-[52px] text-[17px] font-bold rounded-full"
         disabled={!canProceed || lookupStatus === "loading"}
         onClick={handleCTA}
       >
