@@ -19,7 +19,7 @@ const fetchPropertyData = async (address: string) => {
     const supabaseKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 
     if (!supabaseUrl) {
-      console.error('Supabase URL not configured');
+      console.error('Supabase URL not configured — set VITE_SUPABASE_URL in env vars');
       return null;
     }
 
@@ -78,23 +78,48 @@ const Step1Address = () => {
     const key = import.meta.env.VITE_GOOGLE_PLACES_API_KEY;
 
     if (!key) {
+      console.warn("VITE_GOOGLE_PLACES_API_KEY not set — falling back to manual entry");
       setShowManual(true);
       return;
     }
 
+    // Script already loaded — try immediately, then retry once after a tick
+    // in case the modal animation means the input ref isn't attached yet
     const g = (window as any).google;
     if (g?.maps?.places) {
       initAutocomplete();
-      return;
+      // Retry after a short delay as a safety net for modal animation timing
+      const retryTimer = setTimeout(() => {
+        if (!autocompleteRef.current) initAutocomplete();
+      }, 300);
+      return () => clearTimeout(retryTimer);
     }
-    if (document.getElementById("google-places-script")) return;
 
+    // Script already injected but not yet loaded — wait for it
+    if (document.getElementById("google-places-script")) {
+      const pollTimer = setInterval(() => {
+        const g2 = (window as any).google;
+        if (g2?.maps?.places) {
+          clearInterval(pollTimer);
+          initAutocomplete();
+        }
+      }, 100);
+      return () => clearInterval(pollTimer);
+    }
+
+    // Inject the script for the first time
     const script = document.createElement("script");
     script.id = "google-places-script";
     script.src = `https://maps.googleapis.com/maps/api/js?key=${key}&libraries=places`;
     script.async = true;
     script.defer = true;
-    script.onload = () => initAutocomplete();
+    script.onload = () => {
+      initAutocomplete();
+      // Retry after modal animation settles
+      setTimeout(() => {
+        if (!autocompleteRef.current) initAutocomplete();
+      }, 300);
+    };
     script.onerror = () => {
       console.error("Google Places script failed to load");
       setShowManual(true);

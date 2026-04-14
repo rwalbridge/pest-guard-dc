@@ -140,3 +140,34 @@
     animation: none !important;
   }
 }
+
+/* ─── Google Places Autocomplete ─────────────────────────────────────────── */
+/* The pac-container (suggestions dropdown) is appended to document.body by   */
+/* the Google Maps API. Without this, it can render behind the modal overlay   */
+/* or be clipped by a parent with overflow:hidden.                             */
+.pac-container {
+  z-index: 10000 !important;
+  border-radius: 0.75rem;
+  border: 1px solid hsl(var(--border));
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  font-family: inherit;
+  margin-top: 4px;
+}
+.pac-item {
+  padding: 10px 14px;
+  font-size: 0.875rem;
+  color: hsl(var(--foreground));
+  cursor: pointer;
+}
+.pac-item:hover,
+.pac-item-selected {
+  background-color: hsl(var(--accent));
+}
+.pac-item-query {
+  font-size: 0.875rem;
+  color: hsl(var(--foreground));
+}
+.pac-matched {
+  font-weight: 600;
+  color: hsl(var(--primary));
+}
