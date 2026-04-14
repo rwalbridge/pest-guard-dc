@@ -1,1 +1,4 @@
 project_id = "zcidzweaptmaxhoxvgxj"
+
+[functions.property-lookup]
+verify_jwt = false
