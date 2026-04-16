@@ -1,9 +1,6 @@
-import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
-
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers':
-    'authorization, x-client-info, apikey, content-type',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 }
 
 /**
@@ -12,7 +9,6 @@ const corsHeaders = {
  * Output: { street: "804 N Kenmore St", cityStateZip: "Arlington, VA 22201" }
  */
 function parseAddress(address: string): { street: string; cityStateZip: string } {
-  // Strip trailing ", USA" or ", United States"
   const cleaned = address.replace(/,?\s*(USA|United States)\s*$/i, '').trim()
   const commaIdx = cleaned.indexOf(',')
   if (commaIdx === -1) return { street: cleaned, cityStateZip: '' }
@@ -22,10 +18,8 @@ function parseAddress(address: string): { street: string; cityStateZip: string }
   }
 }
 
-serve(async (req) => {
-  if (req.method === 'OPTIONS') {
-    return new Response('ok', { headers: corsHeaders })
-  }
+Deno.serve(async (req) => {
+  if (req.method === 'OPTIONS') return new Response('ok', { headers: corsHeaders })
 
   try {
     const { address } = await req.json()
@@ -40,7 +34,7 @@ serve(async (req) => {
     const { street, cityStateZip } = parseAddress(address)
     console.log('property-lookup: address=', address, '| street=', street, '| cityStateZip=', cityStateZip)
 
-    // ── Try Rentcast first ──────────────────────────────────────────────
+    // ── Try Rentcast first (falls back to ATTOM if subscription inactive) ──
     const rentcastKey = Deno.env.get('RENTCAST_API_KEY')
     if (rentcastKey) {
       try {
@@ -49,21 +43,17 @@ serve(async (req) => {
         const rentcastRes = await fetch(rentcastUrl, {
           headers: { 'X-Api-Key': rentcastKey, 'Content-Type': 'application/json' },
         })
-
         console.log('Rentcast status:', rentcastRes.status)
-        const rentcastText = await rentcastRes.text()
-        console.log('Rentcast body:', rentcastText.slice(0, 500))
 
         if (rentcastRes.ok) {
-          const data = JSON.parse(rentcastText)
+          const data = await rentcastRes.json()
           const property = Array.isArray(data) ? data[0] : data
-
           if (property?.squareFootage) {
             console.log('Rentcast success, sqft=', property.squareFootage)
             return new Response(
               JSON.stringify({
                 source: 'rentcast',
-                squareFootage: property.squareFootage || null,
+                squareFootage: property.squareFootage,
                 propertyType: property.propertyType || null,
                 yearBuilt: property.yearBuilt || null,
                 lotSize: property.lotSize || null,
@@ -81,37 +71,34 @@ serve(async (req) => {
       console.warn('RENTCAST_API_KEY not set')
     }
 
-    // ── Fallback to ATTOM ───────────────────────────────────────────────
+    // ── Fallback to ATTOM ──────────────────────────────────────────────────
+    // Note: ATTOM field is universalSize (camelCase) not universalsize
     const attomKey = Deno.env.get('ATTOM_API_KEY')
     if (attomKey) {
       try {
-        // ATTOM needs address1 (street) and address2 (city/state/zip) separately
         const attomUrl = `https://api.gateway.attomdata.com/propertyapi/v1.0.0/property/basicprofile?address1=${encodeURIComponent(street)}&address2=${encodeURIComponent(cityStateZip)}`
         console.log('ATTOM URL:', attomUrl)
         const attomRes = await fetch(attomUrl, {
           headers: { apikey: attomKey, accept: 'application/json' },
         })
-
         console.log('ATTOM status:', attomRes.status)
-        const attomText = await attomRes.text()
-        console.log('ATTOM body:', attomText.slice(0, 500))
 
         if (attomRes.ok) {
-          const data = JSON.parse(attomText)
-          const size = data?.property?.[0]?.building?.size
-          const summary = data?.property?.[0]?.summary
-
-          if (size?.universalsize) {
-            console.log('ATTOM success, sqft=', size.universalsize)
+          const data = await attomRes.json()
+          const prop = data?.property?.[0]
+          const size = prop?.building?.size
+          const summary = prop?.summary
+          if (size?.universalSize) {
+            console.log('ATTOM success, sqft=', size.universalSize)
             return new Response(
               JSON.stringify({
                 source: 'attom',
-                squareFootage: size.universalsize || null,
-                propertyType: summary?.proptype || null,
-                yearBuilt: summary?.yearbuilt || null,
-                lotSize: null,
-                bedrooms: null,
-                bathrooms: null,
+                squareFootage: size.universalSize,
+                propertyType: summary?.propType || null,
+                yearBuilt: summary?.yearBuilt || null,
+                lotSize: prop?.lot?.lotSize2 || null,
+                bedrooms: prop?.building?.rooms?.beds || null,
+                bathrooms: prop?.building?.rooms?.bathsTotal || null,
               }),
               { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
             )
@@ -135,12 +122,6 @@ serve(async (req) => {
         lotSize: null,
         bedrooms: null,
         bathrooms: null,
-        _debug: {
-          street,
-          cityStateZip,
-          rentcastKeySet: !!Deno.env.get('RENTCAST_API_KEY'),
-          attomKeySet: !!Deno.env.get('ATTOM_API_KEY'),
-        },
       }),
       { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     )
