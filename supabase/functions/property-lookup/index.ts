@@ -135,6 +135,12 @@ serve(async (req) => {
         lotSize: null,
         bedrooms: null,
         bathrooms: null,
+        _debug: {
+          street,
+          cityStateZip,
+          rentcastKeySet: !!Deno.env.get('RENTCAST_API_KEY'),
+          attomKeySet: !!Deno.env.get('ATTOM_API_KEY'),
+        },
       }),
       { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     )
