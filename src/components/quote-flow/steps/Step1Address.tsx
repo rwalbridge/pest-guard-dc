@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import { Lock, Check, Loader2 } from "lucide-react";
+import { Lock, Check, Loader2, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useQuoteFlow } from "../QuoteFlowContext";
 
@@ -19,31 +19,28 @@ const fetchPropertyData = async (address: string) => {
     const supabaseKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 
     if (!supabaseUrl) {
-      console.error('Supabase URL not configured — set VITE_SUPABASE_URL in env vars');
+      console.error("Supabase URL not configured");
       return null;
     }
 
-    const response = await fetch(
-      `${supabaseUrl}/functions/v1/property-lookup`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${supabaseKey}`,
-          'apikey': supabaseKey || '',
-        },
-        body: JSON.stringify({ address }),
-      }
-    );
+    const response = await fetch(`${supabaseUrl}/functions/v1/property-lookup`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${supabaseKey}`,
+        apikey: supabaseKey || "",
+      },
+      body: JSON.stringify({ address }),
+    });
 
     if (!response.ok) {
-      console.error('Property lookup failed:', response.status);
+      console.error("Property lookup failed:", response.status);
       return null;
     }
 
     const data = await response.json();
 
-    console.log('Quote Event: property_data_source', {
+    console.log("Quote Event: property_data_source", {
       source: data.source,
       hasSquareFootage: !!data.squareFootage,
     });
@@ -57,10 +54,17 @@ const fetchPropertyData = async (address: string) => {
       lotSize: data.lotSize,
     };
   } catch (error) {
-    console.error('Property lookup error:', error);
+    console.error("Property lookup error:", error);
     return null;
   }
 };
+
+interface Suggestion {
+  placeId: string;
+  description: string;
+  mainText: string;
+  secondaryText: string;
+}
 
 const Step1Address = () => {
   const { quoteState, updateQuoteState, goToNextStep } = useQuoteFlow();
@@ -70,10 +74,15 @@ const Step1Address = () => {
   const [manualDropdown, setManualDropdown] = useState("");
   const [manualSqft, setManualSqft] = useState("");
   const [addressValue, setAddressValue] = useState(quoteState.address || "");
-  const inputRef = useRef<HTMLInputElement>(null);
-  const autocompleteRef = useRef<any>(null);
+  const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
 
-  // Load Google Places script dynamically
+  const inputRef = useRef<HTMLInputElement>(null);
+  const suggestionsRef = useRef<HTMLDivElement>(null);
+  const serviceRef = useRef<any>(null);
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Load Google Places script and init AutocompleteService (data only — no widget)
   useEffect(() => {
     const key = import.meta.env.VITE_GOOGLE_PLACES_API_KEY;
 
@@ -83,43 +92,34 @@ const Step1Address = () => {
       return;
     }
 
-    // Script already loaded — try immediately, then retry once after a tick
-    // in case the modal animation means the input ref isn't attached yet
+    const initService = () => {
+      const g = (window as any).google;
+      if (!g?.maps?.places || serviceRef.current) return;
+      serviceRef.current = new g.maps.places.AutocompleteService();
+    };
+
     const g = (window as any).google;
     if (g?.maps?.places) {
-      initAutocomplete();
-      // Retry after a short delay as a safety net for modal animation timing
-      const retryTimer = setTimeout(() => {
-        if (!autocompleteRef.current) initAutocomplete();
-      }, 300);
-      return () => clearTimeout(retryTimer);
+      initService();
+      return;
     }
 
-    // Script already injected but not yet loaded — wait for it
     if (document.getElementById("google-places-script")) {
       const pollTimer = setInterval(() => {
-        const g2 = (window as any).google;
-        if (g2?.maps?.places) {
+        if ((window as any).google?.maps?.places) {
           clearInterval(pollTimer);
-          initAutocomplete();
+          initService();
         }
       }, 100);
       return () => clearInterval(pollTimer);
     }
 
-    // Inject the script for the first time
     const script = document.createElement("script");
     script.id = "google-places-script";
     script.src = `https://maps.googleapis.com/maps/api/js?key=${key}&libraries=places`;
     script.async = true;
     script.defer = true;
-    script.onload = () => {
-      initAutocomplete();
-      // Retry after modal animation settles
-      setTimeout(() => {
-        if (!autocompleteRef.current) initAutocomplete();
-      }, 300);
-    };
+    script.onload = initService;
     script.onerror = () => {
       console.error("Google Places script failed to load");
       setShowManual(true);
@@ -127,49 +127,95 @@ const Step1Address = () => {
     document.head.appendChild(script);
   }, []);
 
-  const initAutocomplete = () => {
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (
+        suggestionsRef.current &&
+        !suggestionsRef.current.contains(e.target as Node) &&
+        inputRef.current &&
+        !inputRef.current.contains(e.target as Node)
+      ) {
+        setShowSuggestions(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  const fetchSuggestions = (val: string) => {
+    if (!serviceRef.current || val.length < 3) {
+      setSuggestions([]);
+      setShowSuggestions(false);
+      return;
+    }
+
     const g = (window as any).google;
-    if (!g?.maps?.places || !inputRef.current || autocompleteRef.current) return;
+    const dcBounds = new g.maps.LatLngBounds(
+      new g.maps.LatLng(38.7916, -77.5194),
+      new g.maps.LatLng(39.158, -76.9093)
+    );
 
-    try {
-      const dcBounds = new g.maps.LatLngBounds(
-        new g.maps.LatLng(38.7916, -77.5194),
-        new g.maps.LatLng(39.158, -76.9093)
-      );
-
-      autocompleteRef.current = new g.maps.places.Autocomplete(inputRef.current, {
+    serviceRef.current.getPlacePredictions(
+      {
+        input: val,
         types: ["address"],
         componentRestrictions: { country: "us" },
         bounds: dcBounds,
-      });
+      },
+      (predictions: any[] | null, status: string) => {
+        const OK = (window as any).google?.maps?.places?.PlacesServiceStatus?.OK;
+        if (status === OK && predictions?.length) {
+          setSuggestions(
+            predictions.map((p) => ({
+              placeId: p.place_id,
+              description: p.description,
+              mainText: p.structured_formatting?.main_text || p.description,
+              secondaryText: p.structured_formatting?.secondary_text || "",
+            }))
+          );
+          setShowSuggestions(true);
+        } else {
+          setSuggestions([]);
+          setShowSuggestions(false);
+        }
+      }
+    );
+  };
 
-      autocompleteRef.current.addListener("place_changed", () => {
-        const place = autocompleteRef.current?.getPlace();
-        if (!place?.address_components) return;
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value;
+    setAddressValue(val);
 
-        const get = (type: string) =>
-          place.address_components?.find((c: any) => c.types.includes(type))?.long_name || null;
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    debounceRef.current = setTimeout(() => fetchSuggestions(val), 220);
+  };
 
-        const formatted = place.formatted_address || "";
-        const city = get("locality") || get("sublocality");
-        const state = get("administrative_area_level_1");
-        const zip = get("postal_code");
+  const handleSelectSuggestion = (suggestion: Suggestion) => {
+    setShowSuggestions(false);
+    setSuggestions([]);
 
-        setAddressValue(formatted);
-        updateQuoteState({
-          address: formatted,
-          addressFormatted: formatted,
-          city,
-          state,
-          zipCode: zip,
-        });
+    const formatted = suggestion.description;
+    setAddressValue(formatted);
 
-        handlePropertyLookup(formatted);
-      });
-    } catch (error) {
-      console.error("Google Places init failed:", error);
-      setShowManual(true);
-    }
+    // Try to parse city/state/zip from the description terms
+    // Description format: "123 Main St, Washington, DC 20001, USA"
+    const parts = formatted.split(",").map((s) => s.trim());
+    const city = parts[1] || null;
+    const stateZip = parts[2] || "";
+    const stateMatch = stateZip.match(/^([A-Z]{2})\s*(\d{5})?/);
+    const state = stateMatch?.[1] || null;
+    const zip = stateMatch?.[2] || null;
+
+    updateQuoteState({
+      address: formatted,
+      addressFormatted: formatted,
+      city,
+      state,
+      zipCode: zip,
+    });
+
+    handlePropertyLookup(formatted);
   };
 
   const handlePropertyLookup = useCallback(
@@ -185,7 +231,6 @@ const Step1Address = () => {
           lotSize: result.lotSize,
         });
 
-        // ANALYTICS — connect to GA4, Segment, or any platform in Prompt 10
         console.log("Quote Event:", "address_auto_detected", {
           squareFootage: result.squareFootage,
           propertyType: result.propertyType,
@@ -195,7 +240,6 @@ const Step1Address = () => {
         setLookupStatus("success");
         setTimeout(() => goToNextStep(), 600);
       } else {
-        // ANALYTICS
         console.log("Quote Event:", "address_api_failed", {
           timestamp: new Date().toISOString(),
         });
@@ -208,7 +252,6 @@ const Step1Address = () => {
 
   const handleManualLink = () => {
     setShowManual(true);
-    // ANALYTICS
     console.log("Quote Event:", "address_manual_entry", {
       timestamp: new Date().toISOString(),
     });
@@ -218,11 +261,7 @@ const Step1Address = () => {
     setManualDropdown(val);
     const opt = homeSizeOptions.find((o) => o.label === val);
     if (opt && !manualSqft) {
-      updateQuoteState({
-        squareFootage: opt.value,
-        propertyType: "Unknown",
-        yearBuilt: null,
-      });
+      updateQuoteState({ squareFootage: opt.value, propertyType: "Unknown", yearBuilt: null });
     }
   };
 
@@ -230,32 +269,23 @@ const Step1Address = () => {
     setManualSqft(val);
     const num = parseInt(val, 10);
     if (!isNaN(num) && num >= 200 && num <= 20000) {
-      updateQuoteState({
-        squareFootage: num,
-        propertyType: "Unknown",
-        yearBuilt: null,
-      });
+      updateQuoteState({ squareFootage: num, propertyType: "Unknown", yearBuilt: null });
     }
   };
 
   const canProceed =
-    (addressValue.length > 0 || (inputRef.current?.value?.length ?? 0) > 0) ||
-    manualDropdown ||
-    (manualSqft && parseInt(manualSqft, 10) >= 200);
+    addressValue.length > 0 || manualDropdown || (manualSqft && parseInt(manualSqft, 10) >= 200);
 
   const handleCTA = () => {
-    // For uncontrolled input, prefer the live DOM value over React state
-    const currentAddress = inputRef.current?.value || addressValue;
+    const currentAddress = addressValue.trim();
     if (lookupStatus === "success") {
       goToNextStep();
     } else if (showManual && (manualDropdown || manualSqft)) {
-      // User filled manual fields — ensure address is saved, then proceed
       if (currentAddress) {
         updateQuoteState({ address: currentAddress, addressFormatted: currentAddress });
       }
       goToNextStep();
     } else if (currentAddress) {
-      // Try property lookup via edge function
       updateQuoteState({ address: currentAddress, addressFormatted: currentAddress });
       handlePropertyLookup(currentAddress);
     }
@@ -279,15 +309,17 @@ const Step1Address = () => {
         </p>
       )}
 
-      {/* Address input */}
+      {/* Address input + custom dropdown */}
       <div className="relative mt-10">
         <input
           ref={inputRef}
           type="text"
-          defaultValue={quoteState.address || ""}
-          onChange={(e) => setAddressValue(e.target.value)}
+          value={addressValue}
+          onChange={handleInputChange}
+          onFocus={() => suggestions.length > 0 && setShowSuggestions(true)}
           placeholder="Start typing your address..."
           disabled={lookupStatus === "loading"}
+          autoComplete="off"
           className={`w-full h-14 px-4 pr-12 text-lg rounded-xl border-2 transition-all duration-200 outline-none bg-background text-foreground
             ${lookupStatus === "loading" ? "bg-muted border-border cursor-not-allowed" : ""}
             ${lookupStatus === "success" ? "border-primary" : "border-border focus:border-primary focus:shadow-[0_0_0_3px_rgba(61,184,122,0.15)]"}
@@ -303,6 +335,38 @@ const Step1Address = () => {
             <Check className="h-5 w-5 text-primary" />
           )}
         </div>
+
+        {/* Custom suggestions dropdown */}
+        {showSuggestions && suggestions.length > 0 && (
+          <div
+            ref={suggestionsRef}
+            className="absolute z-[10000] w-full mt-1 bg-background border border-border rounded-xl shadow-lg overflow-hidden"
+          >
+            {suggestions.map((s) => (
+              <button
+                key={s.placeId}
+                type="button"
+                onMouseDown={(e) => {
+                  e.preventDefault(); // Keep input focused
+                  handleSelectSuggestion(s);
+                }}
+                className="w-full px-4 py-3 text-left hover:bg-accent transition-colors border-b border-border last:border-0 flex items-start gap-3"
+              >
+                <MapPin className="h-4 w-4 text-muted-foreground mt-0.5 shrink-0" />
+                <span className="min-w-0">
+                  <span className="block text-sm font-medium text-foreground truncate">
+                    {s.mainText}
+                  </span>
+                  {s.secondaryText && (
+                    <span className="block text-xs text-muted-foreground truncate">
+                      {s.secondaryText}
+                    </span>
+                  )}
+                </span>
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* API failure message */}
