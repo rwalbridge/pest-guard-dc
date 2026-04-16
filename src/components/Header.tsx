@@ -151,6 +151,16 @@ const Header = ({ onGetQuote }: HeaderProps) => {
             >
               Plans
             </Link>
+            <Link
+              to="/commercial"
+              className={`${navLinkClass} ${
+                location.pathname.startsWith("/commercial")
+                  ? "text-white font-semibold"
+                  : navLinkColor
+              }`}
+            >
+              Commercial
+            </Link>
 
             {/* Pest Types Dropdown */}
             <div ref={pestRef} className="relative">
@@ -289,6 +299,13 @@ const Header = ({ onGetQuote }: HeaderProps) => {
               className={`block py-3 ${navLinkClass} ${navLinkColor}`}
             >
               Plans
+            </Link>
+            <Link
+              to="/commercial"
+              onClick={() => setMobileOpen(false)}
+              className={`block py-3 ${navLinkClass} ${navLinkColor}`}
+            >
+              Commercial
             </Link>
 
             {/* Mobile Pest Accordion */}

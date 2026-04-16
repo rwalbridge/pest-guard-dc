@@ -11,6 +11,8 @@ import PestPage from "./pages/PestPage.tsx";
 import BlogIndex from "./pages/BlogIndex.tsx";
 import BlogArticle from "./pages/BlogArticle.tsx";
 import PlansPage from "./pages/PlansPage.tsx";
+import CommercialPage from "./pages/CommercialPage.tsx";
+import CommercialQuotePage from "./pages/CommercialQuotePage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +28,8 @@ const App = () => (
             <Route path="/locations/:slug" element={<LocationPage />} />
             <Route path="/pests/:slug" element={<PestPage />} />
             <Route path="/plans" element={<PlansPage />} />
+            <Route path="/commercial" element={<CommercialPage />} />
+            <Route path="/commercial/quote" element={<CommercialQuotePage />} />
             <Route path="/blog" element={<BlogIndex />} />
             <Route path="/blog/:slug" element={<BlogArticle />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
