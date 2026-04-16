@@ -79,13 +79,12 @@ const Step1Address = () => {
 
   const inputRef = useRef<HTMLInputElement>(null);
   const suggestionsRef = useRef<HTMLDivElement>(null);
-  const serviceRef = useRef<any>(null);
+  const placesLibRef = useRef<any>(null); // holds { AutocompleteSuggestion } from importLibrary
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  // If the user types before the Places script finishes loading, store the
-  // last value here so we can fetch suggestions the moment service is ready.
+  // If the user types before the Places library is ready, queue it here.
   const pendingFetchRef = useRef<string | null>(null);
 
-  // Load Google Places script and init AutocompleteService (data only — no widget)
+  // Load Google Maps bootstrap and init AutocompleteSuggestion (new Places API)
   useEffect(() => {
     const key = import.meta.env.VITE_GOOGLE_PLACES_API_KEY;
 
@@ -95,42 +94,41 @@ const Step1Address = () => {
       return;
     }
 
-    const initService = () => {
-      const g = (window as any).google;
-      if (!g?.maps?.places?.AutocompleteService || serviceRef.current) return;
+    const initPlaces = async () => {
       try {
-        serviceRef.current = new g.maps.places.AutocompleteService();
-        // If the user already typed something while the script was loading,
-        // fire the suggestion fetch now.
+        const lib = await (window as any).google.maps.importLibrary("places");
+        placesLibRef.current = lib;
+        // Retry any input that arrived while the library was loading
         const pending = pendingFetchRef.current;
         if (pending && pending.length >= 3) {
           pendingFetchRef.current = null;
-          setTimeout(() => fetchSuggestions(pending), 0);
+          fetchSuggestions(pending);
         }
       } catch (e) {
-        console.error("AutocompleteService init failed:", e);
+        console.error("Places library init failed:", e);
+        setShowManual(true);
       }
     };
 
-    const g = (window as any).google;
-    if (g?.maps?.places?.AutocompleteService) {
-      initService();
+    // If Maps is already on the page, init immediately
+    if ((window as any).google?.maps?.importLibrary) {
+      initPlaces();
       return;
     }
 
-    // Poll — covers both "script already injected but not yet ready" and
-    // the gap between script.onload firing and the Places library being usable.
+    // Poll until the bootstrap script exposes importLibrary
     const pollTimer = setInterval(() => {
-      if ((window as any).google?.maps?.places?.AutocompleteService) {
+      if ((window as any).google?.maps?.importLibrary) {
         clearInterval(pollTimer);
-        initService();
+        initPlaces();
       }
     }, 100);
 
     if (!document.getElementById("google-places-script")) {
       const script = document.createElement("script");
       script.id = "google-places-script";
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${key}&libraries=places`;
+      // loading=async is required for the new Places API bootstrap
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${key}&loading=async&libraries=places`;
       script.async = true;
       script.defer = true;
       script.onerror = () => {
@@ -159,46 +157,46 @@ const Step1Address = () => {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  const fetchSuggestions = (val: string) => {
+  const fetchSuggestions = async (val: string) => {
     if (val.length < 3) {
       setSuggestions([]);
       setShowSuggestions(false);
       return;
     }
 
-    // Service not ready yet — store value so initService() can retry
-    if (!serviceRef.current) {
+    // Library not ready yet — queue value so initPlaces() can retry
+    if (!placesLibRef.current) {
       pendingFetchRef.current = val;
       return;
     }
 
-    const g = (window as any).google;
-
-    serviceRef.current.getPlacePredictions(
-      {
+    try {
+      const { AutocompleteSuggestion } = placesLibRef.current;
+      const { suggestions: results } = await AutocompleteSuggestion.fetchAutocompleteSuggestions({
         input: val,
-        types: ["address"],
-        componentRestrictions: { country: "us" },
-        location: new g.maps.LatLng(38.9072, -77.0369),
-        radius: 80000,
-      },
-      (predictions: any[] | null) => {
-        if (predictions && predictions.length > 0) {
-          setSuggestions(
-            predictions.map((p) => ({
-              placeId: p.place_id,
-              description: p.description,
-              mainText: p.structured_formatting?.main_text || p.description,
-              secondaryText: p.structured_formatting?.secondary_text || "",
-            }))
-          );
-          setShowSuggestions(true);
-        } else {
-          setSuggestions([]);
-          setShowSuggestions(false);
-        }
+        includedRegionCodes: ["us"],
+        locationBias: { lat: 38.9072, lng: -77.0369 },
+      });
+
+      if (results && results.length > 0) {
+        setSuggestions(
+          results.map((s: any) => ({
+            placeId: s.placePrediction.placeId,
+            description: s.placePrediction.text.text,
+            mainText: s.placePrediction.mainText.text,
+            secondaryText: s.placePrediction.secondaryText?.text || "",
+          }))
+        );
+        setShowSuggestions(true);
+      } else {
+        setSuggestions([]);
+        setShowSuggestions(false);
       }
-    );
+    } catch (e) {
+      console.error("Autocomplete fetch error:", e);
+      setSuggestions([]);
+      setShowSuggestions(false);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
