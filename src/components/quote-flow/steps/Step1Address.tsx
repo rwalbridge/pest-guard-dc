@@ -81,6 +81,9 @@ const Step1Address = () => {
   const suggestionsRef = useRef<HTMLDivElement>(null);
   const serviceRef = useRef<any>(null);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // If the user types before the Places script finishes loading, store the
+  // last value here so we can fetch suggestions the moment service is ready.
+  const pendingFetchRef = useRef<string | null>(null);
 
   // Load Google Places script and init AutocompleteService (data only — no widget)
   useEffect(() => {
@@ -94,37 +97,50 @@ const Step1Address = () => {
 
     const initService = () => {
       const g = (window as any).google;
-      if (!g?.maps?.places || serviceRef.current) return;
-      serviceRef.current = new g.maps.places.AutocompleteService();
+      if (!g?.maps?.places?.AutocompleteService || serviceRef.current) return;
+      try {
+        serviceRef.current = new g.maps.places.AutocompleteService();
+        // If the user already typed something while the script was loading,
+        // fire the suggestion fetch now.
+        const pending = pendingFetchRef.current;
+        if (pending && pending.length >= 3) {
+          pendingFetchRef.current = null;
+          setTimeout(() => fetchSuggestions(pending), 0);
+        }
+      } catch (e) {
+        console.error("AutocompleteService init failed:", e);
+      }
     };
 
     const g = (window as any).google;
-    if (g?.maps?.places) {
+    if (g?.maps?.places?.AutocompleteService) {
       initService();
       return;
     }
 
-    if (document.getElementById("google-places-script")) {
-      const pollTimer = setInterval(() => {
-        if ((window as any).google?.maps?.places) {
-          clearInterval(pollTimer);
-          initService();
-        }
-      }, 100);
-      return () => clearInterval(pollTimer);
+    // Poll — covers both "script already injected but not yet ready" and
+    // the gap between script.onload firing and the Places library being usable.
+    const pollTimer = setInterval(() => {
+      if ((window as any).google?.maps?.places?.AutocompleteService) {
+        clearInterval(pollTimer);
+        initService();
+      }
+    }, 100);
+
+    if (!document.getElementById("google-places-script")) {
+      const script = document.createElement("script");
+      script.id = "google-places-script";
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${key}&libraries=places`;
+      script.async = true;
+      script.defer = true;
+      script.onerror = () => {
+        console.error("Google Places script failed to load");
+        setShowManual(true);
+      };
+      document.head.appendChild(script);
     }
 
-    const script = document.createElement("script");
-    script.id = "google-places-script";
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${key}&libraries=places`;
-    script.async = true;
-    script.defer = true;
-    script.onload = initService;
-    script.onerror = () => {
-      console.error("Google Places script failed to load");
-      setShowManual(true);
-    };
-    document.head.appendChild(script);
+    return () => clearInterval(pollTimer);
   }, []);
 
   // Close dropdown when clicking outside
@@ -144,28 +160,30 @@ const Step1Address = () => {
   }, []);
 
   const fetchSuggestions = (val: string) => {
-    if (!serviceRef.current || val.length < 3) {
+    if (val.length < 3) {
       setSuggestions([]);
       setShowSuggestions(false);
       return;
     }
 
+    // Service not ready yet — store value so initService() can retry
+    if (!serviceRef.current) {
+      pendingFetchRef.current = val;
+      return;
+    }
+
     const g = (window as any).google;
-    const dcBounds = new g.maps.LatLngBounds(
-      new g.maps.LatLng(38.7916, -77.5194),
-      new g.maps.LatLng(39.158, -76.9093)
-    );
 
     serviceRef.current.getPlacePredictions(
       {
         input: val,
         types: ["address"],
         componentRestrictions: { country: "us" },
-        bounds: dcBounds,
+        location: new g.maps.LatLng(38.9072, -77.0369),
+        radius: 80000,
       },
-      (predictions: any[] | null, status: string) => {
-        const OK = (window as any).google?.maps?.places?.PlacesServiceStatus?.OK;
-        if (status === OK && predictions?.length) {
+      (predictions: any[] | null) => {
+        if (predictions && predictions.length > 0) {
           setSuggestions(
             predictions.map((p) => ({
               placeId: p.place_id,
