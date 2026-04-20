@@ -1,6 +1,7 @@
 import { Shield, Star, Clock, RefreshCw, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import heroHome from "@/assets/hero-home.jpg";
 
 interface HeroProps {
   onGetQuote?: () => void;
@@ -29,12 +30,14 @@ const Hero = ({ onGetQuote }: HeroProps) => {
     >
       {/* Background photo */}
       <img
-        src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1800&q=85&fit=crop"
-        alt="Beautiful suburban home protected by PestGuard pest control"
+        src={heroHome}
+        alt="Aerial view of a leafy DC metro suburban neighborhood with the Washington Monument and US Capitol on the horizon"
         loading="eager"
         fetchPriority="high"
+        width={1920}
+        height={1080}
         className="absolute inset-0 w-full h-full object-cover z-0"
-        style={{ objectPosition: "center 60%" }}
+        style={{ objectPosition: "center center" }}
       />
 
       {/* Overlay 1 — dark gradient */}
