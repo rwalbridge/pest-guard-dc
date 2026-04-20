@@ -426,10 +426,45 @@ const PlansPage = () => {
               );
             })}
           </div>
+
+          {/* Secondary options: One-time & Commercial */}
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="rounded-xl border border-border bg-muted/40 px-6 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div className="flex-1">
+                <p className="text-sm font-semibold text-foreground">Not ready for a plan?</p>
+                <p className="text-sm text-muted-foreground mt-0.5">
+                  We offer one-time treatments starting at <span className="font-medium text-foreground">$149</span>. No commitment required.
+                </p>
+              </div>
+              <Button
+                variant="outline"
+                size="sm"
+                className="shrink-0"
+                onClick={() => openQuote("One-Time")}
+              >
+                Book a One-Time Visit
+              </Button>
+            </div>
+
+            <div className="rounded-xl border border-border bg-muted/40 px-6 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div className="flex-1">
+                <p className="text-sm font-semibold text-foreground">Have a commercial property?</p>
+                <p className="text-sm text-muted-foreground mt-0.5">
+                  Custom pricing for businesses, multi-units, and HOAs.
+                </p>
+              </div>
+              <Button
+                variant="outline"
+                size="sm"
+                className="shrink-0"
+                asChild
+              >
+                <Link to="/commercial">Get a Commercial Quote</Link>
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
-
-      {/* ─── SECTION 3: COMPARISON TABLE ─── */}
       <section className="px-4 sm:px-6 lg:px-8 py-20" style={{ background: "#F8F9FA" }}>
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground text-center">See Everything Side by Side</h2>
