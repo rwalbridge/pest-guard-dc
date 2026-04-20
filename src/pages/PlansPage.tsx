@@ -341,7 +341,7 @@ const PlansPage = () => {
           </div>
 
           {/* Plan Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
             {plans.map((plan, i) => {
               const price = displayPrice(plan.monthly);
               return (
