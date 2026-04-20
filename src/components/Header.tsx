@@ -130,17 +130,10 @@ const Header = ({ onGetQuote }: HeaderProps) => {
             <span className="text-xl font-bold text-white">
               Pest<span style={{ color: "#3DB87A" }}>Guard</span>
             </span>
-            <span
-              className="hidden lg:inline text-[11px] font-normal uppercase tracking-[0.08em] ml-3"
-              style={{ color: "rgba(255,255,255,0.45)" }}
-            >
-              DC Metro Pest Control
-            </span>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-6">
-            {anchorLink("#how-it-works", "How It Works")}
+          <nav className="hidden lg:flex items-center gap-7">
             <Link
               to="/plans"
               className={`${navLinkClass} ${
@@ -292,7 +285,6 @@ const Header = ({ onGetQuote }: HeaderProps) => {
           }}
         >
           <div className="px-4 pb-24 pt-2">
-            {mobileAnchorLink("#how-it-works", "How It Works")}
             <Link
               to="/plans"
               onClick={() => setMobileOpen(false)}
