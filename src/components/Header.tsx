@@ -261,7 +261,7 @@ const Header = ({ onGetQuote }: HeaderProps) => {
               onMouseEnter={(e) => (e.currentTarget.style.background = "#2ea86a")}
               onMouseLeave={(e) => (e.currentTarget.style.background = "#3DB87A")}
             >
-              Get a Free Quote
+              Get a Quote
             </button>
           </div>
 
@@ -363,7 +363,7 @@ const Header = ({ onGetQuote }: HeaderProps) => {
                 onGetQuote?.();
               }}
             >
-              Get a Free Quote
+              Get a Quote
             </button>
           </div>
         </div>
