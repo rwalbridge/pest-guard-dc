@@ -285,7 +285,6 @@ const Header = ({ onGetQuote }: HeaderProps) => {
           }}
         >
           <div className="px-4 pb-24 pt-2">
-            {mobileAnchorLink("#how-it-works", "How It Works")}
             <Link
               to="/plans"
               onClick={() => setMobileOpen(false)}
