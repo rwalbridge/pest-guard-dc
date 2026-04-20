@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import { motion } from "framer-motion";
@@ -132,6 +133,33 @@ const PricingPlans = ({ onSelectPlan }: PricingPlansProps) => {
               </Button>
             </motion.div>
           ))}
+        </div>
+
+        {/* Secondary options: One-time & Commercial */}
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl mx-auto text-left">
+          <div className="rounded-xl border border-border bg-muted/40 px-6 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div className="flex-1">
+              <p className="text-sm font-semibold text-foreground">Not ready for a plan?</p>
+              <p className="text-sm text-muted-foreground mt-0.5">
+                We offer one-time treatments starting at <span className="font-medium text-foreground">$149</span>. No commitment required.
+              </p>
+            </div>
+            <Button variant="outline" size="sm" className="shrink-0" onClick={() => onSelectPlan("One-Time")}>
+              Book a One-Time Visit
+            </Button>
+          </div>
+
+          <div className="rounded-xl border border-border bg-muted/40 px-6 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div className="flex-1">
+              <p className="text-sm font-semibold text-foreground">Have a commercial property?</p>
+              <p className="text-sm text-muted-foreground mt-0.5">
+                Custom pricing for businesses, multi-units, and HOAs.
+              </p>
+            </div>
+            <Button variant="outline" size="sm" className="shrink-0" asChild>
+              <Link to="/commercial">Get a Commercial Quote</Link>
+            </Button>
+          </div>
         </div>
 
         <div className="mt-10 text-sm text-muted-foreground max-w-lg mx-auto space-y-2">
