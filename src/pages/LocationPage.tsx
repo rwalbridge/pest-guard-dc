@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useParams, Link } from "react-router-dom";
 import { locations } from "@/data/locations";
+import { locationImages } from "@/data/locationImages";
 import { pests as allPests } from "@/data/pests";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -156,10 +157,21 @@ const LocationPage = () => {
               </motion.div>
               <motion.div {...fadeIn(0.2)} className="relative">
                 <div className="aspect-[4/3] rounded-2xl bg-secondary-foreground/5 border border-secondary-foreground/10 overflow-hidden flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <Shield className="h-16 w-16 text-primary mx-auto mb-4 opacity-60" />
-                    <p className="text-secondary-foreground/40 text-sm">Protecting {location.city} homes</p>
-                  </div>
+                  {locationImages[location.slug] ? (
+                    <img
+                      src={locationImages[location.slug].src}
+                      alt={locationImages[location.slug].alt}
+                      width={1024}
+                      height={768}
+                      loading="eager"
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="text-center p-8">
+                      <Shield className="h-16 w-16 text-primary mx-auto mb-4 opacity-60" />
+                      <p className="text-secondary-foreground/40 text-sm">Protecting {location.city} homes</p>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             </div>
