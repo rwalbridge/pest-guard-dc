@@ -162,7 +162,7 @@ const Hero = ({ onGetQuote }: HeroProps) => {
               e.currentTarget.style.background = "rgba(255,255,255,0.1)";
             }}
           >
-            Get a Free Quote
+            Get a Quote
           </button>
         </motion.div>
 
