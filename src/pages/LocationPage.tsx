@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import {
   MapPin, Shield, CheckCircle, ArrowLeft, BadgeCheck, Clock,
   Search, SprayCan, ShieldCheck,
-  X, Star, Flower2, Sun, CloudRain, Snowflake,
+  X, Star, Flower2, Sun, Leaf, Snowflake,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import {
@@ -48,7 +48,7 @@ const pestNameToSlug: Record<string, string> = {
 const seasonalPests = [
   { season: "Spring", icon: Flower2, pests: ["Ants", "Termites", "Spiders"], color: "text-primary" },
   { season: "Summer", icon: Sun, pests: ["Mosquitoes", "Wasps", "Cockroaches"], color: "text-primary" },
-  { season: "Fall", icon: CloudRain, pests: ["Stink Bugs", "Mice", "Spiders"], color: "text-primary" },
+  { season: "Fall", icon: Leaf, pests: ["Stink Bugs", "Mice", "Spiders"], color: "text-primary" },
   { season: "Winter", icon: Snowflake, pests: ["Rodents", "Cockroaches", "Silverfish"], color: "text-primary" },
 ];
 
