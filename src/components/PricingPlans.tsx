@@ -160,7 +160,11 @@ const PricingPlans = ({ onSelectPlan }: PricingPlansProps) => {
             <Button variant="outline" size="sm" className="shrink-0" asChild>
               <Link to="/commercial">Get a Commercial Quote</Link>
             </Button>
-          </div>
+        </div>
+
+        <div className="mt-6 flex justify-center">
+          <CallCta prefix="Prefer to talk? Call" />
+        </div>
         </div>
 
         <div className="mt-10 text-sm text-muted-foreground max-w-lg mx-auto space-y-2">
