@@ -464,6 +464,10 @@ const PlansPage = () => {
               </Button>
             </div>
           </div>
+
+          <div className="mt-6 flex justify-center">
+            <CallCta prefix="Prefer to talk? Call" />
+          </div>
         </div>
       </section>
       <section className="px-4 sm:px-6 lg:px-8 py-20" style={{ background: "#F8F9FA" }}>
