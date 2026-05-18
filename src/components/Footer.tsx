@@ -56,6 +56,14 @@ const Footer = () => (
           <p className="text-sm text-secondary-foreground/60 leading-relaxed">
             DC's premier pest control subscription. Eco-friendly, licensed in DC, MD & VA.
           </p>
+          <a
+            href={PHONE_HREF}
+            aria-label={PHONE_ARIA}
+            className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-secondary-foreground/80 hover:text-primary transition-colors"
+          >
+            <Phone className="h-4 w-4" />
+            {PHONE_DISPLAY}
+          </a>
           <div className="flex gap-3 mt-4">
             <a href="#" aria-label="Instagram" className="text-secondary-foreground/40 hover:text-primary transition-colors">
               <Instagram className="h-5 w-5" />
