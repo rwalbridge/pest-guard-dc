@@ -10,6 +10,9 @@ import {
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CallCta from "@/components/CallCta";
+import { PHONE_DISPLAY, PHONE_HREF, PHONE_ARIA } from "@/lib/contact";
+import { Phone } from "lucide-react";
 import { getArticleBySlug, getRelatedArticles, blogArticles } from "@/data/blog";
 import type { ContentSection, BlogArticle as BlogArticleType } from "@/data/blog";
 
