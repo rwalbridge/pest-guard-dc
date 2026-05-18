@@ -13,6 +13,7 @@ import {
   X, Star, Flower2, Sun, Leaf, Snowflake,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import CallCta from "@/components/CallCta";
 import {
   Accordion,
   AccordionContent,
