@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Shield, Instagram, Facebook, Home } from "lucide-react";
+import { Shield, Instagram, Facebook, Home, Phone } from "lucide-react";
+import { PHONE_DISPLAY, PHONE_HREF, PHONE_ARIA } from "@/lib/contact";
 
 const locationLinks = [
   { label: "Washington DC", slug: "washington-dc" },
