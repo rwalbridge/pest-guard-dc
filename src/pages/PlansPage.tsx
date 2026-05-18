@@ -731,6 +731,9 @@ const PlansPage = () => {
             See How It Works
           </button>
         </div>
+        <div className="flex justify-center mb-6">
+          <CallCta variant="inline-light" />
+        </div>
         <p className="text-[13px]" style={{ color: "rgba(255,255,255,0.7)" }}>
           No contracts · First treatment free · Cancel anytime
         </p>
