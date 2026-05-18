@@ -13,6 +13,7 @@ import {
   CheckCircle, X as XIcon, Lightbulb,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import CallCta from "@/components/CallCta";
 import {
   Accordion,
   AccordionContent,
@@ -133,11 +134,14 @@ const PestPage = () => {
                   <p className="text-xs font-bold uppercase tracking-wider text-primary mb-2">Quick Answer</p>
                   <p className="text-secondary-foreground/90 leading-relaxed">{pest.quickAnswer}</p>
                 </div>
-                <Link to="/#plans">
-                  <Button size="lg" className="mt-8">
-                    Get a Quote
-                  </Button>
-                </Link>
+                <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
+                  <Link to="/#plans">
+                    <Button size="lg">
+                      Get a Quote
+                    </Button>
+                  </Link>
+                  <CallCta variant="inline-light" />
+                </div>
               </motion.div>
               {/* Pest Illustration */}
               <motion.div {...fadeIn(0.2)} className="flex justify-center">
@@ -360,6 +364,9 @@ const PestPage = () => {
                     Get a Quote
                   </Button>
                 </Link>
+              </div>
+              <div className="mt-5 flex justify-center">
+                <CallCta variant="inline-light" />
               </div>
             </motion.div>
           </div>

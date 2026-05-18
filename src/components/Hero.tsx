@@ -2,6 +2,7 @@ import { Shield, Star, Clock, RefreshCw, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import heroHome from "@/assets/hero-home.jpg";
+import CallCta from "@/components/CallCta";
 
 interface HeroProps {
   onGetQuote?: () => void;
@@ -167,6 +168,15 @@ const Hero = ({ onGetQuote }: HeroProps) => {
           >
             Get a Quote
           </button>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-4"
+        >
+          <CallCta variant="inline-light" />
         </motion.div>
 
         {/* Trust bar */}

@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { Calendar, Phone, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useQuoteFlow } from "../QuoteFlowContext";
+import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
 
 const timeSlots = [
   "8am – 10am",
@@ -227,14 +228,14 @@ const Step6Scheduling = () => {
             Prefer to talk to a real person? We're available Mon–Sat, 8am–6pm.
           </p>
           <a
-            href="tel:+12025550100"
+            href={PHONE_HREF}
             onClick={(e) => {
               e.stopPropagation();
               handleCallSchedule();
             }}
             className="block text-4xl md:text-5xl font-bold text-secondary mt-6 hover:text-primary transition-colors"
           >
-            (202) 555-0100
+            {PHONE_DISPLAY}
           </a>
           <p className="text-sm text-muted-foreground mt-2">
             Or text us at the same number

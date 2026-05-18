@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/accordion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CallCta from "@/components/CallCta";
 import QuoteFlow from "@/components/quote-flow/QuoteFlow";
 
 const DOMAIN = "https://pest-guard-dc.lovable.app";
@@ -639,7 +640,10 @@ const PlansPage = () => {
               ))}
             </ul>
 
-            <Button onClick={() => openQuote()} className="rounded-full px-8 h-12">Get Protected Today</Button>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+              <Button onClick={() => openQuote()} className="rounded-full px-8 h-12">Get Protected Today</Button>
+              <CallCta variant="inline-light" />
+            </div>
             <p className="mt-3 text-[13px]" style={{ color: "rgba(255,255,255,0.5)" }}>No payment until your first visit is complete.</p>
           </div>
 
@@ -726,6 +730,9 @@ const PlansPage = () => {
           <button onClick={scrollToHowItWorks} className="inline-flex items-center justify-center rounded-full px-8 h-12 text-base font-semibold text-white transition-all" style={{ border: "2px solid rgba(255,255,255,0.5)", background: "transparent" }}>
             See How It Works
           </button>
+        </div>
+        <div className="flex justify-center mb-6">
+          <CallCta variant="inline-light" />
         </div>
         <p className="text-[13px]" style={{ color: "rgba(255,255,255,0.7)" }}>
           No contracts · First treatment free · Cancel anytime
