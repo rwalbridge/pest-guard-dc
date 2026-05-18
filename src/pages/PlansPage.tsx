@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/accordion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CallCta from "@/components/CallCta";
 import QuoteFlow from "@/components/quote-flow/QuoteFlow";
 
 const DOMAIN = "https://pest-guard-dc.lovable.app";
