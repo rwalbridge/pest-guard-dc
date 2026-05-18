@@ -137,46 +137,40 @@ const Hero = ({ onGetQuote }: HeroProps) => {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4 }}
-          className="flex flex-col sm:flex-row gap-4 mb-[52px] w-full sm:w-auto"
+          className="flex flex-col items-center gap-3 mb-[52px] w-full sm:w-auto"
         >
-          <button
-            onClick={() =>
-              document.getElementById("plans")?.scrollIntoView({ behavior: "smooth" })
-            }
-            className="h-[54px] px-9 rounded-full text-[16px] font-semibold text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-lg sm:w-auto w-full"
-            style={{ background: "#3DB87A" }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = "#2ea86a")}
-            onMouseLeave={(e) => (e.currentTarget.style.background = "#3DB87A")}
-          >
-            See Pest Control Plans
-          </button>
-          <button
-            onClick={onGetQuote}
-            className="h-[54px] px-9 rounded-full text-[16px] font-semibold text-white transition-all duration-200 ease-out hover:-translate-y-0.5 sm:w-auto w-full"
-            style={{
-              background: "rgba(255,255,255,0.1)",
-              border: "2px solid rgba(255,255,255,0.5)",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "rgba(255,255,255,0.9)";
-              e.currentTarget.style.background = "rgba(255,255,255,0.18)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "rgba(255,255,255,0.5)";
-              e.currentTarget.style.background = "rgba(255,255,255,0.1)";
-            }}
-          >
-            Get a Quote
-          </button>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-4"
-        >
-          <CallCta variant="inline-light" />
+          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+            <button
+              onClick={() =>
+                document.getElementById("plans")?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="h-[54px] px-9 rounded-full text-[16px] font-semibold text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-lg sm:w-auto w-full"
+              style={{ background: "#3DB87A" }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = "#2ea86a")}
+              onMouseLeave={(e) => (e.currentTarget.style.background = "#3DB87A")}
+            >
+              See Pest Control Plans
+            </button>
+            <button
+              onClick={onGetQuote}
+              className="h-[54px] px-9 rounded-full text-[16px] font-semibold text-white transition-all duration-200 ease-out hover:-translate-y-0.5 sm:w-auto w-full"
+              style={{
+                background: "rgba(255,255,255,0.1)",
+                border: "2px solid rgba(255,255,255,0.5)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.9)";
+                e.currentTarget.style.background = "rgba(255,255,255,0.18)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.5)";
+                e.currentTarget.style.background = "rgba(255,255,255,0.1)";
+              }}
+            >
+              Get a Quote
+            </button>
+          </div>
+          <CallCta variant="inline-light" className="mt-1" />
         </motion.div>
 
         {/* Trust bar */}
