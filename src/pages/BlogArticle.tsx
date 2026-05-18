@@ -521,6 +521,14 @@ const BlogArticle = () => {
                     <Button asChild size="sm" className="w-full">
                       <Link to="/#plans">See Plans</Link>
                     </Button>
+                    <a
+                      href={PHONE_HREF}
+                      aria-label={PHONE_ARIA}
+                      className="mt-2 flex items-center justify-center gap-1.5 text-xs text-secondary-foreground/70 hover:text-primary transition-colors"
+                    >
+                      <Phone className="h-3.5 w-3.5" />
+                      Or call {PHONE_DISPLAY}
+                    </a>
                   </div>
 
                   {/* Related */}
