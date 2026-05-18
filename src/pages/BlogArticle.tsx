@@ -592,6 +592,9 @@ const BlogArticle = () => {
                 <Link to="/#plans">Get a Quote</Link>
               </Button>
             </div>
+            <div className="mt-5 flex justify-center">
+              <CallCta variant="inline-light" />
+            </div>
           </div>
         </section>
       </main>
