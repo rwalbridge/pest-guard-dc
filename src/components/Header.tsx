@@ -254,7 +254,15 @@ const Header = ({ onGetQuote }: HeaderProps) => {
             </Link>
           </nav>
 
-          <div className="hidden lg:block">
+          <div className="hidden lg:flex items-center gap-5">
+            <a
+              href={PHONE_HREF}
+              aria-label={PHONE_ARIA}
+              className="flex items-center gap-1.5 text-sm font-medium text-white/75 hover:text-white transition-colors"
+            >
+              <Phone className="h-4 w-4" aria-hidden="true" />
+              {PHONE_DISPLAY}
+            </a>
             <button
               onClick={onGetQuote}
               className="rounded-full text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5"
@@ -266,13 +274,22 @@ const Header = ({ onGetQuote }: HeaderProps) => {
             </button>
           </div>
 
-          <button
-            className="lg:hidden p-2 text-white"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          <div className="lg:hidden flex items-center gap-1">
+            <a
+              href={PHONE_HREF}
+              aria-label={PHONE_ARIA}
+              className="p-2 text-white inline-flex items-center justify-center"
+            >
+              <Phone className="h-5 w-5" />
+            </a>
+            <button
+              className="p-2 text-white"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
       </header>
 
