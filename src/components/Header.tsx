@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Shield, Menu, X, ChevronDown, ChevronRight } from "lucide-react";
+import { Shield, Menu, X, ChevronDown, ChevronRight, Phone } from "lucide-react";
+import { PHONE_DISPLAY, PHONE_HREF, PHONE_ARIA } from "@/lib/contact";
 
 const pestLinks = [
   { label: "Ants", slug: "ants" },
