@@ -365,6 +365,9 @@ const PestPage = () => {
                   </Button>
                 </Link>
               </div>
+              <div className="mt-5 flex justify-center">
+                <CallCta variant="inline-light" />
+              </div>
             </motion.div>
           </div>
         </section>
