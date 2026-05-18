@@ -150,11 +150,14 @@ const LocationPage = () => {
                     <Clock className="h-4 w-4 text-primary" /> Same-Week Service
                   </span>
                 </div>
-                <Link to="/#plans">
-                  <Button size="lg" className="mt-8">
-                    Get a Quote
-                  </Button>
-                </Link>
+                <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
+                  <Link to="/#plans">
+                    <Button size="lg">
+                      Get a Quote
+                    </Button>
+                  </Link>
+                  <CallCta variant="inline-light" />
+                </div>
               </motion.div>
               <motion.div {...fadeIn(0.2)} className="relative">
                 <div className="aspect-[4/3] rounded-2xl bg-secondary-foreground/5 border border-secondary-foreground/10 overflow-hidden flex items-center justify-center">
