@@ -13,6 +13,7 @@ import {
   CheckCircle, X as XIcon, Lightbulb,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import CallCta from "@/components/CallCta";
 import {
   Accordion,
   AccordionContent,
