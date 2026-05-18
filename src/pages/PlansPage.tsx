@@ -640,7 +640,10 @@ const PlansPage = () => {
               ))}
             </ul>
 
-            <Button onClick={() => openQuote()} className="rounded-full px-8 h-12">Get Protected Today</Button>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+              <Button onClick={() => openQuote()} className="rounded-full px-8 h-12">Get Protected Today</Button>
+              <CallCta variant="inline-light" />
+            </div>
             <p className="mt-3 text-[13px]" style={{ color: "rgba(255,255,255,0.5)" }}>No payment until your first visit is complete.</p>
           </div>
 
