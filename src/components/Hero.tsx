@@ -169,6 +169,15 @@ const Hero = ({ onGetQuote }: HeroProps) => {
           </button>
         </motion.div>
 
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-4"
+        >
+          <CallCta variant="inline-light" />
+        </motion.div>
+
         {/* Trust bar */}
         <motion.div
           initial={{ opacity: 0 }}
