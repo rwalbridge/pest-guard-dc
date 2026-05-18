@@ -204,35 +204,62 @@ const CommercialPage = () => {
 
       {/* WHY PESTGUARD */}
       <section className="py-20 px-6" style={{ background: "#0A1628" }}>
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
-          <motion.div {...fadeIn}>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-              A Different Standard for Commercial Clients.
-            </h2>
-            <div className="mt-8 space-y-5">
-              {benefits.map((b) => (
-                <div key={b.title} className="flex gap-4">
-                  <CheckCircle2 className="h-6 w-6 text-[#3DB87A] shrink-0 mt-0.5" />
-                  <div>
-                    <h3 className="text-white font-semibold">{b.title}</h3>
-                    <p className="text-white/70 text-sm mt-1 leading-relaxed">{b.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+        <div className="max-w-6xl mx-auto">
+          <motion.h2
+            {...fadeIn}
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight max-w-2xl leading-tight"
+          >
+            A Different Standard for{" "}
+            <span className="text-[#3DB87A]">Commercial Clients.</span>
+          </motion.h2>
 
-          <motion.div {...fadeIn} transition={{ duration: 0.5, delay: 0.15 }} className="grid gap-5">
-            {stats.map((s) => (
-              <div
-                key={s.label}
-                className="p-8 rounded-2xl border border-white/10 bg-white/[0.03] text-center"
-              >
-                <div className="text-5xl sm:text-6xl font-bold text-[#3DB87A]">{s.value}</div>
-                <div className="text-white/75 text-sm mt-2">{s.label}</div>
+          <div className="mt-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            {/* Hero Benefits */}
+            <motion.div {...fadeIn} className="lg:col-span-8 space-y-10">
+              {benefits.map((b, i) => (
+                <motion.div
+                  key={b.title}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.05 }}
+                  className="group flex gap-6"
+                >
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 rounded-full border-2 border-[#3DB87A] flex items-center justify-center text-[#3DB87A] group-hover:bg-[#3DB87A] group-hover:text-[#0A1628] transition-all duration-300">
+                      <CheckCircle2 className="h-6 w-6" strokeWidth={2.5} />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-white text-xl font-bold mb-2">{b.title}</h3>
+                    <p className="text-white/60 leading-relaxed max-w-xl">{b.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* De-emphasized Stats Sidebar */}
+            <motion.aside
+              {...fadeIn}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="lg:col-span-4 w-full rounded-2xl border border-white/10 bg-white/5 p-8"
+            >
+              <h4 className="text-xs font-bold uppercase tracking-widest text-white/40 mb-8">
+                Quick Facts
+              </h4>
+              <div className="space-y-8">
+                {stats.map((s, i) => (
+                  <div
+                    key={s.label}
+                    className={i > 0 ? "pt-8 border-t border-white/10" : ""}
+                  >
+                    <div className="text-3xl font-bold text-[#3DB87A] mb-1">{s.value}</div>
+                    <div className="text-sm text-white/70">{s.label}</div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </motion.div>
+            </motion.aside>
+          </div>
         </div>
       </section>
 
