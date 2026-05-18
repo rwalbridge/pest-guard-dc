@@ -373,6 +373,15 @@ const Header = ({ onGetQuote }: HeaderProps) => {
               borderTop: "1px solid rgba(255,255,255,0.1)",
             }}
           >
+            <a
+              href={PHONE_HREF}
+              aria-label={PHONE_ARIA}
+              onClick={() => setMobileOpen(false)}
+              className="w-full mb-3 rounded-full text-sm font-semibold text-white py-3 inline-flex items-center justify-center gap-2 border border-white/30 hover:bg-white/10 transition-colors"
+            >
+              <Phone className="h-4 w-4" />
+              Call {PHONE_DISPLAY}
+            </a>
             <button
               className="w-full rounded-full text-sm font-semibold text-white py-3"
               style={{ background: "#3DB87A" }}
