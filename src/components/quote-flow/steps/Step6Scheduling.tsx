@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { Calendar, Phone, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useQuoteFlow } from "../QuoteFlowContext";
+import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
 
 const timeSlots = [
   "8am – 10am",
